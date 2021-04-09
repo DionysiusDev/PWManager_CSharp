@@ -1,0 +1,12 @@
+<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="PWManager.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="ConnectionString" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">Data Source=DESKTOP-51EGPI0\SSSDB2016MSSQL; Initial Catalog=PWManager_DB;Integrated Security=True;</Value>
+    </Setting>
+    <Setting Name="ColorTheme" Type="System.String" Scope="User">
+      <Value Profile="(Default)">LightGray</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

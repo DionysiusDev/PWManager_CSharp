@@ -1,0 +1,9 @@
+E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_Model\bin\Debug\PWManager_Model.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_Model\bin\Debug\PWManager_Model.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_Model\bin\Debug\PWManager_DBConnection.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_Model\bin\Debug\PWManager_DBConnection.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_Model\obj\Debug\PWManager_Model.csprojAssemblyReference.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_Model\obj\Debug\PWManager_Model.csproj.CoreCompileInputs.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_Model\obj\Debug\PWManager_Model.csproj.CopyComplete
+E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_Model\obj\Debug\PWManager_Model.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_Model\obj\Debug\PWManager_Model.pdb
