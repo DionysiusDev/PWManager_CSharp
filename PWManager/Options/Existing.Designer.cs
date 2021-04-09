@@ -81,14 +81,14 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -181,6 +181,7 @@
             this.saveBtn.TabIndex = 22;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
             // createLbl
             // 
@@ -188,7 +189,7 @@
             this.createLbl.Font = new System.Drawing.Font("Impact", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.createLbl.Location = new System.Drawing.Point(185, 34);
             this.createLbl.Name = "createLbl";
-            this.createLbl.Size = new System.Drawing.Size(448, 54);
+            this.createLbl.Size = new System.Drawing.Size(435, 53);
             this.createLbl.TabIndex = 20;
             this.createLbl.Text = "Enter Existing Password";
             // 

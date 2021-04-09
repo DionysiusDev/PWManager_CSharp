@@ -21,8 +21,8 @@ namespace PWManager.Options
         #region Constructors
         public Create()
         {
-            InitializeComponent();
             _blnNew = true;
+            InitializeComponent();
             InitializeDataTable();
         }
 
@@ -31,14 +31,6 @@ namespace PWManager.Options
             InitializeComponent();
             _lngPKID = PKID;
             InitializeDataTable();
-        }
-        #endregion
-
-        #region Form Events
-        private void Create_Load(object sender, EventArgs e)
-        {
-            // Upon loading the form, establish the binding of the controls in the form.
-            BindControls();
         }
         #endregion
 
@@ -51,7 +43,7 @@ namespace PWManager.Options
         {
             // Get an existing password for Update
             _dtbPassword = PWManager_Model.DLL.PWManagerContext.GetDataTable(
-            $"SELECT * FROM PasswordInfo WHERE PwId = {_lngPKID}", "Website");
+            $"SELECT * FROM PasswordInfo WHERE PwId = {_lngPKID}", "PasswordInfo");
 
             // Create an empty row of password info
             if (_blnNew)
@@ -62,7 +54,27 @@ namespace PWManager.Options
         }
         #endregion
 
-        #region File
+        #region Form Events
+
+        private void Create_Load(object sender, EventArgs e)
+        {
+            // Upon loading the form, establish the binding of the controls in the form.
+            BindControls();
+        }
+
+        /// <summary>
+        /// this method will show a new create form and close the current instance.
+        /// </summary>
+        private void RefreshForm()
+        {
+            Create frm = new Create();
+            frm.Show();
+            this.Close();
+        }
+    
+        #endregion
+
+        #region File Menu
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //closes the create screen
@@ -81,7 +93,7 @@ namespace PWManager.Options
         }
         #endregion
 
-        #region Options
+        #region Options Menu
         private void enterExistingPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //closes the create screen
@@ -99,22 +111,88 @@ namespace PWManager.Options
         }
         #endregion
 
+        #region Action Events
         private void pwBtn_Click(object sender, EventArgs e)
         {
-            //calls the generate password method
-            generatePassword();
+            GeneratePassword();
         }
 
         private void saveBtn_Click(object sender, EventArgs e)
         {
-            //TODO SAVE DATA
-            saveData();
+            ValidateData();
+        }
+        #endregion
+
+        #region Data Validation
+
+        /// <summary>
+        /// this method validates the data in the text fields and ensure required fields are not empty.
+        /// </summary>
+        private void ValidateData()
+        {
+            //used to control data validation
+            bool hasWebsite = false;
+            bool hasEmail = false;
+            bool hasPassword = false;
+            bool hasAdditional = false;
+
+            //verifies that the required text fields are not empty
+            if (isEmpty(wsTextBox.Text))
+            {
+                MessageBox.Show("Please enter a website.");
+            }
+            else
+            {
+                hasWebsite = true;
+            }
+
+            if (isEmpty(emTextBox.Text))
+            {
+                MessageBox.Show("Please enter an email.");
+            }
+            else
+            {
+                hasEmail = true;
+            }
+
+            if (isEmpty(pwTextBox.Text))
+            {
+                MessageBox.Show("Please enter a password.");
+            }
+            else
+            {
+                hasPassword = true;
+            }
+
+            //updates the additional info text field, if it is empty
+            if (isEmpty(adTextBox.Text))
+            {
+                //assigns the additional info value to the ad text field
+                adTextBox.Text = "No Additional Information";
+                //writes the text box value and updates the data binding
+                adTextBox.DataBindings["Text"].WriteValue();
+
+                MessageBox.Show("You are about to save No Additional Information.");
+
+                hasAdditional = true;
+            }
+            else
+            {
+                hasAdditional = true;
+            }
+
+            if (hasWebsite && hasEmail && hasPassword && hasAdditional)
+            {
+                CheckExistingEntries();
+            }
         }
 
-        public void saveData()
+        /// <summary>
+        /// checks for existing entry in database.
+        /// </summary>
+        private void CheckExistingEntries()
         {
-            //Instantiates a string array to store the password data array values
-            string[] datatoSave = getPasswordData();
+            bool doesntExist = false;
 
             //instantiates a connection string
             string connectionString = PWManager_Model.DLL.PWManagerContext.ConnectionString =
@@ -126,21 +204,13 @@ namespace PWManager.Options
                 sqlConnectionTool = new SqlConnection(connectionString);
 
                 //instantiates an sqlcommand to query the database
-                SqlCommand cmd = new SqlCommand("Select * from PasswordInfo where Website=@Website" +
-                    " AND Email=@Email " +
-                    "AND AdditionalInfo=@AdditionalInfo " +
-                    "AND Password=@Password", sqlConnectionTool);
+                SqlCommand cmd = new SqlCommand("SELECT * FROM PasswordInfo WHERE Website=@Website AND Email=@Email AND AdditionalInfo=@AdditionalInfo AND Password=@Password", sqlConnectionTool);
 
                 //assigns values to the sqlcommand query
                 cmd.Parameters.AddWithValue("@Website", wsTextBox.Text);
                 cmd.Parameters.AddWithValue("@Email", emTextBox.Text);
                 cmd.Parameters.AddWithValue("@AdditionalInfo", adTextBox.Text);
                 cmd.Parameters.AddWithValue("@Password", pwTextBox.Text);
-
-                //cmd.Parameters.AddWithValue("@Website", datatoSave[0]);
-                //cmd.Parameters.AddWithValue("@Email", datatoSave[1]);
-                //cmd.Parameters.AddWithValue("@AdditionalInfo", datatoSave[2]);
-                //cmd.Parameters.AddWithValue("@Password", datatoSave[3]);
 
                 //Open connection
                 sqlConnectionTool.Open();
@@ -160,31 +230,21 @@ namespace PWManager.Options
                 //  This will count through the rows in the queried table
                 int count = ds.Tables[0].Rows.Count;
 
-                //  Try this:
-                //  Validate product name, ID, and/or receipt number don't exist
-                try
+                if (count == 1)
                 {
-                    if (count == 1)
-                    {
-                        //  This should display a receipt exists message
-                        MessageBox.Show("Insert Website and Password Failed - [" + wsTextBox.Text + "] -and- [" + pwTextBox.Text +
-                            "] - Already exists in the database", MessageBoxIcon.Warning.ToString(), MessageBoxButtons.OK);
-                    }
-                    else
-                    {
-                        // display message to user to verify Insert Success
-                        MessageBox.Show(wsTextBox.Text + " Record Saved. " + DateTime.Now);
-
-                        //always do the EndEdit, otherwise the data will not persist.
-                        _dtbPassword.Rows[0].EndEdit();
-
-                        // calls the method in our Data Access Layer to save the changes to the data table
-                        PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(_dtbPassword);
-                    }
+                    //displays message to user to notify that the entry exists
+                    MessageBox.Show("The website and password already exist in the database.", 
+                        MessageBoxIcon.Warning.ToString(), MessageBoxButtons.OK);
                 }
-                catch (Exception e)
+                else
                 {
-                    Console.WriteLine(e.StackTrace);
+                    doesntExist = true;
+
+                    if (doesntExist)
+                    {
+                        //saves the data table in the database
+                        SaveData();
+                    }
                 }
             }
             catch (Exception e)
@@ -194,14 +254,46 @@ namespace PWManager.Options
         }
 
         /// <summary>
+        /// This method checks if a string is empty
+        /// </summary>
+        /// <param name="data">the string to check</param>
+        /// <returns>bool</returns>
+        private bool isEmpty(string data)
+        {
+            if (data.Length < 1)
+                return true;
+
+            return false;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// saves the data from the text fields to the data table.
+        /// </summary>
+        private void SaveData()
+        {
+            // display message to user to verify Insert Success
+            MessageBox.Show(wsTextBox.Text + " Record Saved.");
+
+            //always do the EndEdit, otherwise the data will not persist.
+            _dtbPassword.Rows[0].EndEdit();
+
+            // calls the method in our Data Access Layer to save the changes to the data table
+            PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(_dtbPassword);
+
+            RefreshForm();
+        }
+
+        /// <summary>
         /// This method will generate a strong 15 character random string for the password.
         /// </summary>
-        public void generatePassword()
+        private void GeneratePassword()
         {
             //declares and assigns values to multiple strings of different characters
             string lower = "abcdefghjkmnpqrstuvwxyz";
             string upper = lower.ToUpper();
-            string chars = "!@#$%^&*<>?:`~";
+            string chars = "!@#$%^&*?`~";
             string nums = "123456789";
 
             //instantiates a new random for selecting random characters
@@ -228,84 +320,8 @@ namespace PWManager.Options
 
             //assigns the password value to the pw text field
             pwTextBox.Text = PW;
-        }
-
-        /// <summary>
-        /// this method gets all text field data and returns an array.
-        /// </summary>
-        /// <returns>array</returns>
-        public string[] getPasswordData()
-        {
-            //string array used to return text field values
-            string[] data = {"","","",""};
-
-            #region Website
-            //checks if the website text field is not empty
-            if (!isEmpty(wsTextBox.Text.ToString()))
-            {
-                //adds the website text to the data array
-                data[0] = wsTextBox.Text.ToString();
-            }
-            else
-            {
-                //displays a message box to the user
-                MessageBox.Show("Please enter the website the Password is for.");
-            }
-            #endregion
-
-            #region Email
-            //checks if the email text field is not empty
-            if (!isEmpty(emTextBox.Text.ToString()))
-            {
-                //adds the email text to the data array
-                data[1] = emTextBox.Text.ToString();
-            }
-            else
-            {
-                //displays a message box to the user
-                MessageBox.Show("Please emter the email the Password is for.");
-            }
-            #endregion
-
-            #region Additional info
-            //checks if the additional text field is not empty
-            if (!isEmpty(adTextBox.Text.ToString()))
-            {
-                //adds the additional info text to the data array
-                data[2] = adTextBox.Text.ToString();
-            }
-            else
-            {
-                //displays a message box to the user
-                MessageBox.Show("You are about to save no additional information.");
-                //adds no additional info text to the data array
-                data[4] = "No Additional Information";
-            }
-            #endregion
-
-            #region Password
-            //checks if the password text field is not empty
-            if (!isEmpty(pwTextBox.Text.ToString()))
-            {
-                //adds password text to the data array
-                data[3] = pwTextBox.Text.ToString();
-            }
-            #endregion
-
-            return data;
-        }
-
-        /// <summary>
-        /// This method checks if a string is empty
-        /// </summary>
-        /// <param name="data">the string to check</param>
-        /// <returns>bool</returns>
-        public bool isEmpty(string data)
-        {
-            if (data.Length < 1)
-                return true;
-
-            return false;
+            //writes the text box value and updates the data binding
+            pwTextBox.DataBindings["Text"].WriteValue();
         }
 
         #region Helper Methods
@@ -314,9 +330,9 @@ namespace PWManager.Options
         /// </summary>
         private void BindControls()
         {
-            // Binding the text box txtUpdateToolId with the data table '_dtbTool' and
-            // map it to the database field called 'ToolId' and use the
-            // 'Text' property of the control for binding.
+            // Binding the text box with the data table '_dtbPassword'
+            //  map it to the database entity called 'PwId'
+            //      uses the 'Text' property of the control for binding.
             wsTextBox.DataBindings.Add("Text", _dtbPassword, "Website");
             emTextBox.DataBindings.Add("Text", _dtbPassword, "Email");
             adTextBox.DataBindings.Add("Text", _dtbPassword, "AdditionalInfo");
