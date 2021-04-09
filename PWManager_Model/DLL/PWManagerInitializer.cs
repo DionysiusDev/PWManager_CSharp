@@ -28,7 +28,7 @@ namespace PWManager_Model.DLL
             CreateDatabaseTables();
 
             //generates test data for the database tables
-            SeedDatabaseTables();
+            //SeedDatabaseTables();
         }
 
         /// <summary>
@@ -71,8 +71,7 @@ namespace PWManager_Model.DLL
         private static void SeedDatabaseTables()
         {
             SeedLoginDetails();
-            //SeedServices();
-            //SeedProducts();
+            //SeedCreateData();
         }
 
         /// <summary>
@@ -90,6 +89,25 @@ namespace PWManager_Model.DLL
             {
                 _sql.InsertRecord(_ServerName, _DatabaseName, "Login", "AdminId, UserName," +
                     " Password", login);
+
+            }
+        }
+
+        /// <summary>
+        /// Seeds create new password data.
+        /// </summary>
+        private static void SeedCreateData()
+        {
+            List<string> pws = new List<string>
+            {
+                "1, 'TestSite1', 'TestEmail1', 'No Additional Info 1', '1234Pw'",
+                "2, 'TestSite2', 'TestEmail2', 'No Additional Info 2', '4321Pw'",
+
+            };
+
+            foreach (var pw in pws)
+            {
+                _sql.InsertRecord(_ServerName, _DatabaseName, "PasswordInfo", "PwId, Website, Email, AdditionalInfo, Password", pw);
 
             }
         }

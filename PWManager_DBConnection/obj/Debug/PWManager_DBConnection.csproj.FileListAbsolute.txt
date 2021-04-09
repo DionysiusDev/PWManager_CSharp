@@ -3,3 +3,8 @@ E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_DBConnection\bin\Debu
 E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_DBConnection\obj\Debug\PWManager_DBConnection.csproj.CoreCompileInputs.cache
 E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_DBConnection\obj\Debug\PWManager_DBConnection.dll
 E:\My_Dev_Programs\02-CSharp\PWManager\PWManager\PWManager_DBConnection\obj\Debug\PWManager_DBConnection.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\create_logic\PWManager_CSharp\PWManager_DBConnection\bin\Debug\PWManager_DBConnection.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\create_logic\PWManager_CSharp\PWManager_DBConnection\bin\Debug\PWManager_DBConnection.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\create_logic\PWManager_CSharp\PWManager_DBConnection\obj\Debug\PWManager_DBConnection.csproj.CoreCompileInputs.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\create_logic\PWManager_CSharp\PWManager_DBConnection\obj\Debug\PWManager_DBConnection.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\create_logic\PWManager_CSharp\PWManager_DBConnection\obj\Debug\PWManager_DBConnection.pdb
