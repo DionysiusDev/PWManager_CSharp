@@ -1,6 +1,6 @@
-﻿namespace PWManager.Options
+﻿namespace PWManager.Help
 {
-    partial class Existing
+    partial class HelpExisting
     {
         /// <summary>
         /// Required designer variable.
@@ -28,6 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.saveLbl = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.adLbl = new System.Windows.Forms.Label();
+            this.emLbl = new System.Windows.Forms.Label();
+            this.wsLbl = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +59,52 @@
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
+            // saveLbl
+            // 
+            this.saveLbl.AutoSize = true;
+            this.saveLbl.Location = new System.Drawing.Point(542, 398);
+            this.saveLbl.Name = "saveLbl";
+            this.saveLbl.Size = new System.Drawing.Size(89, 17);
+            this.saveLbl.TabIndex = 39;
+            this.saveLbl.Text = "5. Click Save";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(114, 349);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(175, 17);
+            this.label5.TabIndex = 38;
+            this.label5.Text = "4. Enter Existing Password";
+            // 
+            // adLbl
+            // 
+            this.adLbl.AutoSize = true;
+            this.adLbl.Location = new System.Drawing.Point(542, 285);
+            this.adLbl.MaximumSize = new System.Drawing.Size(220, 0);
+            this.adLbl.Name = "adLbl";
+            this.adLbl.Size = new System.Drawing.Size(205, 34);
+            this.adLbl.TabIndex = 36;
+            this.adLbl.Text = "3. Enter additional information: user name,  account number";
+            // 
+            // emLbl
+            // 
+            this.emLbl.AutoSize = true;
+            this.emLbl.Location = new System.Drawing.Point(193, 227);
+            this.emLbl.Name = "emLbl";
+            this.emLbl.Size = new System.Drawing.Size(96, 17);
+            this.emLbl.TabIndex = 35;
+            this.emLbl.Text = "2. Enter Email";
+            // 
+            // wsLbl
+            // 
+            this.wsLbl.AutoSize = true;
+            this.wsLbl.Location = new System.Drawing.Point(176, 166);
+            this.wsLbl.Name = "wsLbl";
+            this.wsLbl.Size = new System.Drawing.Size(113, 17);
+            this.wsLbl.TabIndex = 34;
+            this.wsLbl.Text = "1. Enter Website";
+            // 
             // menuStrip1
             // 
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -64,7 +115,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 28);
-            this.menuStrip1.TabIndex = 23;
+            this.menuStrip1.TabIndex = 50;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // toolStripMenuItem1
@@ -79,14 +130,14 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -112,6 +163,7 @@
             this.enterExistingPasswordToolStripMenuItem.Name = "enterExistingPasswordToolStripMenuItem";
             this.enterExistingPasswordToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.enterExistingPasswordToolStripMenuItem.Text = "Enter Existing Password";
+            this.enterExistingPasswordToolStripMenuItem.Click += new System.EventHandler(this.enterExistingPasswordToolStripMenuItem_Click);
             // 
             // viewAllPasswordsToolStripMenuItem
             // 
@@ -150,7 +202,6 @@
             this.enterExistingPasswordToolStripMenuItem1.Name = "enterExistingPasswordToolStripMenuItem1";
             this.enterExistingPasswordToolStripMenuItem1.Size = new System.Drawing.Size(238, 26);
             this.enterExistingPasswordToolStripMenuItem1.Text = "Enter Existing Password";
-            this.enterExistingPasswordToolStripMenuItem1.Click += new System.EventHandler(this.enterExistingPasswordToolStripMenuItem1_Click);
             // 
             // aboutPasswordManagerToolStripMenuItem
             // 
@@ -161,10 +212,10 @@
             // saveBtn
             // 
             this.saveBtn.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Location = new System.Drawing.Point(295, 358);
+            this.saveBtn.Location = new System.Drawing.Point(295, 385);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(241, 39);
-            this.saveBtn.TabIndex = 22;
+            this.saveBtn.TabIndex = 49;
             this.saveBtn.Text = "Save";
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
@@ -173,81 +224,81 @@
             // 
             this.existingLbl.AutoSize = true;
             this.existingLbl.Font = new System.Drawing.Font("Impact", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.existingLbl.Location = new System.Drawing.Point(185, 34);
+            this.existingLbl.Location = new System.Drawing.Point(125, 59);
             this.existingLbl.Name = "existingLbl";
-            this.existingLbl.Size = new System.Drawing.Size(435, 53);
-            this.existingLbl.TabIndex = 20;
-            this.existingLbl.Text = "Enter Existing Password";
+            this.existingLbl.Size = new System.Drawing.Size(560, 53);
+            this.existingLbl.TabIndex = 48;
+            this.existingLbl.Text = "How to Enter Existing Password";
             // 
             // pwTextBox
             // 
-            this.pwTextBox.Location = new System.Drawing.Point(295, 319);
+            this.pwTextBox.Location = new System.Drawing.Point(295, 346);
             this.pwTextBox.Name = "pwTextBox";
             this.pwTextBox.Size = new System.Drawing.Size(241, 22);
-            this.pwTextBox.TabIndex = 19;
+            this.pwTextBox.TabIndex = 47;
             // 
             // passwordLbl
             // 
             this.passwordLbl.AutoSize = true;
             this.passwordLbl.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLbl.Location = new System.Drawing.Point(289, 283);
+            this.passwordLbl.Location = new System.Drawing.Point(289, 310);
             this.passwordLbl.Name = "passwordLbl";
             this.passwordLbl.Size = new System.Drawing.Size(99, 33);
-            this.passwordLbl.TabIndex = 18;
+            this.passwordLbl.TabIndex = 46;
             this.passwordLbl.Text = "Password";
             // 
             // adTextBox
             // 
-            this.adTextBox.Location = new System.Drawing.Point(295, 258);
+            this.adTextBox.Location = new System.Drawing.Point(295, 285);
             this.adTextBox.Name = "adTextBox";
             this.adTextBox.Size = new System.Drawing.Size(241, 22);
-            this.adTextBox.TabIndex = 17;
+            this.adTextBox.TabIndex = 45;
             // 
             // infoLbl
             // 
             this.infoLbl.AutoSize = true;
             this.infoLbl.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoLbl.Location = new System.Drawing.Point(289, 222);
+            this.infoLbl.Location = new System.Drawing.Point(289, 249);
             this.infoLbl.Name = "infoLbl";
             this.infoLbl.Size = new System.Drawing.Size(189, 33);
-            this.infoLbl.TabIndex = 16;
+            this.infoLbl.TabIndex = 44;
             this.infoLbl.Text = "Additional Information";
             // 
             // emTextBox
             // 
-            this.emTextBox.Location = new System.Drawing.Point(295, 197);
+            this.emTextBox.Location = new System.Drawing.Point(295, 224);
             this.emTextBox.Name = "emTextBox";
             this.emTextBox.Size = new System.Drawing.Size(241, 22);
-            this.emTextBox.TabIndex = 15;
+            this.emTextBox.TabIndex = 43;
             // 
             // emailLbl
             // 
             this.emailLbl.AutoSize = true;
             this.emailLbl.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLbl.Location = new System.Drawing.Point(289, 161);
+            this.emailLbl.Location = new System.Drawing.Point(289, 188);
             this.emailLbl.Name = "emailLbl";
             this.emailLbl.Size = new System.Drawing.Size(58, 33);
-            this.emailLbl.TabIndex = 14;
+            this.emailLbl.TabIndex = 42;
             this.emailLbl.Text = "Email";
             // 
             // wsTextBox
             // 
-            this.wsTextBox.Location = new System.Drawing.Point(295, 136);
+            this.wsTextBox.Location = new System.Drawing.Point(295, 163);
             this.wsTextBox.Name = "wsTextBox";
             this.wsTextBox.Size = new System.Drawing.Size(241, 22);
-            this.wsTextBox.TabIndex = 13;
+            this.wsTextBox.TabIndex = 41;
             // 
             // websiteLbl
             // 
             this.websiteLbl.AutoSize = true;
             this.websiteLbl.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.websiteLbl.Location = new System.Drawing.Point(289, 100);
+            this.websiteLbl.Location = new System.Drawing.Point(289, 127);
             this.websiteLbl.Name = "websiteLbl";
             this.websiteLbl.Size = new System.Drawing.Size(78, 33);
-            this.websiteLbl.TabIndex = 12;
+            this.websiteLbl.TabIndex = 40;
             this.websiteLbl.Text = "Website";
             // 
-            // Existing
+            // HelpExisting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -263,10 +314,14 @@
             this.Controls.Add(this.emailLbl);
             this.Controls.Add(this.wsTextBox);
             this.Controls.Add(this.websiteLbl);
-            this.Name = "Existing";
+            this.Controls.Add(this.saveLbl);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.adLbl);
+            this.Controls.Add(this.emLbl);
+            this.Controls.Add(this.wsLbl);
+            this.Name = "HelpExisting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Existing";
-            this.Load += new System.EventHandler(this.Existing_Load);
+            this.Text = "HelpExisting";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -276,6 +331,11 @@
 
         #endregion
 
+        private System.Windows.Forms.Label saveLbl;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label adLbl;
+        private System.Windows.Forms.Label emLbl;
+        private System.Windows.Forms.Label wsLbl;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem homeToolStripMenuItem;

@@ -51,17 +51,29 @@
     <Compile Include="Details\Details.Designer.cs">
       <DependentUpon>Details.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home\Home.cs">
+    <Compile Include="File\Home.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Home\Home.Designer.cs">
+    <Compile Include="File\Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="Login\Login.cs">
+    <Compile Include="File\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login\Login.Designer.cs">
+    <Compile Include="File\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Help\HelpCreate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\HelpCreate.Designer.cs">
+      <DependentUpon>HelpCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Help\HelpExisting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\HelpExisting.Designer.cs">
+      <DependentUpon>HelpExisting.cs</DependentUpon>
     </Compile>
     <Compile Include="Options\Create.cs">
       <SubType>Form</SubType>
@@ -87,11 +99,17 @@
     <EmbeddedResource Include="Details\Details.resx">
       <DependentUpon>Details.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Home\Home.resx">
+    <EmbeddedResource Include="File\Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login\Login.resx">
+    <EmbeddedResource Include="File\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\HelpCreate.resx">
+      <DependentUpon>HelpCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\HelpExisting.resx">
+      <DependentUpon>HelpExisting.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Options\Create.resx">
       <DependentUpon>Create.cs</DependentUpon>
@@ -132,6 +150,9 @@
       <Project>{b1aa3883-2e59-4868-aca5-631a18ff90e7}</Project>
       <Name>PWManager_Model</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Help\Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
