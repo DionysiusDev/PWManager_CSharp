@@ -73,26 +73,51 @@ namespace PWManager.Options
 
         #endregion
 
-        #region File
+        #region Control Events
+        /// <summary>
+        /// Handles user interaction with the save button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void saveBtn_Click(object sender, EventArgs e)
+        {
+            ValidateData();
+        }
+
+        #region File Menu
+        /// <summary>
+        /// Handles user interaction with the file menu / home button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //closes the existing screen
-            this.Close();
+            Close();
             //creates a new instance of the home screen
             Home.Home frmload = new Home.Home();
             //displays the home screen
             frmload.Show();
         }
+        /// <summary>
+        /// Handles user interaction with the file menu / logout button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Dispose();
             Login frm = new Login();
             frm.ShowDialog();
         }
-
         #endregion
 
-        #region Options
+        #region Options Menu
+        /// <summary>
+        /// Handles user interaction with the options menu / create new button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void createNewPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //closes the existing screen
@@ -102,7 +127,11 @@ namespace PWManager.Options
             //displays the create screen
             frmload.Show();
         }
-
+        /// <summary>
+        /// Handles user interaction with the options menu / view all button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void viewAllPasswordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -111,11 +140,43 @@ namespace PWManager.Options
         }
         #endregion
 
-        #region Action Events
-        private void saveBtn_Click(object sender, EventArgs e)
+        #region Help Menu
+        /// <summary>
+        /// Handles user interaction with the help menu / create new button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void createNewPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            ValidateData();
+            Close();
+            Help.HelpCreate frm = new Help.HelpCreate();
+            frm.ShowDialog();
         }
+        /// <summary>
+        /// Handles user interaction with the help menu / enter existing button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+
+        private void enterExistingPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Close();
+            Help.HelpExisting frm = new Help.HelpExisting();
+            frm.ShowDialog();
+        }
+        /// <summary>
+        /// Handles user interaction with the help menu / about button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void aboutPasswordManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+            Help.HelpAbout frm = new Help.HelpAbout();
+            frm.ShowDialog();
+        }
+        #endregion
+
         #endregion
 
         #region Data Validation

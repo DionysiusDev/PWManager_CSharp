@@ -51,8 +51,6 @@
             this.howToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createNewPasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.enterExistingPasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewPasswordDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewPasswordDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutPasswordManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -220,7 +218,7 @@
             // 
             this.viewAllPasswordsToolStripMenuItem.Name = "viewAllPasswordsToolStripMenuItem";
             this.viewAllPasswordsToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
-            this.viewAllPasswordsToolStripMenuItem.Text = "View All Passwords";
+            this.viewAllPasswordsToolStripMenuItem.Text = "View All Websites";
             this.viewAllPasswordsToolStripMenuItem.Click += new System.EventHandler(this.viewAllPasswordsToolStripMenuItem_Click);
             // 
             // helpToolStripMenuItem
@@ -236,9 +234,7 @@
             // 
             this.howToToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createNewPasswordToolStripMenuItem1,
-            this.enterExistingPasswordToolStripMenuItem1,
-            this.viewPasswordDetailsToolStripMenuItem,
-            this.viewPasswordDetailsToolStripMenuItem1});
+            this.enterExistingPasswordToolStripMenuItem1});
             this.howToToolStripMenuItem.Name = "howToToolStripMenuItem";
             this.howToToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.howToToolStripMenuItem.Text = "How To...";
@@ -248,30 +244,21 @@
             this.createNewPasswordToolStripMenuItem1.Name = "createNewPasswordToolStripMenuItem1";
             this.createNewPasswordToolStripMenuItem1.Size = new System.Drawing.Size(238, 26);
             this.createNewPasswordToolStripMenuItem1.Text = "Create New Password";
+            this.createNewPasswordToolStripMenuItem1.Click += new System.EventHandler(this.createNewPasswordToolStripMenuItem1_Click);
             // 
             // enterExistingPasswordToolStripMenuItem1
             // 
             this.enterExistingPasswordToolStripMenuItem1.Name = "enterExistingPasswordToolStripMenuItem1";
             this.enterExistingPasswordToolStripMenuItem1.Size = new System.Drawing.Size(238, 26);
             this.enterExistingPasswordToolStripMenuItem1.Text = "Enter Existing Password";
-            // 
-            // viewPasswordDetailsToolStripMenuItem
-            // 
-            this.viewPasswordDetailsToolStripMenuItem.Name = "viewPasswordDetailsToolStripMenuItem";
-            this.viewPasswordDetailsToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
-            this.viewPasswordDetailsToolStripMenuItem.Text = "View Password Details";
-            // 
-            // viewPasswordDetailsToolStripMenuItem1
-            // 
-            this.viewPasswordDetailsToolStripMenuItem1.Name = "viewPasswordDetailsToolStripMenuItem1";
-            this.viewPasswordDetailsToolStripMenuItem1.Size = new System.Drawing.Size(238, 26);
-            this.viewPasswordDetailsToolStripMenuItem1.Text = "Edit Password Details";
+            this.enterExistingPasswordToolStripMenuItem1.Click += new System.EventHandler(this.enterExistingPasswordToolStripMenuItem1_Click);
             // 
             // aboutPasswordManagerToolStripMenuItem
             // 
             this.aboutPasswordManagerToolStripMenuItem.Name = "aboutPasswordManagerToolStripMenuItem";
             this.aboutPasswordManagerToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.aboutPasswordManagerToolStripMenuItem.Text = "About Password Manager";
+            this.aboutPasswordManagerToolStripMenuItem.Click += new System.EventHandler(this.aboutPasswordManagerToolStripMenuItem_Click);
             // 
             // Create
             // 
@@ -292,7 +279,7 @@
             this.Controls.Add(this.websiteLbl);
             this.Name = "Create";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create";
+            this.Text = "Create New Password";
             this.Load += new System.EventHandler(this.Create_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -326,8 +313,6 @@
         private System.Windows.Forms.ToolStripMenuItem howToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createNewPasswordToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem enterExistingPasswordToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem viewPasswordDetailsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewPasswordDetailsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutPasswordManagerToolStripMenuItem;
     }
 }

@@ -40,7 +40,7 @@ namespace PWManager.Options
         #region Control Events
 
         /// <summary>
-        /// loads the clicked cells password information in the password details screen
+        /// Handles user interaction when double clicking a datagrid view cell.
         /// </summary>
         /// <param name="sender">the cell that was clicked</param>
         /// <param name="e"></param>
@@ -51,7 +51,7 @@ namespace PWManager.Options
             long PKID = long.Parse(dgvPassword[0, dgvPassword.CurrentCell.RowIndex].Value.ToString());
 
             //closes this view all form instance
-            this.Close();
+            Close();
             //creates a new details form instance and passes the pkid as args
             Details.Details frm = new Details.Details(PKID);
             frm.Show();
@@ -65,9 +65,9 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Close();
             Home.Home frm = new Home.Home();
             frm.Show();
-            this.Close();
         }
         /// <summary>
         /// Handles user interaction with the file menu / logout button.
@@ -76,10 +76,9 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Dispose();
             Login frm = new Login();
             frm.Show();
-
-            this.Close();
         }
         #endregion
 
@@ -107,6 +106,42 @@ namespace PWManager.Options
             frm.Show();
 
             this.Close();
+        }
+        #endregion
+
+        #region Help Menu
+        /// <summary>
+        /// Handles user interaction with the help menu / create new button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void createNewPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Close();
+            Help.HelpCreate frm = new Help.HelpCreate();
+            frm.ShowDialog();
+        }
+        /// <summary>
+        /// Handles user interaction with the help menu / enter existing button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void enterExistingPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            Close();
+            Help.HelpExisting frm = new Help.HelpExisting();
+            frm.ShowDialog();
+        }
+        /// <summary>
+        /// Handles user interaction with the help menu / about button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void aboutPasswordManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+            Help.HelpAbout frm = new Help.HelpAbout();
+            frm.ShowDialog();
         }
         #endregion
 

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,8 +42,6 @@
             this.howToToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.createNewPasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.enterExistingPasswordToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewPasswordDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.viewPasswordDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutPasswordManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.wsListLbl = new System.Windows.Forms.Label();
             this.dgvPassword = new System.Windows.Forms.DataGridView();
@@ -77,14 +75,14 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -116,7 +114,7 @@
             // 
             this.viewAllPasswordsToolStripMenuItem.Name = "viewAllPasswordsToolStripMenuItem";
             this.viewAllPasswordsToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
-            this.viewAllPasswordsToolStripMenuItem.Text = "View All Passwords";
+            this.viewAllPasswordsToolStripMenuItem.Text = "View All Websites";
             // 
             // helpToolStripMenuItem
             // 
@@ -131,9 +129,7 @@
             // 
             this.howToToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.createNewPasswordToolStripMenuItem1,
-            this.enterExistingPasswordToolStripMenuItem1,
-            this.viewPasswordDetailsToolStripMenuItem,
-            this.viewPasswordDetailsToolStripMenuItem1});
+            this.enterExistingPasswordToolStripMenuItem1});
             this.howToToolStripMenuItem.Name = "howToToolStripMenuItem";
             this.howToToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.howToToolStripMenuItem.Text = "How To...";
@@ -143,30 +139,21 @@
             this.createNewPasswordToolStripMenuItem1.Name = "createNewPasswordToolStripMenuItem1";
             this.createNewPasswordToolStripMenuItem1.Size = new System.Drawing.Size(238, 26);
             this.createNewPasswordToolStripMenuItem1.Text = "Create New Password";
+            this.createNewPasswordToolStripMenuItem1.Click += new System.EventHandler(this.createNewPasswordToolStripMenuItem1_Click);
             // 
             // enterExistingPasswordToolStripMenuItem1
             // 
             this.enterExistingPasswordToolStripMenuItem1.Name = "enterExistingPasswordToolStripMenuItem1";
             this.enterExistingPasswordToolStripMenuItem1.Size = new System.Drawing.Size(238, 26);
             this.enterExistingPasswordToolStripMenuItem1.Text = "Enter Existing Password";
-            // 
-            // viewPasswordDetailsToolStripMenuItem
-            // 
-            this.viewPasswordDetailsToolStripMenuItem.Name = "viewPasswordDetailsToolStripMenuItem";
-            this.viewPasswordDetailsToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
-            this.viewPasswordDetailsToolStripMenuItem.Text = "View Password Details";
-            // 
-            // viewPasswordDetailsToolStripMenuItem1
-            // 
-            this.viewPasswordDetailsToolStripMenuItem1.Name = "viewPasswordDetailsToolStripMenuItem1";
-            this.viewPasswordDetailsToolStripMenuItem1.Size = new System.Drawing.Size(238, 26);
-            this.viewPasswordDetailsToolStripMenuItem1.Text = "Edit Password Details";
+            this.enterExistingPasswordToolStripMenuItem1.Click += new System.EventHandler(this.enterExistingPasswordToolStripMenuItem1_Click);
             // 
             // aboutPasswordManagerToolStripMenuItem
             // 
             this.aboutPasswordManagerToolStripMenuItem.Name = "aboutPasswordManagerToolStripMenuItem";
             this.aboutPasswordManagerToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.aboutPasswordManagerToolStripMenuItem.Text = "About Password Manager";
+            this.aboutPasswordManagerToolStripMenuItem.Click += new System.EventHandler(this.aboutPasswordManagerToolStripMenuItem_Click);
             // 
             // wsListLbl
             // 
@@ -190,22 +177,22 @@
             this.dgvPassword.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPassword.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPassword.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPassword.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPassword.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvPassword.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPassword.GridColor = System.Drawing.Color.Blue;
             this.dgvPassword.Location = new System.Drawing.Point(170, 116);
             this.dgvPassword.Name = "dgvPassword";
             this.dgvPassword.ReadOnly = true;
             this.dgvPassword.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPassword.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPassword.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgvPassword.RowTemplate.Height = 24;
             this.dgvPassword.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvPassword.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -234,7 +221,7 @@
             this.Controls.Add(this.wsListLbl);
             this.Name = "ViewAll";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ViewAll";
+            this.Text = "View All Websites";
             this.Load += new System.EventHandler(this.ViewAll_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -258,11 +245,9 @@
         private System.Windows.Forms.ToolStripMenuItem howToToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem createNewPasswordToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem enterExistingPasswordToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem viewPasswordDetailsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem viewPasswordDetailsToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem aboutPasswordManagerToolStripMenuItem;
         private System.Windows.Forms.Label wsListLbl;
         private System.Windows.Forms.DataGridView dgvPassword;
         private System.Windows.Forms.Label dblClickLbl;
+        private System.Windows.Forms.ToolStripMenuItem aboutPasswordManagerToolStripMenuItem;
     }
 }
