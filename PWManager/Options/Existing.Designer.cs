@@ -44,7 +44,7 @@
             this.viewPasswordDetailsToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutPasswordManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.createLbl = new System.Windows.Forms.Label();
+            this.existingLbl = new System.Windows.Forms.Label();
             this.pwTextBox = new System.Windows.Forms.TextBox();
             this.passwordLbl = new System.Windows.Forms.Label();
             this.adTextBox = new System.Windows.Forms.TextBox();
@@ -183,15 +183,15 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // createLbl
+            // existingLbl
             // 
-            this.createLbl.AutoSize = true;
-            this.createLbl.Font = new System.Drawing.Font("Impact", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.createLbl.Location = new System.Drawing.Point(185, 34);
-            this.createLbl.Name = "createLbl";
-            this.createLbl.Size = new System.Drawing.Size(435, 53);
-            this.createLbl.TabIndex = 20;
-            this.createLbl.Text = "Enter Existing Password";
+            this.existingLbl.AutoSize = true;
+            this.existingLbl.Font = new System.Drawing.Font("Impact", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.existingLbl.Location = new System.Drawing.Point(185, 34);
+            this.existingLbl.Name = "existingLbl";
+            this.existingLbl.Size = new System.Drawing.Size(435, 53);
+            this.existingLbl.TabIndex = 20;
+            this.existingLbl.Text = "Enter Existing Password";
             // 
             // pwTextBox
             // 
@@ -268,7 +268,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.createLbl);
+            this.Controls.Add(this.existingLbl);
             this.Controls.Add(this.pwTextBox);
             this.Controls.Add(this.passwordLbl);
             this.Controls.Add(this.adTextBox);
@@ -306,7 +306,7 @@
         private System.Windows.Forms.ToolStripMenuItem viewPasswordDetailsToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem aboutPasswordManagerToolStripMenuItem;
         private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.Label createLbl;
+        private System.Windows.Forms.Label existingLbl;
         private System.Windows.Forms.TextBox pwTextBox;
         private System.Windows.Forms.Label passwordLbl;
         private System.Windows.Forms.TextBox adTextBox;
