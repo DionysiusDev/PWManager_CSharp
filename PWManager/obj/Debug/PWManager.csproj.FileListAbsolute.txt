@@ -63,6 +63,7 @@ E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\bin\Debu
 E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\bin\Debug\PWManager_Model.pdb
 E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\bin\Debug\PWManager_DBConnection.pdb
 E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\obj\Debug\PWManager.csprojAssemblyReference.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\obj\Debug\PWManager.Details.Details.resources
 E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\obj\Debug\PWManager.Home.Home.resources
 E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\obj\Debug\PWManager.Login.resources
 E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\obj\Debug\PWManager.Options.Create.resources
@@ -74,4 +75,3 @@ E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\obj\Debu
 E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\obj\Debug\PWManager.csproj.CopyComplete
 E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\obj\Debug\PWManager.exe
 E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\obj\Debug\PWManager.pdb
-E:\My_Dev_Programs\02-CSharp\PWManager\Main2\PWManager_CSharp\PWManager\obj\Debug\PWManager.Details.Details.resources

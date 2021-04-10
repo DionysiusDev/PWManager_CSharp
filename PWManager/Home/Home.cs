@@ -17,7 +17,7 @@ namespace PWManager.Home
             InitializeComponent();
         }
 
-        #region File
+        #region File Menu
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
             //closes the home screen
@@ -29,31 +29,25 @@ namespace PWManager.Home
         }
         #endregion
 
-        #region Options
+        #region Options Menu
         private void createNewPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            //create a new instance of the create sceen from options menu
             Options.Create frm = new Options.Create();
-            //displays the create screen
             frm.ShowDialog();
         }
 
         private void enterExistingPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            //create a new instance of the enter exisiting sceen from options menu
             Options.Existing frm = new Options.Existing();
-            //displays the enter exisiting screen
             frm.ShowDialog();
         }
 
         private void viewAllPasswordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
-            //create a new instance of the view all sceen from options menu
             Options.ViewAll frm = new Options.ViewAll();
-            //displays the view all screen
             frm.ShowDialog();
         }
         #endregion

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,14 +77,16 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.homeToolStripMenuItem.Text = "Home";
+            this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -101,12 +103,14 @@
             this.createNewPasswordToolStripMenuItem.Name = "createNewPasswordToolStripMenuItem";
             this.createNewPasswordToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.createNewPasswordToolStripMenuItem.Text = "Create New Password";
+            this.createNewPasswordToolStripMenuItem.Click += new System.EventHandler(this.createNewPasswordToolStripMenuItem_Click);
             // 
             // enterExistingPasswordToolStripMenuItem
             // 
             this.enterExistingPasswordToolStripMenuItem.Name = "enterExistingPasswordToolStripMenuItem";
             this.enterExistingPasswordToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.enterExistingPasswordToolStripMenuItem.Text = "Enter Existing Password";
+            this.enterExistingPasswordToolStripMenuItem.Click += new System.EventHandler(this.enterExistingPasswordToolStripMenuItem_Click);
             // 
             // viewAllPasswordsToolStripMenuItem
             // 
@@ -180,29 +184,34 @@
             this.dgvPassword.AllowUserToDeleteRows = false;
             this.dgvPassword.AllowUserToResizeColumns = false;
             this.dgvPassword.AllowUserToResizeRows = false;
+            this.dgvPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvPassword.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvPassword.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvPassword.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPassword.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPassword.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvPassword.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPassword.GridColor = System.Drawing.Color.Blue;
-            this.dgvPassword.Location = new System.Drawing.Point(13, 116);
+            this.dgvPassword.Location = new System.Drawing.Point(170, 116);
             this.dgvPassword.Name = "dgvPassword";
             this.dgvPassword.ReadOnly = true;
             this.dgvPassword.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.AutoSizeToDisplayedHeaders;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvPassword.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvPassword.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvPassword.RowTemplate.Height = 24;
+            this.dgvPassword.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvPassword.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgvPassword.Size = new System.Drawing.Size(775, 322);
+            this.dgvPassword.Size = new System.Drawing.Size(474, 322);
             this.dgvPassword.TabIndex = 4;
+            this.dgvPassword.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPassword_CellDoubleClick);
             // 
             // dblClickLbl
             // 

@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.backBtn = new System.Windows.Forms.Button();
             this.detailsLbl = new System.Windows.Forms.Label();
             this.pwTextBox = new System.Windows.Forms.TextBox();
             this.passwordLbl = new System.Windows.Forms.Label();
@@ -38,17 +37,10 @@
             this.emailLbl = new System.Windows.Forms.Label();
             this.wsTextBox = new System.Windows.Forms.TextBox();
             this.websiteLbl = new System.Windows.Forms.Label();
+            this.backBtn = new System.Windows.Forms.Button();
+            this.saveBtn = new System.Windows.Forms.Button();
+            this.editBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // backBtn
-            // 
-            this.backBtn.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.backBtn.Location = new System.Drawing.Point(293, 368);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(241, 39);
-            this.backBtn.TabIndex = 32;
-            this.backBtn.Text = "Back";
-            this.backBtn.UseVisualStyleBackColor = true;
             // 
             // detailsLbl
             // 
@@ -128,11 +120,46 @@
             this.websiteLbl.TabIndex = 23;
             this.websiteLbl.Text = "Website";
             // 
+            // backBtn
+            // 
+            this.backBtn.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.backBtn.Location = new System.Drawing.Point(293, 402);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(241, 39);
+            this.backBtn.TabIndex = 33;
+            this.backBtn.Text = "Back";
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
+            // saveBtn
+            // 
+            this.saveBtn.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.saveBtn.Location = new System.Drawing.Point(422, 357);
+            this.saveBtn.Name = "saveBtn";
+            this.saveBtn.Size = new System.Drawing.Size(112, 39);
+            this.saveBtn.TabIndex = 34;
+            this.saveBtn.Text = "Save";
+            this.saveBtn.UseVisualStyleBackColor = true;
+            this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
+            // 
+            // editBtn
+            // 
+            this.editBtn.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.editBtn.Location = new System.Drawing.Point(293, 357);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(112, 39);
+            this.editBtn.TabIndex = 35;
+            this.editBtn.Text = "Edit";
+            this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
+            // 
             // Details
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.editBtn);
+            this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.backBtn);
             this.Controls.Add(this.detailsLbl);
             this.Controls.Add(this.pwTextBox);
@@ -144,6 +171,7 @@
             this.Controls.Add(this.wsTextBox);
             this.Controls.Add(this.websiteLbl);
             this.Name = "Details";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Details";
             this.Load += new System.EventHandler(this.Details_Load);
             this.ResumeLayout(false);
@@ -152,8 +180,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.Button backBtn;
         private System.Windows.Forms.Label detailsLbl;
         private System.Windows.Forms.TextBox pwTextBox;
         private System.Windows.Forms.Label passwordLbl;
@@ -163,5 +189,8 @@
         private System.Windows.Forms.Label emailLbl;
         private System.Windows.Forms.TextBox wsTextBox;
         private System.Windows.Forms.Label websiteLbl;
+        private System.Windows.Forms.Button backBtn;
+        private System.Windows.Forms.Button saveBtn;
+        private System.Windows.Forms.Button editBtn;
     }
 }
