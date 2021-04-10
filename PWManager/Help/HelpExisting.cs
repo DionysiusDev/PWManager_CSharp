@@ -103,6 +103,17 @@ namespace PWManager.Help
             Help.HelpCreate frm = new Help.HelpCreate();
             frm.ShowDialog();
         }
+        /// <summary>
+        /// Handles user interaction with the help menu / about button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void aboutPasswordManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+            Help.HelpAbout frm = new Help.HelpAbout();
+            frm.ShowDialog();
+        }
         #endregion
 
         #endregion

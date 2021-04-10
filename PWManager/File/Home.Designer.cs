@@ -78,7 +78,7 @@
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(135, 26);
             this.logOutToolStripMenuItem.Text = "Log out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -150,6 +150,7 @@
             this.aboutPasswordManagerToolStripMenuItem.Name = "aboutPasswordManagerToolStripMenuItem";
             this.aboutPasswordManagerToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.aboutPasswordManagerToolStripMenuItem.Text = "About Password Manager";
+            this.aboutPasswordManagerToolStripMenuItem.Click += new System.EventHandler(this.aboutPasswordManagerToolStripMenuItem_Click);
             // 
             // Home
             // 

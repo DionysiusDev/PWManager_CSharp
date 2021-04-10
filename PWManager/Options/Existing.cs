@@ -106,7 +106,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Login frm = new Login();
             frm.ShowDialog();
         }
@@ -164,7 +164,19 @@ namespace PWManager.Options
             Help.HelpExisting frm = new Help.HelpExisting();
             frm.ShowDialog();
         }
+        /// <summary>
+        /// Handles user interaction with the help menu / about button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void aboutPasswordManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+            Help.HelpAbout frm = new Help.HelpAbout();
+            frm.ShowDialog();
+        }
         #endregion
+
         #endregion
 
         #region Data Validation

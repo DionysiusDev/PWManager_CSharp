@@ -258,6 +258,7 @@
             this.aboutPasswordManagerToolStripMenuItem.Name = "aboutPasswordManagerToolStripMenuItem";
             this.aboutPasswordManagerToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.aboutPasswordManagerToolStripMenuItem.Text = "About Password Manager";
+            this.aboutPasswordManagerToolStripMenuItem.Click += new System.EventHandler(this.aboutPasswordManagerToolStripMenuItem_Click);
             // 
             // Create
             // 
@@ -278,7 +279,7 @@
             this.Controls.Add(this.websiteLbl);
             this.Name = "Create";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Create";
+            this.Text = "Create New Password";
             this.Load += new System.EventHandler(this.Create_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

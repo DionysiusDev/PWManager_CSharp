@@ -97,3 +97,4 @@ E:\My_Dev_Programs\02-CSharp\PWManager\Main3\PWManager_CSharp\PWManager\obj\Debu
 E:\My_Dev_Programs\02-CSharp\PWManager\Main3\PWManager_CSharp\PWManager\obj\Debug\PWManager.exe
 E:\My_Dev_Programs\02-CSharp\PWManager\Main3\PWManager_CSharp\PWManager\obj\Debug\PWManager.pdb
 E:\My_Dev_Programs\02-CSharp\PWManager\Main3\PWManager_CSharp\PWManager\obj\Debug\PWManager.Help.HelpExisting.resources
+E:\My_Dev_Programs\02-CSharp\PWManager\Main3\PWManager_CSharp\PWManager\obj\Debug\PWManager.Help.HelpAbout.resources

@@ -63,6 +63,12 @@
     <Compile Include="File\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Help\HelpAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Help\HelpAbout.Designer.cs">
+      <DependentUpon>HelpAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="Help\HelpCreate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -104,6 +110,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="File\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Help\HelpAbout.resx">
+      <DependentUpon>HelpAbout.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Help\HelpCreate.resx">
       <DependentUpon>HelpCreate.cs</DependentUpon>
@@ -151,8 +160,6 @@
       <Name>PWManager_Model</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Help\Images\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

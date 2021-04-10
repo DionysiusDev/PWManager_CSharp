@@ -62,7 +62,7 @@
             // saveLbl
             // 
             this.saveLbl.AutoSize = true;
-            this.saveLbl.Location = new System.Drawing.Point(542, 398);
+            this.saveLbl.Location = new System.Drawing.Point(542, 384);
             this.saveLbl.Name = "saveLbl";
             this.saveLbl.Size = new System.Drawing.Size(89, 17);
             this.saveLbl.TabIndex = 39;
@@ -71,7 +71,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(114, 349);
+            this.label5.Location = new System.Drawing.Point(114, 335);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(175, 17);
             this.label5.TabIndex = 38;
@@ -80,7 +80,7 @@
             // adLbl
             // 
             this.adLbl.AutoSize = true;
-            this.adLbl.Location = new System.Drawing.Point(542, 285);
+            this.adLbl.Location = new System.Drawing.Point(542, 271);
             this.adLbl.MaximumSize = new System.Drawing.Size(220, 0);
             this.adLbl.Name = "adLbl";
             this.adLbl.Size = new System.Drawing.Size(205, 34);
@@ -90,7 +90,7 @@
             // emLbl
             // 
             this.emLbl.AutoSize = true;
-            this.emLbl.Location = new System.Drawing.Point(193, 227);
+            this.emLbl.Location = new System.Drawing.Point(193, 213);
             this.emLbl.Name = "emLbl";
             this.emLbl.Size = new System.Drawing.Size(96, 17);
             this.emLbl.TabIndex = 35;
@@ -99,7 +99,7 @@
             // wsLbl
             // 
             this.wsLbl.AutoSize = true;
-            this.wsLbl.Location = new System.Drawing.Point(176, 166);
+            this.wsLbl.Location = new System.Drawing.Point(176, 152);
             this.wsLbl.Name = "wsLbl";
             this.wsLbl.Size = new System.Drawing.Size(113, 17);
             this.wsLbl.TabIndex = 34;
@@ -130,14 +130,14 @@
             // homeToolStripMenuItem
             // 
             this.homeToolStripMenuItem.Name = "homeToolStripMenuItem";
-            this.homeToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.homeToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.homeToolStripMenuItem.Text = "Home";
             this.homeToolStripMenuItem.Click += new System.EventHandler(this.homeToolStripMenuItem_Click);
             // 
             // logOutToolStripMenuItem
             // 
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
-            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.logOutToolStripMenuItem.Size = new System.Drawing.Size(137, 26);
             this.logOutToolStripMenuItem.Text = "Log Out";
             this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
@@ -208,11 +208,12 @@
             this.aboutPasswordManagerToolStripMenuItem.Name = "aboutPasswordManagerToolStripMenuItem";
             this.aboutPasswordManagerToolStripMenuItem.Size = new System.Drawing.Size(253, 26);
             this.aboutPasswordManagerToolStripMenuItem.Text = "About Password Manager";
+            this.aboutPasswordManagerToolStripMenuItem.Click += new System.EventHandler(this.aboutPasswordManagerToolStripMenuItem_Click);
             // 
             // saveBtn
             // 
             this.saveBtn.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.saveBtn.Location = new System.Drawing.Point(295, 385);
+            this.saveBtn.Location = new System.Drawing.Point(295, 371);
             this.saveBtn.Name = "saveBtn";
             this.saveBtn.Size = new System.Drawing.Size(241, 39);
             this.saveBtn.TabIndex = 49;
@@ -224,7 +225,7 @@
             // 
             this.existingLbl.AutoSize = true;
             this.existingLbl.Font = new System.Drawing.Font("Impact", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.existingLbl.Location = new System.Drawing.Point(125, 59);
+            this.existingLbl.Location = new System.Drawing.Point(125, 45);
             this.existingLbl.Name = "existingLbl";
             this.existingLbl.Size = new System.Drawing.Size(560, 53);
             this.existingLbl.TabIndex = 48;
@@ -232,7 +233,7 @@
             // 
             // pwTextBox
             // 
-            this.pwTextBox.Location = new System.Drawing.Point(295, 346);
+            this.pwTextBox.Location = new System.Drawing.Point(295, 332);
             this.pwTextBox.Name = "pwTextBox";
             this.pwTextBox.Size = new System.Drawing.Size(241, 22);
             this.pwTextBox.TabIndex = 47;
@@ -241,7 +242,7 @@
             // 
             this.passwordLbl.AutoSize = true;
             this.passwordLbl.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.passwordLbl.Location = new System.Drawing.Point(289, 310);
+            this.passwordLbl.Location = new System.Drawing.Point(289, 296);
             this.passwordLbl.Name = "passwordLbl";
             this.passwordLbl.Size = new System.Drawing.Size(99, 33);
             this.passwordLbl.TabIndex = 46;
@@ -249,7 +250,7 @@
             // 
             // adTextBox
             // 
-            this.adTextBox.Location = new System.Drawing.Point(295, 285);
+            this.adTextBox.Location = new System.Drawing.Point(295, 271);
             this.adTextBox.Name = "adTextBox";
             this.adTextBox.Size = new System.Drawing.Size(241, 22);
             this.adTextBox.TabIndex = 45;
@@ -258,7 +259,7 @@
             // 
             this.infoLbl.AutoSize = true;
             this.infoLbl.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoLbl.Location = new System.Drawing.Point(289, 249);
+            this.infoLbl.Location = new System.Drawing.Point(289, 235);
             this.infoLbl.Name = "infoLbl";
             this.infoLbl.Size = new System.Drawing.Size(189, 33);
             this.infoLbl.TabIndex = 44;
@@ -266,7 +267,7 @@
             // 
             // emTextBox
             // 
-            this.emTextBox.Location = new System.Drawing.Point(295, 224);
+            this.emTextBox.Location = new System.Drawing.Point(295, 210);
             this.emTextBox.Name = "emTextBox";
             this.emTextBox.Size = new System.Drawing.Size(241, 22);
             this.emTextBox.TabIndex = 43;
@@ -275,7 +276,7 @@
             // 
             this.emailLbl.AutoSize = true;
             this.emailLbl.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.emailLbl.Location = new System.Drawing.Point(289, 188);
+            this.emailLbl.Location = new System.Drawing.Point(289, 174);
             this.emailLbl.Name = "emailLbl";
             this.emailLbl.Size = new System.Drawing.Size(58, 33);
             this.emailLbl.TabIndex = 42;
@@ -283,7 +284,7 @@
             // 
             // wsTextBox
             // 
-            this.wsTextBox.Location = new System.Drawing.Point(295, 163);
+            this.wsTextBox.Location = new System.Drawing.Point(295, 149);
             this.wsTextBox.Name = "wsTextBox";
             this.wsTextBox.Size = new System.Drawing.Size(241, 22);
             this.wsTextBox.TabIndex = 41;
@@ -292,7 +293,7 @@
             // 
             this.websiteLbl.AutoSize = true;
             this.websiteLbl.Font = new System.Drawing.Font("Agency FB", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.websiteLbl.Location = new System.Drawing.Point(289, 127);
+            this.websiteLbl.Location = new System.Drawing.Point(289, 113);
             this.websiteLbl.Name = "websiteLbl";
             this.websiteLbl.Size = new System.Drawing.Size(78, 33);
             this.websiteLbl.TabIndex = 40;
@@ -321,7 +322,7 @@
             this.Controls.Add(this.wsLbl);
             this.Name = "HelpExisting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "HelpExisting";
+            this.Text = "How to Enter Existing Password";
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
