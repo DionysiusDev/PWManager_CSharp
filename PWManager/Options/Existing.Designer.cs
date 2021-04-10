@@ -280,6 +280,7 @@
             this.Name = "Existing";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Existing";
+            this.Load += new System.EventHandler(this.Existing_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

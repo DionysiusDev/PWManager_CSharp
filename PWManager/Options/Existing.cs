@@ -55,7 +55,6 @@ namespace PWManager.Options
         #endregion
 
         #region Form Events
-
         private void Existing_Load(object sender, EventArgs e)
         {
             // Upon loading the form, establish the binding of the controls in the form.
@@ -189,8 +188,6 @@ namespace PWManager.Options
         /// </summary>
         private void CheckExistingEntries()
         {
-            MessageBox.Show("CheckExistingEntries()");
-
             //instantiates a connection string
             string connectionString = PWManager_Model.DLL.PWManagerContext.ConnectionString =
                 Properties.Settings.Default.ConnectionString;
@@ -235,14 +232,13 @@ namespace PWManager.Options
                 }
                 else
                 {
-
                     //saves the data table in the database
                     SaveData();
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.StackTrace);
+                Console.WriteLine("Check Existing Ex: " + e.ToString());
             }
         }
 
@@ -266,18 +262,23 @@ namespace PWManager.Options
         /// </summary>
         private void SaveData()
         {
-            MessageBox.Show("SaveData()");
+            try
+            {
+                // display message to user to verify Insert Success
+                MessageBox.Show(wsTextBox.Text + " Record Saved.");
 
-            // display message to user to verify Insert Success
-            MessageBox.Show(wsTextBox.Text + " Record Saved.");
+                //always do the EndEdit, otherwise the data will not persist.
+                _dtbPassword.Rows[0].EndEdit();
 
-            //always do the EndEdit, otherwise the data will not persist.
-            _dtbPassword.Rows[0].EndEdit();
+                // calls the method in our Data Access Layer to save the changes to the data table
+                PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(_dtbPassword);
 
-            // calls the method in our Data Access Layer to save the changes to the data table
-            PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(_dtbPassword);
-
-            RefreshForm();
+                RefreshForm();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Save Data Ex: " + e.ToString());
+            }
         }
 
         #region Helper Methods
