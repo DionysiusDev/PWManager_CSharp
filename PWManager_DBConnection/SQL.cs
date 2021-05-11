@@ -458,8 +458,6 @@ namespace PWManager_DBConnection
 
         public bool IsLoginVerified(string strUserName, string strPassword)
         {
-            Logger.LogInfo("Logger is running from SQL class...");
-
             try
             {
                 string sqlQuery = $"Select * from Login " +

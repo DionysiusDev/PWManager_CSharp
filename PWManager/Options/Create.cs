@@ -14,7 +14,6 @@ namespace PWManager.Options
         private long _lngPKID = 0;
         private DataTable _dtbPassword = null;
         bool _blnNew = false;
-        private SqlConnection sqlConnectionTool;
         #endregion
 
         #region Constructors
