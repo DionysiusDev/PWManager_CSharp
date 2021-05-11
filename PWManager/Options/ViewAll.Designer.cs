@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ViewAll));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.homeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -232,11 +233,13 @@
             this.Controls.Add(this.dgvPassword);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.wsListLbl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "ViewAll";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "View All Websites";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ViewAll_FormClosing);
             this.Load += new System.EventHandler(this.ViewAll_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

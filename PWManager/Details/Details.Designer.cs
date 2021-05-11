@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Details));
             this.detailsLbl = new System.Windows.Forms.Label();
             this.pwTextBox = new System.Windows.Forms.TextBox();
             this.passwordLbl = new System.Windows.Forms.Label();
@@ -170,11 +171,13 @@
             this.Controls.Add(this.emailLbl);
             this.Controls.Add(this.wsTextBox);
             this.Controls.Add(this.websiteLbl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Details";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Details_FormClosing);
             this.Load += new System.EventHandler(this.Details_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

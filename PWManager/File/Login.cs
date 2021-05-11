@@ -8,6 +8,7 @@ namespace PWManager
     {
         string connectionString = PWManagerContext.ConnectionString = Properties.Settings.Default.ConnectionString;
 
+        #region Constructor
         public Login()
         {
             InitializeComponent();
@@ -17,7 +18,9 @@ namespace PWManager
             userNameTextBox.Text = "DionysiusDev";
             passwordTextBox.Text = "1P2u3$3$4y5L6i7c8k9e0r";
         }
+        #endregion
 
+        #region Form Controls
         private void ShowBtn_Click_1(object sender, EventArgs e)
         {
             if (ShowBtn.Text == "Show")
@@ -58,5 +61,32 @@ namespace PWManager
                 frmload.Show();                         //  Displays the home form
             }
         }
+        #endregion
+
+        #region Form Events
+        private void Login_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // shutdowns the application if windows is shutting down
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // shutsdown the application when the user clicks the close button
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    // Stay on this form
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                    // exit application
+                    case DialogResult.Yes:
+                        Application.Exit();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+        #endregion
     }
 }

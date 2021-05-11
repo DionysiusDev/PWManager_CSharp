@@ -67,9 +67,32 @@ namespace PWManager.Options
         {
             Create frm = new Create();
             frm.Show();
-            this.Close();
+            Close();
         }
 
+        private void Create_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // shutdowns the application if windows is shutting down
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // shutsdown the application when the user clicks the close button
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    // Stay on this form
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                    // exit application
+                    case DialogResult.Yes:
+                        Application.Exit();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
         #endregion
 
         #region Control Events
@@ -100,11 +123,11 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //closes the create screen
-            Close();
-            //creates a new instance of the home screen
+            // hides the create screen
+            Dispose();
+            // creates a new instance of the home screen
             Home.Home frmload = new Home.Home();
-            //displays the home screen
+            // displays the home screen
             frmload.Show();
 
         }
@@ -129,8 +152,8 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void enterExistingPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //closes the create screen
-            this.Close();
+            // disposes the create screen
+            Dispose();
             //creates a new instance of the existing screen from the options menu
             Options.Existing frmload = new Options.Existing();
             //displays the existing screen
@@ -143,7 +166,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void viewAllPasswordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Dispose();
             Options.ViewAll frmload = new Options.ViewAll();
             frmload.Show();
         }
@@ -157,7 +180,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void createNewPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpCreate frm = new Help.HelpCreate();
             frm.ShowDialog();
         }
@@ -169,7 +192,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void enterExistingPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpExisting frm = new Help.HelpExisting();
             frm.ShowDialog();
         }
@@ -181,7 +204,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void aboutPasswordManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpAbout frm = new Help.HelpAbout();
             frm.ShowDialog();
         }

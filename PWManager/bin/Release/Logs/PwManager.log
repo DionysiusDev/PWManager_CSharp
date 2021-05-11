@@ -1,2 +1,4 @@
 2021-05-11 23:27:11,412 DEBUG [1] Logging.Logger - Show Button Text = Show
 2021-05-11 23:27:11,999 DEBUG [1] Logging.Logger - Show Button Text = Hide
+2021-05-11 23:33:29,986 ERROR [1] Logging.Logger - [PWManager.ViewAll] [Delete Btn] Error deleting record System.NullReferenceException: Object reference not set to an instance of an object.
+   at PWManager.Options.ViewAll.DeleteBtn_Click(Object sender, EventArgs e) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\ViewAll.cs:line 75

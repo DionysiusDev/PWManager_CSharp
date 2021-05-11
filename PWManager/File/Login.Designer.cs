@@ -28,6 +28,7 @@ namespace PWManager
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.userNameLabel = new System.Windows.Forms.Label();
             this.loginBtn = new System.Windows.Forms.Button();
             this.PWManagerLabel = new System.Windows.Forms.Label();
@@ -120,12 +121,14 @@ namespace PWManager
             this.Controls.Add(this.PWManagerLabel);
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.userNameLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Login_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

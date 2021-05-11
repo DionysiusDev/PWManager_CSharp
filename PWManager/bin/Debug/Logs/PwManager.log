@@ -1,0 +1,16 @@
+2021-05-12 00:21:15,913 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
+2021-05-12 00:21:15,930 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
+2021-05-12 00:21:15,930 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
+2021-05-12 00:21:15,930 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
+2021-05-12 00:22:09,960 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
+2021-05-12 00:22:09,975 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
+2021-05-12 00:22:14,165 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
+2021-05-12 00:22:14,165 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
+2021-05-12 00:23:32,124 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
+2021-05-12 00:23:32,140 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
+2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
+2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing event close reason ApplicationExitCall
+2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
+2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing event close reason ApplicationExitCall
+2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
+2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
