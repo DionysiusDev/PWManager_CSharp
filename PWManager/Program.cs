@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,14 +15,44 @@ namespace PWManager
         [STAThread]
         static void Main()
         {
-            // add reference to pw manager model - accesses the dll / pw manager initializer class - calls create database method
-            PWManager_Model.DLL.PWManagerInitializer.CreateDatabase();
+            bool isProcessRunning = false;
+            bool isCheckedRunningProcesses = false;
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            log4net.Config.XmlConfigurator.Configure(); // initialise the logger
 
-            // Runs the login screen
-            Application.Run(new Login());
+            try
+            {
+                // string to store the process name from task manager
+                string PWManagerProcess = Process.GetCurrentProcess().ProcessName;
+
+                // checks if the current process is running already
+                if (Process.GetProcesses().Count(p => p.ProcessName == PWManagerProcess) > 1)
+                {
+                    isProcessRunning = true;
+                    return;
+                }
+                else
+                {
+                    isCheckedRunningProcesses = true;
+                }
+
+            } catch (Exception e)
+            {
+                Logging.Logger.LogError("[PWManager] [Main] Process is Running Error " + e);
+            }
+
+            // checks if processes aren't already running
+            if (!isProcessRunning && isCheckedRunningProcesses)
+            {
+                // add reference to pw manager model - accesses the dll / pw manager initializer class - calls create database method
+                PWManager_Model.DLL.PWManagerInitializer.CreateDatabase();
+
+                Application.EnableVisualStyles();
+                Application.SetCompatibleTextRenderingDefault(false);
+
+                // Runs the login screen
+                Application.Run(new Login());
+            }
         }
     }
 }

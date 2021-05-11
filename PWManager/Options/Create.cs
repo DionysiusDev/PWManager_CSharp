@@ -1,22 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using PWManager_Model.DLL;
+using Logging;
 
 namespace PWManager.Options
 {
     public partial class Create : Form
     {
+        #region Variable Declarations
         private long _lngPKID = 0;
         private DataTable _dtbPassword = null;
         bool _blnNew = false;
-        private SqlConnection sqlConnectionTool;
+        #endregion
 
         #region Constructors
         public Create()
@@ -203,55 +201,62 @@ namespace PWManager.Options
             bool hasEmail = false;
             bool hasPassword = false;
             bool hasAdditional = false;
+        
+            try
+            {
+                //verifies that the required text fields are not empty
+                if (isEmpty(wsTextBox.Text))
+                {
+                    MessageBox.Show("Please enter a website.");
+                }
+                else
+                {
+                    hasWebsite = true;
+                }
 
-            //verifies that the required text fields are not empty
-            if (isEmpty(wsTextBox.Text))
-            {
-                MessageBox.Show("Please enter a website.");
-            }
-            else
-            {
-                hasWebsite = true;
-            }
+                if (isEmpty(emTextBox.Text))
+                {
+                    MessageBox.Show("Please enter an email.");
+                }
+                else
+                {
+                    hasEmail = true;
+                }
 
-            if (isEmpty(emTextBox.Text))
-            {
-                MessageBox.Show("Please enter an email.");
-            }
-            else
-            {
-                hasEmail = true;
-            }
+                if (isEmpty(pwTextBox.Text))
+                {
+                    MessageBox.Show("Please enter a password.");
+                }
+                else
+                {
+                    hasPassword = true;
+                }
 
-            if (isEmpty(pwTextBox.Text))
-            {
-                MessageBox.Show("Please enter a password.");
-            }
-            else
-            {
-                hasPassword = true;
-            }
+                //updates the additional info text field, if it is empty
+                if (isEmpty(adTextBox.Text))
+                {
+                    //assigns the additional info value to the ad text field
+                    adTextBox.Text = "No Additional Information";
+                    //writes the text box value and updates the data binding
+                    adTextBox.DataBindings["Text"].WriteValue();
 
-            //updates the additional info text field, if it is empty
-            if (isEmpty(adTextBox.Text))
-            {
-                //assigns the additional info value to the ad text field
-                adTextBox.Text = "No Additional Information";
-                //writes the text box value and updates the data binding
-                adTextBox.DataBindings["Text"].WriteValue();
+                    MessageBox.Show("You are about to save No Additional Information.");
 
-                MessageBox.Show("You are about to save No Additional Information.");
+                    hasAdditional = true;
+                }
+                else
+                {
+                    hasAdditional = true;
+                }
 
-                hasAdditional = true;
-            }
-            else
-            {
-                hasAdditional = true;
-            }
+                if (hasWebsite && hasEmail && hasPassword && hasAdditional)
+                {
+                    CheckExistingEntries();
+                }
 
-            if (hasWebsite && hasEmail && hasPassword && hasAdditional)
+            } catch (Exception e)
             {
-                CheckExistingEntries();
+                Logger.LogError("[PWManager.Create] [Validate Data] Error validating data " + e);
             }
         }
 
@@ -260,64 +265,20 @@ namespace PWManager.Options
         /// </summary>
         private void CheckExistingEntries()
         {
-            bool doesntExist = false;
-
             //instantiates a connection string
-            string connectionString = PWManager_Model.DLL.PWManagerContext.ConnectionString =
+            string connectionString = PWManagerContext.ConnectionString =
                 Properties.Settings.Default.ConnectionString;
 
-            try
+            if (!PWManagerContext.IsEntryExists(wsTextBox.Text, pwTextBox.Text))
             {
-                //instantiates SqlConnectionTool which connects to the database via the connection string
-                sqlConnectionTool = new SqlConnection(connectionString);
-
-                //instantiates an sqlcommand to query the database
-                SqlCommand cmd = new SqlCommand("SELECT * FROM PasswordInfo WHERE Website=@Website AND Email=@Email AND AdditionalInfo=@AdditionalInfo AND Password=@Password", sqlConnectionTool);
-
-                //assigns values to the sqlcommand query
-                cmd.Parameters.AddWithValue("@Website", wsTextBox.Text);
-                cmd.Parameters.AddWithValue("@Email", emTextBox.Text);
-                cmd.Parameters.AddWithValue("@AdditionalInfo", adTextBox.Text);
-                cmd.Parameters.AddWithValue("@Password", pwTextBox.Text);
-
-                //Open connection
-                sqlConnectionTool.Open();
-
-                //instantiates an sql data adapter and adds the sql command
-                SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-
-                //instantiates a dataset
-                DataSet ds = new DataSet();
-
-                //fills the data set with the adapter / command values
-                adapt.Fill(ds);
-
-                //Close connection
-                sqlConnectionTool.Close();
-
-                //  This will count through the rows in the queried table
-                int count = ds.Tables[0].Rows.Count;
-
-                if (count == 1)
-                {
-                    //displays message to user to notify that the entry exists
-                    MessageBox.Show("The website and password already exist in the database.", 
-                        MessageBoxIcon.Warning.ToString(), MessageBoxButtons.OK);
-                }
-                else
-                {
-                    doesntExist = true;
-
-                    if (doesntExist)
-                    {
-                        //saves the data table in the database
-                        SaveData();
-                    }
-                }
+                //saves the data table in the database
+                SaveData();
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine(e.StackTrace);
+                //displays message to user to notify that the entry exists
+                MessageBox.Show("The website and password already exist in the database.",
+                    MessageBoxIcon.Warning.ToString(), MessageBoxButtons.OK);
             }
         }
 
@@ -341,16 +302,23 @@ namespace PWManager.Options
         /// </summary>
         private void SaveData()
         {
-            // display message to user to verify Insert Success
-            MessageBox.Show(wsTextBox.Text + " Record Saved.");
+            try
+            {
+                // display message to user to verify Insert Success
+                MessageBox.Show(wsTextBox.Text + " Record Saved.");
 
-            //always do the EndEdit, otherwise the data will not persist.
-            _dtbPassword.Rows[0].EndEdit();
+                //always do the EndEdit, otherwise the data will not persist.
+                _dtbPassword.Rows[0].EndEdit();
 
-            // calls the method in our Data Access Layer to save the changes to the data table
-            PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(_dtbPassword);
+                // calls the method in our Data Access Layer to save the changes to the data table
+                PWManagerContext.SaveDatabaseTable(_dtbPassword);
 
-            RefreshForm();
+                RefreshForm();
+
+            } catch (Exception e)
+            {
+                Logger.LogError("[PWManager.Create] [Save Data] Error saving data..." + e);
+            }
         }
 
         /// <summary>
@@ -358,38 +326,46 @@ namespace PWManager.Options
         /// </summary>
         private void GeneratePassword()
         {
-            //declares and assigns values to multiple strings of different characters
-            string lower = "abcdefghjkmnpqrstuvwxyz";
-            string upper = lower.ToUpper();
-            string chars = "!@#$%^&*?`~";
-            string nums = "123456789";
+            try
+            {
+                //declares and assigns values to multiple strings of different characters
+                string lower = "abcdefghjkmnpqrstuvwxyz";
+                string upper = lower.ToUpper();
+                string chars = "!@#$%^&*?`~";
+                string nums = "123456789";
 
-            //instantiates a new random for selecting random characters
-            Random randChar = new Random();
+                //instantiates a new random for selecting random characters
+                Random randChar = new Random();
 
-            //instantiates a new string to store the password value and formats the password
-            string PW = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}",
-                chars.ElementAt(randChar.Next(chars.Length)),
-                upper.ElementAt(randChar.Next(upper.Length)),
-                nums.ElementAt(randChar.Next(nums.Length)), 
-                lower.ElementAt(randChar.Next(lower.Length)),
-                nums.ElementAt(randChar.Next(nums.Length)),
-                upper.ElementAt(randChar.Next(upper.Length)),
-                chars.ElementAt(randChar.Next(chars.Length)),
-                lower.ElementAt(randChar.Next(lower.Length)),
-                chars.ElementAt(randChar.Next(chars.Length)),
-                upper.ElementAt(randChar.Next(upper.Length)),
-                nums.ElementAt(randChar.Next(nums.Length)),
-                lower.ElementAt(randChar.Next(lower.Length)),
-                nums.ElementAt(randChar.Next(nums.Length)),
-                upper.ElementAt(randChar.Next(upper.Length)),
-                chars.ElementAt(randChar.Next(chars.Length)),
-                lower.ElementAt(randChar.Next(lower.Length)));
+                //instantiates a new string to store the password value and formats the password
+                string PW = string.Format("{0}{1}{2}{3}{4}{5}{6}{7}{8}{9}{10}{11}{12}{13}{14}{15}",
+                    chars.ElementAt(randChar.Next(chars.Length)),
+                    upper.ElementAt(randChar.Next(upper.Length)),
+                    nums.ElementAt(randChar.Next(nums.Length)),
+                    lower.ElementAt(randChar.Next(lower.Length)),
+                    nums.ElementAt(randChar.Next(nums.Length)),
+                    upper.ElementAt(randChar.Next(upper.Length)),
+                    chars.ElementAt(randChar.Next(chars.Length)),
+                    lower.ElementAt(randChar.Next(lower.Length)),
+                    chars.ElementAt(randChar.Next(chars.Length)),
+                    upper.ElementAt(randChar.Next(upper.Length)),
+                    nums.ElementAt(randChar.Next(nums.Length)),
+                    lower.ElementAt(randChar.Next(lower.Length)),
+                    nums.ElementAt(randChar.Next(nums.Length)),
+                    upper.ElementAt(randChar.Next(upper.Length)),
+                    chars.ElementAt(randChar.Next(chars.Length)),
+                    lower.ElementAt(randChar.Next(lower.Length)));
 
-            //assigns the password value to the pw text field
-            pwTextBox.Text = PW;
-            //writes the text box value and updates the data binding
-            pwTextBox.DataBindings["Text"].WriteValue();
+                //assigns the password value to the pw text field
+                pwTextBox.Text = PW;
+                //writes the text box value and updates the data binding
+                pwTextBox.DataBindings["Text"].WriteValue();
+
+            } catch(Exception e)
+            {
+                Logger.LogError("[PWManager.Create] [Generate Password] Error generating password " + e);
+            }
+            
         }
 
         #region Helper Methods
@@ -398,8 +374,8 @@ namespace PWManager.Options
         /// </summary>
         private void BindControls()
         {
-            // Binding the text box with the data table '_dtbPassword'
-            //  map it to the database entity called 'PwId'
+            // Binds text boxes with the data table '_dtbPassword'
+            //  maps each text box to their related database entity e.g. 'Website'
             //      uses the 'Text' property of the control for binding.
             wsTextBox.DataBindings.Add("Text", _dtbPassword, "Website");
             emTextBox.DataBindings.Add("Text", _dtbPassword, "Email");

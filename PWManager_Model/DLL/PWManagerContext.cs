@@ -15,7 +15,7 @@ namespace PWManager_Model.DLL
 
         public static string ConnectionString { get; set; }
 
-        //add reference to pw manager db connection - add using PWManager_DBConnection to access sql class
+        //add reference to sql class
         private static SQL _sql = new SQL();
 
         #endregion
@@ -37,6 +37,18 @@ namespace PWManager_Model.DLL
         #endregion
 
         #region Mutators
+
+        public static bool IsLoginVerified(string strUserName, string strPassword)
+        {
+            _sql.ConnectionString = ConnectionString;
+            return _sql.IsLoginVerified(strUserName, strPassword);
+        }
+
+        public static bool IsEntryExists(string strWebsite, string strPassword)
+        {
+            _sql.ConnectionString = ConnectionString;
+            return _sql.IsEntryExists(strWebsite, strPassword);
+        }
 
         // using non-Hungarian notation for variables
         public static void SaveDatabaseTable(DataTable Table)

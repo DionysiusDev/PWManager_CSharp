@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logging;
 
 namespace PWManager.Details
 {
@@ -132,54 +133,60 @@ namespace PWManager.Details
             bool hasPassword = false;
             bool hasAdditional = false;
 
-            //verifies that the required text fields are not empty
-            if (isEmpty(wsTextBox.Text))
+            try
             {
-                MessageBox.Show("Please enter a website.");
-            }
-            else
-            {
-                hasWebsite = true;
-            }
+                //verifies that the required text fields are not empty
+                if (isEmpty(wsTextBox.Text))
+                {
+                    MessageBox.Show("Please enter a website.");
+                }
+                else
+                {
+                    hasWebsite = true;
+                }
 
-            if (isEmpty(emTextBox.Text))
-            {
-                MessageBox.Show("Please enter an email.");
-            }
-            else
-            {
-                hasEmail = true;
-            }
+                if (isEmpty(emTextBox.Text))
+                {
+                    MessageBox.Show("Please enter an email.");
+                }
+                else
+                {
+                    hasEmail = true;
+                }
 
-            if (isEmpty(pwTextBox.Text))
-            {
-                MessageBox.Show("Please enter a password.");
-            }
-            else
-            {
-                hasPassword = true;
-            }
+                if (isEmpty(pwTextBox.Text))
+                {
+                    MessageBox.Show("Please enter a password.");
+                }
+                else
+                {
+                    hasPassword = true;
+                }
 
-            //updates the additional info text field, if it is empty
-            if (isEmpty(adTextBox.Text))
-            {
-                //assigns the additional info value to the ad text field
-                adTextBox.Text = "No Additional Information";
-                //writes the text box value and updates the data binding
-                adTextBox.DataBindings["Text"].WriteValue();
+                //updates the additional info text field, if it is empty
+                if (isEmpty(adTextBox.Text))
+                {
+                    //assigns the additional info value to the ad text field
+                    adTextBox.Text = "No Additional Information";
+                    //writes the text box value and updates the data binding
+                    adTextBox.DataBindings["Text"].WriteValue();
 
-                MessageBox.Show("You are about to save No Additional Information.");
+                    MessageBox.Show("You are about to save No Additional Information.");
 
-                hasAdditional = true;
-            }
-            else
-            {
-                hasAdditional = true;
-            }
+                    hasAdditional = true;
+                }
+                else
+                {
+                    hasAdditional = true;
+                }
 
-            if (hasWebsite && hasEmail && hasPassword && hasAdditional)
+                if (hasWebsite && hasEmail && hasPassword && hasAdditional)
+                {
+                    SaveData();
+                }
+            } catch(Exception e)
             {
-                SaveData();
+                Logger.LogError("[PWManager.Details] [Validate Data] Error validating data " + e);
             }
         }
 
@@ -203,20 +210,34 @@ namespace PWManager.Details
         /// </summary>
         private void SaveData()
         {
-            //writes the text box value and updates the data binding
-            wsTextBox.DataBindings["Text"].WriteValue();
-            emTextBox.DataBindings["Text"].WriteValue();
-            adTextBox.DataBindings["Text"].WriteValue();
-            pwTextBox.DataBindings["Text"].WriteValue();
+            try
+            {
+                //writes the text box value and updates the data binding
+                wsTextBox.DataBindings["Text"].WriteValue();
+                emTextBox.DataBindings["Text"].WriteValue();
+                adTextBox.DataBindings["Text"].WriteValue();
+                pwTextBox.DataBindings["Text"].WriteValue();
 
-            // display message to user to verify Insert Success
-            MessageBox.Show(wsTextBox.Text + " Record Saved.");
+            }catch(Exception e)
+            {
+                Logger.LogError("[PWManager.Details] [Save Data] Error writing values for data bindings " + e);
+            }
 
-            //always do the EndEdit, otherwise the data will not persist.
-            _dtbPassword.Rows[0].EndEdit();
+            try
+            {
+                // display message to user to verify Insert Success
+                MessageBox.Show(wsTextBox.Text + " Record Saved.");
 
-            // calls the method in our Data Access Layer to save the changes to the data table
-            PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(_dtbPassword);
+                //always do the EndEdit, otherwise the data will not persist.
+                _dtbPassword.Rows[0].EndEdit();
+
+                // calls the method in our Data Access Layer to save the changes to the data table
+                PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(_dtbPassword);
+            }
+            catch(Exception e)
+            {
+                Logger.LogError("[PWManager.Details] [Save Data] Error saving record " + e);
+            }
         }
 
         #region Helper Methods
