@@ -34,6 +34,7 @@ namespace PWManager
             this.userNameTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
+            this.ShowBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userNameLabel
@@ -83,6 +84,7 @@ namespace PWManager
             this.passwordTextBox.Name = "passwordTextBox";
             this.passwordTextBox.Size = new System.Drawing.Size(243, 22);
             this.passwordTextBox.TabIndex = 5;
+            this.passwordTextBox.UseSystemPasswordChar = true;
             // 
             // passwordLabel
             // 
@@ -94,11 +96,24 @@ namespace PWManager
             this.passwordLabel.TabIndex = 6;
             this.passwordLabel.Text = "Enter Password";
             // 
+            // ShowBtn
+            // 
+            this.ShowBtn.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ShowBtn.Location = new System.Drawing.Point(467, 192);
+            this.ShowBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.ShowBtn.Name = "ShowBtn";
+            this.ShowBtn.Size = new System.Drawing.Size(65, 33);
+            this.ShowBtn.TabIndex = 8;
+            this.ShowBtn.Text = "Show";
+            this.ShowBtn.UseVisualStyleBackColor = true;
+            this.ShowBtn.Click += new System.EventHandler(this.ShowBtn_Click_1);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 359);
+            this.Controls.Add(this.ShowBtn);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.passwordTextBox);
             this.Controls.Add(this.userNameTextBox);
@@ -106,6 +121,8 @@ namespace PWManager
             this.Controls.Add(this.loginBtn);
             this.Controls.Add(this.userNameLabel);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Login";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
@@ -121,6 +138,7 @@ namespace PWManager
         private System.Windows.Forms.TextBox userNameTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label passwordLabel;
+        private System.Windows.Forms.Button ShowBtn;
     }
 }
 

@@ -170,6 +170,8 @@
             this.Controls.Add(this.emailLbl);
             this.Controls.Add(this.wsTextBox);
             this.Controls.Add(this.websiteLbl);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Details";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Details";

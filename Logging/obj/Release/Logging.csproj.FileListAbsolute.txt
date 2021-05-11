@@ -1,0 +1,9 @@
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\bin\Release\Logging.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\bin\Release\Logging.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\bin\Release\log4net.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\bin\Release\log4net.xml
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\obj\Release\Logging.csprojAssemblyReference.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\obj\Release\Logging.csproj.CoreCompileInputs.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\obj\Release\Logging.csproj.CopyComplete
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\obj\Release\Logging.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\obj\Release\Logging.pdb

@@ -107,6 +107,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
@@ -320,6 +321,8 @@
             this.Controls.Add(this.adLbl);
             this.Controls.Add(this.emLbl);
             this.Controls.Add(this.wsLbl);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HelpExisting";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "How to Enter Existing Password";

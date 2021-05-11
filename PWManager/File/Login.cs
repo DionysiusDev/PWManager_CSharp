@@ -12,8 +12,24 @@ namespace PWManager
         {
             InitializeComponent();
 
+            passwordTextBox.UseSystemPasswordChar = true;
+
             userNameTextBox.Text = "DionysiusDev";
             passwordTextBox.Text = "1P2u3$3$4y5L6i7c8k9e0r";
+        }
+
+        private void ShowBtn_Click_1(object sender, EventArgs e)
+        {
+            if (ShowBtn.Text == "Show")
+            {
+                passwordTextBox.UseSystemPasswordChar = false;
+                ShowBtn.Text = "Hide";
+            }
+            else
+            {
+                passwordTextBox.UseSystemPasswordChar = true;
+                ShowBtn.Text = "Show";
+            }
         }
 
         private void loginBtn_Click(object sender, EventArgs e)

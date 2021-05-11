@@ -114,6 +114,8 @@
             this.Controls.Add(this.copyrLbl);
             this.Controls.Add(this.versionLbl);
             this.Controls.Add(this.headerLbl);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HelpAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About Password Manager";
