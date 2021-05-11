@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Logging;
 
 namespace PWManager_DBConnection
 {
@@ -51,7 +52,7 @@ namespace PWManager_DBConnection
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Alter Database Table] Error Altering Data Table " + e);
             }
         }
 
@@ -82,7 +83,7 @@ namespace PWManager_DBConnection
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Create Database] Error Creating Database " + e);
             }
         }
 
@@ -118,7 +119,7 @@ namespace PWManager_DBConnection
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Create Database Table] Error Creating Database Table " + e);
             }
         }
 
@@ -152,7 +153,7 @@ namespace PWManager_DBConnection
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Insert Parent Record] Error Inserting Record " + e);
             }
 
             return Id;
@@ -189,7 +190,7 @@ namespace PWManager_DBConnection
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Insert Record] Error Inserting Record " + e);
             }
 
             return Id;
@@ -221,7 +222,7 @@ namespace PWManager_DBConnection
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table " + e);
                 throw;
 
             }
@@ -259,7 +260,7 @@ namespace PWManager_DBConnection
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Update Record] Error Updating Record " + e);
                 IsOK = false;
             }
 
@@ -294,7 +295,7 @@ namespace PWManager_DBConnection
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record " + e);
             }
 
             return Id;
@@ -333,7 +334,7 @@ namespace PWManager_DBConnection
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Get Data Table] Error getting Data Table " + e);
             }
 
             return Table;
@@ -371,7 +372,7 @@ namespace PWManager_DBConnection
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Get Data Table] Error Getting Read Only Data Table " + e);
             }
 
             return Table;
@@ -406,7 +407,7 @@ namespace PWManager_DBConnection
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Get Data Table] Error Getting Data Table " + e);
             }
 
             return Table;
@@ -445,7 +446,7 @@ namespace PWManager_DBConnection
             }
             catch (SqlException e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Get Data Table] Error Getting Read Only Data Table " + e);
             }
 
             return Table;
@@ -455,6 +456,92 @@ namespace PWManager_DBConnection
 
         #region Helper Methods
 
+        public bool IsLoginVerified(string strUserName, string strPassword)
+        {
+            Logger.LogInfo("Logger is running from SQL class...");
+
+            try
+            {
+                string sqlQuery = $"Select * from Login " +
+                                    $"WHERE UserName='{strUserName}' " +
+                                    $"AND Password='{strPassword}'";
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(sqlQuery, conn))
+                    {
+                        if (conn.State == ConnectionState.Closed) conn.Open();
+
+                        //  start the transaction immediately after opening the connection
+                        SqlTransaction loginTransaction = conn.BeginTransaction();
+
+                        // link the transaction to the sql command
+                        command.Transaction = loginTransaction;
+
+                        SqlDataAdapter dataAdapter = new SqlDataAdapter(command);
+                        DataSet loginDataSet = new DataSet();
+
+                        dataAdapter.Fill(loginDataSet);
+
+                        int count = loginDataSet.Tables[0].Rows.Count;
+
+                        // executes query in order to process the roll back
+                        if (count == 1)
+                        {
+                            // commits the transaction
+                            loginTransaction.Commit();
+
+                            conn.Close();
+
+                            return true;
+                        }
+                        else
+                        {
+                            try
+                            {
+                                // roll back the login transaction
+                                loginTransaction.Rollback();
+                            }
+                            catch (Exception rollbackEx)
+                            {
+                                Logger.LogError("[PWManager_DBConnection] [SQL] [Is Login Verified] Error Rolling Back Transaction " + rollbackEx);
+                                conn.Close();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Is Login Verified] Error connecting to Database " + e);
+            }
+            return false;
+        }
+
+        public bool IsEntryExists(string strWebsite, string strPassword)
+        {
+            string sqlQuery = $"SELECT * FROM PasswordInfo WHERE Website='{strWebsite}' AND Password='{strPassword}'";
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(sqlQuery, conn))
+                    {
+                        if (conn.State == ConnectionState.Closed) conn.Open();
+                        object objResult = command.ExecuteScalar();
+                        conn.Close();
+                        return (objResult != null);
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Is Entry Exists] Error connecting to Database " + e);
+            }
+            return false;
+        }
+        
         public bool IsDatabaseExists(string strServerName, string strDatabaseName)
         {
             ConnectionString = $"Data source={strServerName}; " +
@@ -477,7 +564,7 @@ namespace PWManager_DBConnection
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Is Database Exists] Error connecting to Database " + e);
             }
 
             return true;
@@ -490,12 +577,12 @@ namespace PWManager_DBConnection
         /// <param name="DatabaseName">Source Database Name</param>
         /// <param name="TableName">Table Name to check</param>
         /// <returns>bool</returns>
-        public bool IsDatabaseTableExists(string ServerName, string DatabaseName, string TableName)
+        public bool IsDatabaseTableExists(string strServerName, string strDatabaseName, string TableName)
         {
             bool IsExists = false;
 
             ConnectionString =
-                $"Data Source={ServerName}; Initial Catalog={DatabaseName}; Integrated Security=True";
+                $"Data Source={strServerName}; Initial Catalog={strDatabaseName}; Integrated Security=True";
             try
             {
                 using (SqlConnection conn = new SqlConnection(ConnectionString))
@@ -510,7 +597,7 @@ namespace PWManager_DBConnection
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.ToString());
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Is Database Table Exists] Error connecting to Database " + e);
                 IsExists = false;
             }
 

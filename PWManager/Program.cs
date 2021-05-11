@@ -20,6 +20,8 @@ namespace PWManager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            log4net.Config.XmlConfigurator.Configure(); // initialise the logger
+
             // Runs the login screen
             Application.Run(new Login());
         }

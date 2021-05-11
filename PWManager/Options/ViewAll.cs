@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using PWManager_Model.DLL;
+using System;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logging;
 
 namespace PWManager.Options
 {
@@ -48,13 +44,45 @@ namespace PWManager.Options
         {
             if (dgvPassword.CurrentCell == null) return;
 
-            long PKID = long.Parse(dgvPassword[0, dgvPassword.CurrentCell.RowIndex].Value.ToString());
+            try
+            {
+                long PKID = long.Parse(dgvPassword[0, dgvPassword.CurrentCell.RowIndex].Value.ToString());
 
-            //closes this view all form instance
-            Close();
-            //creates a new details form instance and passes the pkid as args
-            Details.Details frm = new Details.Details(PKID);
-            frm.Show();
+                //closes this view all form instance
+                Close();
+                //creates a new details form instance and passes the pkid as args
+                Details.Details frm = new Details.Details(PKID);
+                frm.Show();
+            }
+            catch(Exception ex)
+            {
+                Logger.LogError("[PWManager.ViewAll] [dgvPassword_CellDoubleClick] Error displaying record " + ex);
+            }
+        }
+
+        /// <summary>
+        /// handles user interaction with clicking the delete button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (MessageBox.Show("Are you sure you want to delete the selected record?", "Delete Website",
+                    MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    long PKID = long.Parse(dgvPassword[0, dgvPassword.CurrentCell.RowIndex].Value.ToString());
+
+                    //Use the DeleteRecord method
+                    PWManagerContext.DeleteRecord("PasswordInfo", "PwId", PKID.ToString());
+                    PopulateGrid();
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("[PWManager.ViewAll] [Delete Btn] Error deleting record " + ex);
+            }
         }
 
         #region File Menu

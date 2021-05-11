@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
+﻿using PWManager_Model.DLL;
+using System;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using Logging;
 
 namespace PWManager.Options
 {
     public partial class Existing : Form
     {
+        #region Variable Declarations
         private long _lngPKID = 0;
         private DataTable _dtbPassword = null;
         bool _blnNew = false;
         private SqlConnection sqlConnectionTool;
+        #endregion
 
         #region Constructors
         public Existing()
@@ -192,55 +190,62 @@ namespace PWManager.Options
             bool hasPassword = false;
             bool hasAdditional = false;
 
-            //verifies that the required text fields are not empty
-            if (isEmpty(wsTextBox.Text))
+            try
             {
-                MessageBox.Show("Please enter a website.");
-            }
-            else
-            {
-                hasWebsite = true;
-            }
+                //verifies that the required text fields are not empty
+                if (isEmpty(wsTextBox.Text))
+                {
+                    MessageBox.Show("Please enter a website.");
+                }
+                else
+                {
+                    hasWebsite = true;
+                }
 
-            if (isEmpty(emTextBox.Text))
-            {
-                MessageBox.Show("Please enter an email.");
-            }
-            else
-            {
-                hasEmail = true;
-            }
+                if (isEmpty(emTextBox.Text))
+                {
+                    MessageBox.Show("Please enter an email.");
+                }
+                else
+                {
+                    hasEmail = true;
+                }
 
-            if (isEmpty(pwTextBox.Text))
-            {
-                MessageBox.Show("Please enter a password.");
-            }
-            else
-            {
-                hasPassword = true;
-            }
+                if (isEmpty(pwTextBox.Text))
+                {
+                    MessageBox.Show("Please enter a password.");
+                }
+                else
+                {
+                    hasPassword = true;
+                }
 
-            //updates the additional info text field, if it is empty
-            if (isEmpty(adTextBox.Text))
-            {
-                //assigns the additional info value to the ad text field
-                adTextBox.Text = "No Additional Information";
-                //writes the text box value and updates the data binding
-                adTextBox.DataBindings["Text"].WriteValue();
+                //updates the additional info text field, if it is empty
+                if (isEmpty(adTextBox.Text))
+                {
+                    //assigns the additional info value to the ad text field
+                    adTextBox.Text = "No Additional Information";
+                    //writes the text box value and updates the data binding
+                    adTextBox.DataBindings["Text"].WriteValue();
 
-                MessageBox.Show("You are about to save No Additional Information.");
+                    MessageBox.Show("You are about to save No Additional Information.");
 
-                hasAdditional = true;
+                    hasAdditional = true;
+                }
+                else
+                {
+                    hasAdditional = true;
+                }
+
+                //if all text fields contain text check for existing entries in the database
+                if (hasWebsite && hasEmail && hasPassword && hasAdditional)
+                {
+                    CheckExistingEntries();
+                }
             }
-            else
+            catch(Exception e)
             {
-                hasAdditional = true;
-            }
-
-            //if all text fields contain text check for existing entries in the database
-            if(hasWebsite && hasEmail && hasPassword && hasAdditional)
-            {
-                CheckExistingEntries();
+                Logger.LogError("[PWManager.Existing] [Validate Data] Error validating data " + e);
             }
         }
 
@@ -250,56 +255,19 @@ namespace PWManager.Options
         private void CheckExistingEntries()
         {
             //instantiates a connection string
-            string connectionString = PWManager_Model.DLL.PWManagerContext.ConnectionString =
+            string connectionString = PWManagerContext.ConnectionString =
                 Properties.Settings.Default.ConnectionString;
 
-            try
+            if (!PWManagerContext.IsEntryExists(wsTextBox.Text, pwTextBox.Text))
             {
-                //instantiates SqlConnectionTool which connects to the database via the connection string
-                sqlConnectionTool = new SqlConnection(connectionString);
-
-                //instantiates an sqlcommand to query the database
-                SqlCommand cmd = new SqlCommand("SELECT * FROM PasswordInfo WHERE Website=@Website AND Email=@Email AND AdditionalInfo=@AdditionalInfo AND Password=@Password", sqlConnectionTool);
-
-                //assigns values to the sqlcommand query
-                cmd.Parameters.AddWithValue("@Website", wsTextBox.Text);
-                cmd.Parameters.AddWithValue("@Email", emTextBox.Text);
-                cmd.Parameters.AddWithValue("@AdditionalInfo", adTextBox.Text);
-                cmd.Parameters.AddWithValue("@Password", pwTextBox.Text);
-
-                //Open connection
-                sqlConnectionTool.Open();
-
-                //instantiates an sql data adapter and adds the sql command
-                SqlDataAdapter adapt = new SqlDataAdapter(cmd);
-
-                //instantiates a dataset
-                DataSet ds = new DataSet();
-
-                //fills the data set with the adapter / command values
-                adapt.Fill(ds);
-
-                //Close connection
-                sqlConnectionTool.Close();
-
-                //  This will count through the rows in the queried table
-                int count = ds.Tables[0].Rows.Count;
-
-                if (count == 1)
-                {
-                    //displays message to user to notify that the entry exists
-                    MessageBox.Show("The website and password already exists in the database.",
-                        MessageBoxIcon.Warning.ToString(), MessageBoxButtons.OK);
-                }
-                else
-                {
-                    //saves the data table in the database
-                    SaveData();
-                }
+                //saves the data table in the database
+                SaveData();
             }
-            catch (Exception e)
+            else
             {
-                Console.WriteLine("Check Existing Ex: " + e.ToString());
+                //displays message to user to notify that the entry exists
+                MessageBox.Show("The website and password already exist in the database.",
+                    MessageBoxIcon.Warning.ToString(), MessageBoxButtons.OK);
             }
         }
 
@@ -332,13 +300,13 @@ namespace PWManager.Options
                 _dtbPassword.Rows[0].EndEdit();
 
                 // calls the method in our Data Access Layer to save the changes to the data table
-                PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(_dtbPassword);
+                PWManagerContext.SaveDatabaseTable(_dtbPassword);
 
                 RefreshForm();
             }
             catch (Exception e)
             {
-                Console.WriteLine("Save Data Ex: " + e.ToString());
+                Logger.LogError("[PWManager.Existing] [Save Data] Error Saving Data " + e);
             }
         }
 
