@@ -273,7 +273,7 @@ namespace PWManager.Details
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
             // shutsdown the application when the user clicks the close button
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing && !IsDisposed)
             {
                 switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {

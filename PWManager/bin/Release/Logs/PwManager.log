@@ -2,3 +2,7 @@
 2021-05-11 23:27:11,999 DEBUG [1] Logging.Logger - Show Button Text = Hide
 2021-05-11 23:33:29,986 ERROR [1] Logging.Logger - [PWManager.ViewAll] [Delete Btn] Error deleting record System.NullReferenceException: Object reference not set to an instance of an object.
    at PWManager.Options.ViewAll.DeleteBtn_Click(Object sender, EventArgs e) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\ViewAll.cs:line 75
+2021-05-12 16:47:33,162 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
+   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
+2021-05-12 16:47:37,469 ERROR [1] Logging.Logger - [PWManager.ViewAll] [Delete Btn] Error deleting record System.NullReferenceException: Object reference not set to an instance of an object.
+   at PWManager.Options.ViewAll.DeleteBtn_Click(Object sender, EventArgs e) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\ViewAll.cs:line 99

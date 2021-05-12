@@ -58,23 +58,13 @@ namespace PWManager.Options
             BindControls();
         }
 
-        /// <summary>
-        /// this method will show a new existing form and close the current instance.
-        /// </summary>
-        private void RefreshForm()
-        {
-            Existing frm = new Existing();
-            frm.Show();
-            this.Close();
-        }
-
         private void Existing_FormClosing(object sender, FormClosingEventArgs e)
         {
             // shutdowns the application if windows is shutting down
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
             // shutsdown the application when the user clicks the close button
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing && !IsDisposed)
             {
                 switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
@@ -305,8 +295,26 @@ namespace PWManager.Options
 
             return false;
         }
-    
+
         #endregion
+
+        /// <summary>
+        /// this method resets the form controls and re-binds to the data table after it has been updated.
+        /// </summary>
+        private void Reset()
+        {
+            // clears the bindings
+            ClearBindings();
+
+            // sets the data table to null
+            _dtbPassword = null;
+
+            // gets the data table after it has been edited
+            InitializeDataTable();
+
+            // re-binds the controls
+            BindControls();
+        }
 
         /// <summary>
         /// saves the data from the text fields to the data table.
@@ -324,7 +332,7 @@ namespace PWManager.Options
                 // calls the method in our Data Access Layer to save the changes to the data table
                 PWManagerContext.SaveDatabaseTable(_dtbPassword);
 
-                RefreshForm();
+                Reset();
             }
             catch (Exception e)
             {
@@ -345,6 +353,17 @@ namespace PWManager.Options
             emTextBox.DataBindings.Add("Text", _dtbPassword, "Email");
             adTextBox.DataBindings.Add("Text", _dtbPassword, "AdditionalInfo");
             pwTextBox.DataBindings.Add("Text", _dtbPassword, "Password");
+        }
+
+        /// <summary>
+        /// this method clears bindings
+        /// </summary>
+        private void ClearBindings()
+        {
+            wsTextBox.DataBindings.Clear();
+            emTextBox.DataBindings.Clear();
+            adTextBox.DataBindings.Clear();
+            pwTextBox.DataBindings.Clear();
         }
         #endregion
     }

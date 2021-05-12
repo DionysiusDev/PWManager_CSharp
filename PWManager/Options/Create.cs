@@ -40,7 +40,7 @@ namespace PWManager.Options
         private void InitializeDataTable()
         {
             // Get an existing password for Update
-            _dtbPassword = PWManager_Model.DLL.PWManagerContext.GetDataTable(
+            _dtbPassword = PWManagerContext.GetDataTable(
             $"SELECT * FROM PasswordInfo WHERE PwId = {_lngPKID}", "PasswordInfo");
 
             // Create an empty row of password info
@@ -60,23 +60,13 @@ namespace PWManager.Options
             BindControls();
         }
 
-        /// <summary>
-        /// this method will show a new create form and close the current instance.
-        /// </summary>
-        private void RefreshForm()
-        {
-            Create frm = new Create();
-            frm.Show();
-            Close();
-        }
-
         private void Create_FormClosing(object sender, FormClosingEventArgs e)
         {
             // shutdowns the application if windows is shutting down
             if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
             // shutsdown the application when the user clicks the close button
-            if (e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing && !IsDisposed)
             {
                 switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
@@ -224,7 +214,7 @@ namespace PWManager.Options
             bool hasEmail = false;
             bool hasPassword = false;
             bool hasAdditional = false;
-        
+
             try
             {
                 //verifies that the required text fields are not empty
@@ -248,7 +238,7 @@ namespace PWManager.Options
 
                 if (isEmpty(pwTextBox.Text))
                 {
-                    MessageBox.Show("Please enter a password.");
+                    MessageBox.Show("Please generate a password.");
                 }
                 else
                 {
@@ -258,13 +248,10 @@ namespace PWManager.Options
                 //updates the additional info text field, if it is empty
                 if (isEmpty(adTextBox.Text))
                 {
-                    //assigns the additional info value to the ad text field
                     adTextBox.Text = "No Additional Information";
-                    //writes the text box value and updates the data binding
                     adTextBox.DataBindings["Text"].WriteValue();
 
                     MessageBox.Show("You are about to save No Additional Information.");
-
                     hasAdditional = true;
                 }
                 else
@@ -276,7 +263,6 @@ namespace PWManager.Options
                 {
                     CheckExistingEntries();
                 }
-
             } catch (Exception e)
             {
                 Logger.LogError("[PWManager.Create] [Validate Data] Error validating data " + e);
@@ -321,6 +307,24 @@ namespace PWManager.Options
         #endregion
 
         /// <summary>
+        /// this method resets the form controls and re-binds to the data table after it has been updated.
+        /// </summary>
+        private void Reset()
+        {
+            // clears the bindings
+            ClearBindings();
+
+            // sets the data table to null
+            _dtbPassword = null;
+
+            // gets the data table after it has been edited
+            InitializeDataTable();
+
+            // re-binds the controls
+            BindControls();
+        }
+
+        /// <summary>
         /// saves the data from the text fields to the data table.
         /// </summary>
         private void SaveData()
@@ -336,7 +340,7 @@ namespace PWManager.Options
                 // calls the method in our Data Access Layer to save the changes to the data table
                 PWManagerContext.SaveDatabaseTable(_dtbPassword);
 
-                RefreshForm();
+                Reset();
 
             } catch (Exception e)
             {
@@ -381,7 +385,6 @@ namespace PWManager.Options
 
                 //assigns the password value to the pw text field
                 pwTextBox.Text = PW;
-                //writes the text box value and updates the data binding
                 pwTextBox.DataBindings["Text"].WriteValue();
 
             } catch(Exception e)
@@ -404,6 +407,17 @@ namespace PWManager.Options
             emTextBox.DataBindings.Add("Text", _dtbPassword, "Email");
             adTextBox.DataBindings.Add("Text", _dtbPassword, "AdditionalInfo");
             pwTextBox.DataBindings.Add("Text", _dtbPassword, "Password");
+        }
+
+        /// <summary>
+        /// this method clears bindings
+        /// </summary>
+        private void ClearBindings()
+        {
+            wsTextBox.DataBindings.Clear();
+            emTextBox.DataBindings.Clear();
+            adTextBox.DataBindings.Clear();
+            pwTextBox.DataBindings.Clear();
         }
         #endregion
     }
