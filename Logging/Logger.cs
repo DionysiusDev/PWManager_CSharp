@@ -12,7 +12,6 @@ namespace Logging
         {
             log4net.ILog _Logger = log4net.LogManager.GetLogger(
             System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
             _Logger.Debug(debugMessage);
         }
 
@@ -20,7 +19,6 @@ namespace Logging
         {
             log4net.ILog _Logger = log4net.LogManager.GetLogger(
             System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
             _Logger.Info(infoMessage);
         }
 
@@ -28,7 +26,6 @@ namespace Logging
         {
             log4net.ILog _Logger = log4net.LogManager.GetLogger(
             System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
-
             _Logger.Error(errorMessage);
         }
     }

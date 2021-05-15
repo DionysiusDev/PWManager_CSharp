@@ -101,6 +101,7 @@ E:\My_Dev_Programs\02-CSharp\PWManager\Main3\PWManager_CSharp\PWManager\obj\Debu
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\bin\Debug\PWManager.exe.config
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\bin\Debug\PWManager.exe
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\bin\Debug\PWManager.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\bin\Debug\BouncyCastle.Crypto.dll
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\bin\Debug\log4net.dll
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\bin\Debug\Logging.dll
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\bin\Debug\PWManager_Model.dll
@@ -113,6 +114,7 @@ E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\obj\Debu
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\obj\Debug\PWManager.Details.Details.resources
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\obj\Debug\PWManager.Home.Home.resources
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\obj\Debug\PWManager.Login.resources
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\obj\Debug\PWManager.File.NewUser.resources
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\obj\Debug\PWManager.Help.HelpAbout.resources
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\obj\Debug\PWManager.Help.HelpCreate.resources
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\obj\Debug\PWManager.Help.HelpExisting.resources

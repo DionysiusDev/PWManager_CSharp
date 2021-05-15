@@ -36,6 +36,7 @@ namespace PWManager
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.passwordLabel = new System.Windows.Forms.Label();
             this.ShowBtn = new System.Windows.Forms.Button();
+            this.createBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // userNameLabel
@@ -51,7 +52,7 @@ namespace PWManager
             // loginBtn
             // 
             this.loginBtn.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.loginBtn.Location = new System.Drawing.Point(217, 241);
+            this.loginBtn.Location = new System.Drawing.Point(217, 244);
             this.loginBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.loginBtn.Name = "loginBtn";
             this.loginBtn.Size = new System.Drawing.Size(244, 50);
@@ -109,11 +110,24 @@ namespace PWManager
             this.ShowBtn.UseVisualStyleBackColor = true;
             this.ShowBtn.Click += new System.EventHandler(this.ShowBtn_Click_1);
             // 
+            // createBtn
+            // 
+            this.createBtn.Font = new System.Drawing.Font("Impact", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.createBtn.Location = new System.Drawing.Point(216, 298);
+            this.createBtn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.createBtn.Name = "createBtn";
+            this.createBtn.Size = new System.Drawing.Size(244, 50);
+            this.createBtn.TabIndex = 9;
+            this.createBtn.Text = "Create Account";
+            this.createBtn.UseVisualStyleBackColor = true;
+            this.createBtn.Click += new System.EventHandler(this.createBtn_Click);
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(711, 359);
+            this.Controls.Add(this.createBtn);
             this.Controls.Add(this.ShowBtn);
             this.Controls.Add(this.passwordLabel);
             this.Controls.Add(this.passwordTextBox);
@@ -142,6 +156,7 @@ namespace PWManager
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Label passwordLabel;
         private System.Windows.Forms.Button ShowBtn;
+        private System.Windows.Forms.Button createBtn;
     }
 }
 

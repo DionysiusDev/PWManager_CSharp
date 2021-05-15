@@ -1,8 +1,7 @@
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace PWManager
@@ -44,7 +43,7 @@ namespace PWManager
             // checks if processes aren't already running
             if (!isProcessRunning && isCheckedRunningProcesses)
             {
-                // add reference to pw manager model - accesses the dll / pw manager initializer class - calls create database method
+                // initializes the database
                 PWManager_Model.DLL.PWManagerInitializer.CreateDatabase();
 
                 Application.EnableVisualStyles();

@@ -1,9 +1,7 @@
 ﻿using PWManager_DBConnection;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
+using Logging;
 
 namespace PWManager_Model.DLL
 {
@@ -24,91 +22,66 @@ namespace PWManager_Model.DLL
             // Create the Database at the provided server name
             _sql.CreateDatabase($"{_ServerName}", $"{_DatabaseName}");
 
-            //calls the create database tables method
-            CreateDatabaseTables();
-
-            //generates test data for the database tables
-            //SeedDatabaseTables();
+            // creates the login table
+            CreateLoginTable();
         }
 
         /// <summary>
-        /// This method will create the database tables required on SQL server
+        /// This method will create the login database table required on SQL server
         /// </summary>
-        private static void CreateDatabaseTables()
+        public static void CreateLoginTable()
         {
             string connectionString = $"Data Source={_ServerName}; Initial Catalog={_DatabaseName}; Integrated Security=True";
 
+            string _TableName = "Login";
+
             // Create Login table structure
-            string LoginDataStructure = " AdminId int IDENTITY(1,1) PRIMARY KEY, UserName NVARCHAR(50) NOT NULL," +
-                                        " Password NVARCHAR(MAX) NOT NULL ";
+            string LoginDataStructure = " UserId int IDENTITY(1,1) PRIMARY KEY, UserName NVARCHAR(50) NOT NULL," +
+                                        " Password NVARCHAR(MAX) NOT NULL";
 
             //checks if the Login table doesn't already exist
-            if (!_sql.IsDatabaseTableExists(_ServerName, _DatabaseName, "Login"))
+            if (!_sql.IsDatabaseTableExists(_ServerName, _DatabaseName, _TableName))
             {
                 //creates the Login table with the LoginDataStructure
-                _sql.CreateDatabaseTable(_ServerName, _DatabaseName, "Login", LoginDataStructure);
+                _sql.CreateDatabaseTable(_ServerName, _DatabaseName, _TableName, LoginDataStructure);
             }
+        }
+
+        /// <summary>
+        /// Adds user login details to the database
+        /// </summary>
+        public static void AddUserLogin(string strUserName, string strHashedPw)
+        {
+            string _TableName = "Login";
+
+            // gets the count from the user id column
+            int count = _sql.GetCount(_ServerName, _DatabaseName, _TableName, "UserId");
+            // increments the count for the next id
+            int nextID = count + 1;
+
+            // inserts the user into the database
+            _sql.InsertRecord(_ServerName, _DatabaseName, _TableName, "UserId, UserName, Password", $"{nextID}, '{strUserName}', '{strHashedPw}'", nextID);
+        }
+
+        /// <summary>
+        /// This method will create the user password info database tables required on SQL server
+        /// </summary>
+        public static void CreateUserPasswordTables(string strUserName)
+        {
+            string _TableName = $"{strUserName}Passwords";
 
             // Create Password Info table structure
             string PasswordInfoDataStructure = " PwId int IDENTITY(1,1) PRIMARY KEY, " +
-                "Website NVARCHAR(50) NOT NULL, " +
-                "Email NVARCHAR(MAX) NOT NULL, " +
-                "AdditionalInfo NVARCHAR(50), " +
-                "Password NVARCHAR(50) NOT NULL";
+                "Website NVARCHAR(100) NOT NULL, " +
+                "Email NVARCHAR(100) NOT NULL, " +
+                "AdditionalInfo NVARCHAR(100), " +
+                "Password NVARCHAR(100) NOT NULL";
 
             //checks if the Password Info table doesn't already exist
-            if (!_sql.IsDatabaseTableExists(_ServerName, _DatabaseName, "PasswordInfo"))
+            if (!_sql.IsDatabaseTableExists(_ServerName, _DatabaseName, _TableName))
             {
                 //creates the Password Info table with the PasswordInfoDataStructure
-                _sql.CreateDatabaseTable(_ServerName, _DatabaseName, "PasswordInfo", PasswordInfoDataStructure);
-            }
-        }
-
-
-        /// <summary>
-        /// Will populate the database tables and their related data.
-        /// </summary>
-        private static void SeedDatabaseTables()
-        {
-            SeedLoginDetails();
-            //SeedCreateData();
-        }
-
-        /// <summary>
-        /// Seeds login data.
-        /// </summary>
-        private static void SeedLoginDetails()
-        {
-            List<string> logins = new List<string>
-            {
-                "1, 'd', 'd'",
-
-            };
-
-            foreach (var login in logins)
-            {
-                _sql.InsertRecord(_ServerName, _DatabaseName, "Login", "AdminId, UserName," +
-                    " Password", login);
-
-            }
-        }
-
-        /// <summary>
-        /// Seeds create new password data.
-        /// </summary>
-        private static void SeedCreateData()
-        {
-            List<string> pws = new List<string>
-            {
-                "1, 'TestSite1', 'TestEmail1', 'No Additional Info 1', '1234Pw'",
-                "2, 'TestSite2', 'TestEmail2', 'No Additional Info 2', '4321Pw'",
-
-            };
-
-            foreach (var pw in pws)
-            {
-                _sql.InsertRecord(_ServerName, _DatabaseName, "PasswordInfo", "PwId, Website, Email, AdditionalInfo, Password", pw);
-
+                _sql.CreateDatabaseTable(_ServerName, _DatabaseName, _TableName, PasswordInfoDataStructure);
             }
         }
     }

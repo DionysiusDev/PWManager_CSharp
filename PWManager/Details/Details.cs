@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logging;
+using PWManager.SessionUser;
 
 namespace PWManager.Details
 {
@@ -18,6 +19,8 @@ namespace PWManager.Details
         private long _lngPKID = 0;
         private DataTable _dtbPassword = null;
         private bool _blnNew = false;
+        private string strOriginalWs = "";
+        static string _TableName = "";
         #endregion
 
         #region Constructors
@@ -29,7 +32,6 @@ namespace PWManager.Details
             _blnNew = true;
             InitializeComponent();
             InitializeDataTable();
-
         }
     
         /// <summary>
@@ -51,9 +53,11 @@ namespace PWManager.Details
         /// </summary>
         private void InitializeDataTable()
         {
+            string strCurrentUser = CurrentUser._UserName;
+            _TableName = $"{strCurrentUser}Passwords";
+
             // Get an existing password for Update
-            _dtbPassword = PWManager_Model.DLL.PWManagerContext.GetDataTable(
-            $"SELECT * FROM PasswordInfo WHERE PwId = {_lngPKID}", "PasswordInfo");
+            _dtbPassword = PWManager_Model.DLL.PWManagerContext.GetDataTable($"SELECT * FROM {_TableName} WHERE PwId = {_lngPKID}", _TableName);
 
             // Create an empty row of password info
             if (_blnNew)
@@ -76,8 +80,40 @@ namespace PWManager.Details
             // Upon loading the form, establish the binding of the controls in the form.
             BindControls();
 
+            // checks its not a new data entry
+            if (!_blnNew)
+            {
+                // after the controls are binded to the data - decrypt data
+                DecryptData();
+            }
+
             //if true is passed as args this will set the text fields to read only.
             SetTextReadOnly(true);
+        }
+
+        private void Details_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // shutdowns the application if windows is shutting down
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // shutsdown the application when the user clicks the close button
+            if (e.CloseReason == CloseReason.UserClosing && !IsDisposed)
+            {
+                switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    // Stay on this form
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                    // exit application
+                    case DialogResult.Yes:
+                        CurrentUser.ResetUser();
+                        Application.Exit();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
         #endregion
 
@@ -181,7 +217,10 @@ namespace PWManager.Details
 
                 if (hasWebsite && hasEmail && hasPassword && hasAdditional)
                 {
-                    SaveData();
+                    if (EncryptData())
+                    {
+                        SaveData();
+                    }
                 }
             } catch(Exception e)
             {
@@ -204,6 +243,96 @@ namespace PWManager.Details
 
         #endregion
 
+        #region Data Encryption and Decryption
+
+        /// <summary>
+        /// this method decrypts data prior to displaying to user
+        /// </summary>
+        /// <returns></returns>
+        private void DecryptData()
+        {
+            string strDecryptedWs = "";
+            string strDecryptedEm = "";
+            string strDecryptedAd = "";
+            string strDecryptedPw = "";
+
+            try
+            {
+                // decrypt the data
+                strDecryptedWs = AESGCM.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[1].ToString(), Key.DbKey, 0);
+                strDecryptedEm = AESGCM.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[2].ToString(), Key.DbKey, 0);
+                strDecryptedAd = AESGCM.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[3].ToString(), Key.DbKey, 0);
+                strDecryptedPw = AESGCM.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[4].ToString(), Key.DbKey, 0);
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("[Details] [Decrypt Data] Error decrypting data " + ex);
+            }
+
+            // displays the decrypted data
+            DisplayDecryptedValues(strDecryptedWs, strDecryptedEm, strDecryptedAd, strDecryptedPw);
+        }
+
+        /// <summary>
+        /// displays the decrypted values to the user
+        /// </summary>
+        /// <param name="strWs">decrypted website</param>
+        /// <param name="strEm">decrypted email</param>
+        /// <param name="strAd">decrypted additional info</param>
+        /// <param name="strPw">decrypted password</param>
+        private void DisplayDecryptedValues(string strWs, string strEm, string strAd, string strPw)
+        {
+            try
+            {
+                // sets the encrypted data to the text fields
+                wsTextBox.Text = strWs;
+                emTextBox.Text = strEm;
+                adTextBox.Text = strAd;
+                pwTextBox.Text = strPw;
+
+                // writes the values to the binding controls
+                wsTextBox.DataBindings["Text"].WriteValue();
+                emTextBox.DataBindings["Text"].WriteValue();
+                adTextBox.DataBindings["Text"].WriteValue();
+                pwTextBox.DataBindings["Text"].WriteValue();
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("[Details] [Display Decrypted Values] Error writing values " + ex);
+            }
+        }
+
+        /// <summary>
+        /// this method encrypts data prior to saving in the database
+        /// </summary>
+        /// <returns></returns>
+        private bool EncryptData()
+        {
+            // stores website before encrypting
+            strOriginalWs = wsTextBox.Text;
+
+            // encrypts the data
+            string strEncryptedWs = AESGCM.SimpleEncrypt(wsTextBox.Text, Key.DbKey, null);
+            string strEncryptedEm = AESGCM.SimpleEncrypt(emTextBox.Text, Key.DbKey, null);
+            string strEncryptedAd = AESGCM.SimpleEncrypt(adTextBox.Text, Key.DbKey, null);
+            string strEncryptedPw = AESGCM.SimpleEncrypt(pwTextBox.Text, Key.DbKey, null);
+
+            // sets the encrypted data to the text fields
+            wsTextBox.Text = strEncryptedWs;
+            emTextBox.Text = strEncryptedEm;
+            adTextBox.Text = strEncryptedAd;
+            pwTextBox.Text = strEncryptedPw;
+
+            // writes the values to the binding controls
+            wsTextBox.DataBindings["Text"].WriteValue();
+            emTextBox.DataBindings["Text"].WriteValue();
+            adTextBox.DataBindings["Text"].WriteValue();
+            pwTextBox.DataBindings["Text"].WriteValue();
+
+            return true;
+        }
+        #endregion
+
         /// <summary>
         /// saves the data from the text fields to the data table.
         /// </summary>
@@ -211,21 +340,8 @@ namespace PWManager.Details
         {
             try
             {
-                //writes the text box value and updates the data binding
-                wsTextBox.DataBindings["Text"].WriteValue();
-                emTextBox.DataBindings["Text"].WriteValue();
-                adTextBox.DataBindings["Text"].WriteValue();
-                pwTextBox.DataBindings["Text"].WriteValue();
-
-            }catch(Exception e)
-            {
-                Logger.LogError("[PWManager.Details] [Save Data] Error writing values for data bindings " + e);
-            }
-
-            try
-            {
                 // display message to user to verify Insert Success
-                MessageBox.Show(wsTextBox.Text + " Record Saved.");
+                MessageBox.Show(strOriginalWs + " Record Saved.");
 
                 //always do the EndEdit, otherwise the data will not persist.
                 _dtbPassword.Rows[0].EndEdit();
@@ -240,14 +356,12 @@ namespace PWManager.Details
         }
 
         #region Helper Methods
+
         /// <summary>
         /// This method will bind the controls to each field in the data table.
         /// </summary>
         private void BindControls()
         {
-            // Binding the text box with the data table '_dtbPassword'
-            //  map it to the database entity called 'PwId'
-            //      uses the 'Text' property of the control for binding.
             wsTextBox.DataBindings.Add("Text", _dtbPassword, "Website");
             emTextBox.DataBindings.Add("Text", _dtbPassword, "Email");
             adTextBox.DataBindings.Add("Text", _dtbPassword, "AdditionalInfo");
@@ -266,29 +380,5 @@ namespace PWManager.Details
         }
 
         #endregion
-
-        private void Details_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            // shutdowns the application if windows is shutting down
-            if (e.CloseReason == CloseReason.WindowsShutDown) return;
-
-            // shutsdown the application when the user clicks the close button
-            if (e.CloseReason == CloseReason.UserClosing && !IsDisposed)
-            {
-                switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-                {
-                    // Stay on this form
-                    case DialogResult.No:
-                        e.Cancel = true;
-                        break;
-                    // exit application
-                    case DialogResult.Yes:
-                        Application.Exit();
-                        break;
-                    default:
-                        break;
-                }
-            }
-        }
     }
 }

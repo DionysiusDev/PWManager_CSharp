@@ -3,11 +3,18 @@ using System;
 using System.Data;
 using System.Windows.Forms;
 using Logging;
+using System.Collections.Generic;
+using PWManager.SessionUser;
 
 namespace PWManager.Options
 {
     public partial class ViewAll : Form
     {
+        #region Variable Declarations
+        private DataTable _dtbPassword = null;
+        private DataTable _dtbDecrypted = null;
+        #endregion
+
         #region Constructors
         /// <summary>
         /// Constructor for the view all form.
@@ -27,8 +34,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void ViewAll_Load(object sender, EventArgs e)
         {
-            PopulateGrid();
-            SetDGVProperties();
+            DecryptData();
         }
 
         private void ViewAll_FormClosing(object sender, FormClosingEventArgs e)
@@ -47,6 +53,7 @@ namespace PWManager.Options
                         break;
                     // exit application
                     case DialogResult.Yes:
+                        CurrentUser.ResetUser();
                         Application.Exit();
                         break;
                     default:
@@ -72,11 +79,12 @@ namespace PWManager.Options
             {
                 long PKID = long.Parse(dgvPassword[0, dgvPassword.CurrentCell.RowIndex].Value.ToString());
 
-                //closes this view all form instance
-                Close();
-                //creates a new details form instance and passes the pkid as args
+                // creates a new details form instance and passes the pkid as args
                 Details.Details frm = new Details.Details(PKID);
                 frm.Show();
+
+                // disposes this view all form instance
+                Dispose();
             }
             catch(Exception ex)
             {
@@ -100,7 +108,8 @@ namespace PWManager.Options
 
                     //Use the DeleteRecord method
                     PWManagerContext.DeleteRecord("PasswordInfo", "PwId", PKID.ToString());
-                    PopulateGrid();
+
+                    DecryptData();
                 }
             }
             catch (Exception ex)
@@ -128,6 +137,8 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CurrentUser.ResetUser();
+
             Dispose();
             Login frm = new Login();
             frm.Show();
@@ -197,22 +208,76 @@ namespace PWManager.Options
 
         #endregion
 
+        #region Data Decryption
+
+        private void DecryptData()
+        {
+            Logger.LogDebug("[View All] [Decrypt Data] key = " + System.Text.Encoding.UTF8.GetString(Key.DbKey));
+
+            string strCurrentUser = CurrentUser._UserName;
+            string _TableName = $"{strCurrentUser}Passwords";
+
+            try
+            {
+                PWManagerContext.ConnectionString = Properties.Settings.Default.ConnectionString;
+                _dtbPassword = new DataTable();
+                _dtbPassword = PWManagerContext.GetDataTable(_TableName);
+
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("[View All] [Decrypt Data] Error getting data table " + ex);
+            }
+
+            try
+            {
+                _dtbDecrypted = new DataTable();
+                _dtbDecrypted.TableName = _TableName;
+                _dtbDecrypted.Clear();
+
+                _dtbDecrypted.Columns.Add("PwId");
+                _dtbDecrypted.Columns.Add("Website");
+                _dtbDecrypted.Columns.Add("Email");
+                _dtbDecrypted.Columns.Add("AdditionalInfo");
+                _dtbDecrypted.Columns.Add("Password");
+
+                for (int i = 0; i < _dtbPassword.Rows.Count; i++)
+                {
+                    DataRow _row = _dtbDecrypted.NewRow();
+                    _row["PwId"] = _dtbPassword.Rows[i].ItemArray[0];
+                    _row["Website"] = AESGCM.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[1].ToString(), Key.DbKey, 0);
+                    _row["Email"] = AESGCM.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[2].ToString(), Key.DbKey, 0);
+                    _row["AdditionalInfo"] = AESGCM.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[3].ToString(), Key.DbKey, 0);
+                    _row["Password"] = AESGCM.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[4].ToString(), Key.DbKey, 0);
+
+                    _dtbDecrypted.Rows.Add(_row);
+                }
+
+                //removes columns from data table
+                _dtbDecrypted.Columns.Remove("Email");
+                _dtbDecrypted.Columns.Remove("AdditionalInfo");
+                _dtbDecrypted.Columns.Remove("Password");
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("[View All] [Decrypt Data] Error decrypting table " + ex);
+            }
+
+            PopulateGrid(_dtbDecrypted);
+        }
+
+        #endregion
+
         #region Helper Methods
 
         /// <summary>
         /// Method used for populating data to our data grid view.
         /// </summary>
-        private void PopulateGrid()
+        private void PopulateGrid(DataTable Table)
         {
-            PWManager_Model.DLL.PWManagerContext.ConnectionString = Properties.Settings.Default.ConnectionString;
-            DataTable dtbPassword = new DataTable();
-            dtbPassword = PWManager_Model.DLL.PWManagerContext.GetDataTable("PasswordInfo");
-            dgvPassword.DataSource = dtbPassword;
-        
-            //removes columns from data table
-            dtbPassword.Columns.Remove("Email");
-            dtbPassword.Columns.Remove("AdditionalInfo");
-            dtbPassword.Columns.Remove("Password");
+            dgvPassword.DataSource = Table;
+
+            SetDGVProperties();
         }
 
         /// <summary>
@@ -226,10 +291,6 @@ namespace PWManager.Options
             //sets the website column width
             dgvPassword.Columns[1].Width = dgvPassword.Width;
         }
-
-
-
-
         #endregion
     }
 }
