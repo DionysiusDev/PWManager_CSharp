@@ -110,9 +110,8 @@ namespace PWManager.Details
         /// <param name="e"></param>
         private void backBtn_Click(object sender, EventArgs e)
         {
-            //closes this details form instance
-            this.Close();
-
+            // disposes this details form instance
+            Dispose();
             //instantiates a new view all from
             Options.ViewAll frm = new Options.ViewAll();
             //dislays the view all form
@@ -267,5 +266,29 @@ namespace PWManager.Details
         }
 
         #endregion
+
+        private void Details_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // shutdowns the application if windows is shutting down
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // shutsdown the application when the user clicks the close button
+            if (e.CloseReason == CloseReason.UserClosing && !IsDisposed)
+            {
+                switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    // Stay on this form
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                    // exit application
+                    case DialogResult.Yes:
+                        Application.Exit();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
     }
 }

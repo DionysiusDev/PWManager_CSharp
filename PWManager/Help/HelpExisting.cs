@@ -36,7 +36,7 @@ namespace PWManager.Help
         /// <param name="e"></param>
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Home.Home frm = new Home.Home();
             frm.ShowDialog();
         }
@@ -47,7 +47,7 @@ namespace PWManager.Help
         /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Login frm = new Login();
             frm.ShowDialog();
         }
@@ -61,7 +61,7 @@ namespace PWManager.Help
         /// <param name="e"></param>
         private void createNewPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Options.Create frm = new Options.Create();
             frm.ShowDialog();
         }
@@ -73,7 +73,7 @@ namespace PWManager.Help
         /// <param name="e"></param>
         private void enterExistingPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Options.Existing frm = new Options.Existing();
             frm.ShowDialog();
         }
@@ -85,7 +85,7 @@ namespace PWManager.Help
         /// <param name="e"></param>
         private void viewAllPasswordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Options.ViewAll frm = new Options.ViewAll();
             frm.ShowDialog();
         }
@@ -99,7 +99,7 @@ namespace PWManager.Help
         /// <param name="e"></param>
         private void createNewPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpCreate frm = new Help.HelpCreate();
             frm.ShowDialog();
         }
@@ -110,7 +110,7 @@ namespace PWManager.Help
         /// <param name="e"></param>
         private void aboutPasswordManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpAbout frm = new Help.HelpAbout();
             frm.ShowDialog();
         }
@@ -164,6 +164,30 @@ namespace PWManager.Help
             if(hasWebsite && hasEmail && hasAdditional && hasPassword)
             {
                 MessageBox.Show("Congratulations you have completed this help task.");
+            }
+        }
+
+        private void HelpExisting_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // shutdowns the application if windows is shutting down
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // shutsdown the application when the user clicks the close button
+            if (e.CloseReason == CloseReason.UserClosing && !IsDisposed)
+            {
+                switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    // Stay on this form
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                    // exit application
+                    case DialogResult.Yes:
+                        Application.Exit();
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }

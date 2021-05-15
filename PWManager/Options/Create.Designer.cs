@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Create));
             this.websiteLbl = new System.Windows.Forms.Label();
             this.wsTextBox = new System.Windows.Forms.TextBox();
             this.emTextBox = new System.Windows.Forms.TextBox();
@@ -157,6 +158,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1,
@@ -277,9 +279,13 @@
             this.Controls.Add(this.emailLbl);
             this.Controls.Add(this.wsTextBox);
             this.Controls.Add(this.websiteLbl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Create";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Create New Password";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Create_FormClosing);
             this.Load += new System.EventHandler(this.Create_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

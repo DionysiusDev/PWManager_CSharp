@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(HelpAbout));
             this.headerLbl = new System.Windows.Forms.Label();
             this.versionLbl = new System.Windows.Forms.Label();
             this.copyrLbl = new System.Windows.Forms.Label();
@@ -114,9 +115,13 @@
             this.Controls.Add(this.copyrLbl);
             this.Controls.Add(this.versionLbl);
             this.Controls.Add(this.headerLbl);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "HelpAbout";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "About Password Manager";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.HelpAbout_FormClosing);
             this.ResumeLayout(false);
             this.PerformLayout();
 

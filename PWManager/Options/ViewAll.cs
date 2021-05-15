@@ -31,6 +31,30 @@ namespace PWManager.Options
             SetDGVProperties();
         }
 
+        private void ViewAll_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // shutdowns the application if windows is shutting down
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // shutsdown the application when the user clicks the close button
+            if (e.CloseReason == CloseReason.UserClosing && !IsDisposed)
+            {
+                switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    // Stay on this form
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                    // exit application
+                    case DialogResult.Yes:
+                        Application.Exit();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
         #endregion
 
         #region Control Events
@@ -93,7 +117,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Home.Home frm = new Home.Home();
             frm.Show();
         }
@@ -118,10 +142,9 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void createNewPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Dispose();
             Create frm = new Create();
             frm.Show();
-
-            this.Close();
         }
         /// <summary>
         /// Handles user interaction with the options menu / enter existing button.
@@ -130,10 +153,9 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void enterExistingPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Dispose();
             Existing frm = new Existing();
             frm.Show();
-
-            this.Close();
         }
         #endregion
 
@@ -145,7 +167,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void createNewPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpCreate frm = new Help.HelpCreate();
             frm.ShowDialog();
         }
@@ -156,7 +178,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void enterExistingPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpExisting frm = new Help.HelpExisting();
             frm.ShowDialog();
         }
@@ -167,7 +189,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void aboutPasswordManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpAbout frm = new Help.HelpAbout();
             frm.ShowDialog();
         }

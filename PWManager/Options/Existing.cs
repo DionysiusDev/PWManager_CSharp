@@ -58,16 +58,29 @@ namespace PWManager.Options
             BindControls();
         }
 
-        /// <summary>
-        /// this method will show a new existing form and close the current instance.
-        /// </summary>
-        private void RefreshForm()
+        private void Existing_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Existing frm = new Existing();
-            frm.Show();
-            this.Close();
-        }
+            // shutdowns the application if windows is shutting down
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
 
+            // shutsdown the application when the user clicks the close button
+            if (e.CloseReason == CloseReason.UserClosing && !IsDisposed)
+            {
+                switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    // Stay on this form
+                    case DialogResult.No:
+                        e.Cancel = true;
+                        break;
+                    // exit application
+                    case DialogResult.Yes:
+                        Application.Exit();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
         #endregion
 
         #region Control Events
@@ -89,8 +102,8 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void homeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //closes the existing screen
-            Close();
+            // disposes the existing screen
+            Dispose();
             //creates a new instance of the home screen
             Home.Home frmload = new Home.Home();
             //displays the home screen
@@ -117,8 +130,8 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void createNewPasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //closes the existing screen
-            this.Close();
+            // disposes the existing screen
+            Dispose();
             //creates a new instance of the create screen from the options menu
             Options.Create frmload = new Options.Create();
             //displays the create screen
@@ -131,7 +144,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void viewAllPasswordsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.Close();
+            Dispose();
             Options.ViewAll frmload = new Options.ViewAll();
             frmload.Show();
         }
@@ -145,7 +158,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void createNewPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpCreate frm = new Help.HelpCreate();
             frm.ShowDialog();
         }
@@ -157,7 +170,7 @@ namespace PWManager.Options
 
         private void enterExistingPasswordToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpExisting frm = new Help.HelpExisting();
             frm.ShowDialog();
         }
@@ -168,7 +181,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void aboutPasswordManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            Close();
+            Dispose();
             Help.HelpAbout frm = new Help.HelpAbout();
             frm.ShowDialog();
         }
@@ -282,8 +295,26 @@ namespace PWManager.Options
 
             return false;
         }
-    
+
         #endregion
+
+        /// <summary>
+        /// this method resets the form controls and re-binds to the data table after it has been updated.
+        /// </summary>
+        private void Reset()
+        {
+            // clears the bindings
+            ClearBindings();
+
+            // sets the data table to null
+            _dtbPassword = null;
+
+            // gets the data table after it has been edited
+            InitializeDataTable();
+
+            // re-binds the controls
+            BindControls();
+        }
 
         /// <summary>
         /// saves the data from the text fields to the data table.
@@ -301,7 +332,7 @@ namespace PWManager.Options
                 // calls the method in our Data Access Layer to save the changes to the data table
                 PWManagerContext.SaveDatabaseTable(_dtbPassword);
 
-                RefreshForm();
+                Reset();
             }
             catch (Exception e)
             {
@@ -322,6 +353,17 @@ namespace PWManager.Options
             emTextBox.DataBindings.Add("Text", _dtbPassword, "Email");
             adTextBox.DataBindings.Add("Text", _dtbPassword, "AdditionalInfo");
             pwTextBox.DataBindings.Add("Text", _dtbPassword, "Password");
+        }
+
+        /// <summary>
+        /// this method clears bindings
+        /// </summary>
+        private void ClearBindings()
+        {
+            wsTextBox.DataBindings.Clear();
+            emTextBox.DataBindings.Clear();
+            adTextBox.DataBindings.Clear();
+            pwTextBox.DataBindings.Clear();
         }
         #endregion
     }

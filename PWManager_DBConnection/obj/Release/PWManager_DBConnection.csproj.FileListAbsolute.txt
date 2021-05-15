@@ -1,0 +1,11 @@
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\bin\Release\PWManager_DBConnection.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\bin\Release\PWManager_DBConnection.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\bin\Release\Logging.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\bin\Release\log4net.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\bin\Release\Logging.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\bin\Release\log4net.xml
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\obj\Release\PWManager_DBConnection.csprojAssemblyReference.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\obj\Release\PWManager_DBConnection.csproj.CoreCompileInputs.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\obj\Release\PWManager_DBConnection.csproj.CopyComplete
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\obj\Release\PWManager_DBConnection.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\obj\Release\PWManager_DBConnection.pdb
