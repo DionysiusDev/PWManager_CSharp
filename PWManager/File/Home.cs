@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PWManager.SessionUser;
+using System;
 using System.Windows.Forms;
 
 namespace PWManager.Home
@@ -22,12 +23,11 @@ namespace PWManager.Home
         /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            // disposes the home screen
-            Dispose();
-            //create a new instance of the login sceen from file menu
-            Login frm = new Login();
-            //displays the login screen
-            frm.ShowDialog();
+            CurrentUser.ResetUser();
+
+            Dispose();                  // disposes the home screen
+            Login frm = new Login();    //create a new instance of the login sceen from file menu
+            frm.ShowDialog();           //displays the login screen
         }
         #endregion
 
@@ -122,6 +122,7 @@ namespace PWManager.Home
                         break;
                     // exit application
                     case DialogResult.Yes:
+                        CurrentUser.ResetUser();
                         Application.Exit();
                         break;
                     default:

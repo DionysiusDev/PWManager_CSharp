@@ -4,6 +4,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using Logging;
+using PWManager.SessionUser;
 
 namespace PWManager.Options
 {
@@ -13,6 +14,8 @@ namespace PWManager.Options
         private long _lngPKID = 0;
         private DataTable _dtbPassword = null;
         bool _blnNew = false;
+        string strOriginalWs = "";
+        string _TableName = "";
         #endregion
 
         #region Constructors
@@ -38,9 +41,12 @@ namespace PWManager.Options
         /// </summary>
         private void InitializeDataTable()
         {
+            string strCurrentUser = CurrentUser._UserName;
+            _TableName = $"{strCurrentUser}Passwords";
+
             // Get an existing password for Update
-            _dtbPassword = PWManager_Model.DLL.PWManagerContext.GetDataTable(
-            $"SELECT * FROM PasswordInfo WHERE PwId = {_lngPKID}", "PasswordInfo");
+            _dtbPassword = PWManagerContext.GetDataTable(
+            $"SELECT * FROM {_TableName} WHERE PwId = {_lngPKID}", _TableName);
 
             // Create an empty row of password info
             if (_blnNew)
@@ -74,6 +80,7 @@ namespace PWManager.Options
                         break;
                     // exit application
                     case DialogResult.Yes:
+                        CurrentUser.ResetUser();
                         Application.Exit();
                         break;
                     default:
@@ -116,6 +123,8 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            CurrentUser.ResetUser();
+
             Dispose();
             Login frm = new Login();
             frm.ShowDialog();
@@ -270,10 +279,13 @@ namespace PWManager.Options
             string connectionString = PWManagerContext.ConnectionString =
                 Properties.Settings.Default.ConnectionString;
 
-            if (!PWManagerContext.IsEntryExists(wsTextBox.Text, pwTextBox.Text))
+            if (!PWManagerContext.IsEntryExists(_TableName, wsTextBox.Text, pwTextBox.Text))
             {
-                //saves the data table in the database
-                SaveData();
+                if (EncryptData())
+                {
+                    //saves the data table in the database
+                    SaveData();
+                }
             }
             else
             {
@@ -298,22 +310,49 @@ namespace PWManager.Options
 
         #endregion
 
+        #region Data Encryption
+
+        /// <summary>
+        /// this method encrypts data prior to saving in the database
+        /// </summary>
+        /// <returns></returns>
+        private bool EncryptData()
+        {
+            // stores website before encrypting
+            strOriginalWs = wsTextBox.Text;
+
+            // encrypts the data
+            string strEncryptedWs = AESGCM.SimpleEncrypt(wsTextBox.Text, Key.DbKey, null);
+            string strEncryptedEm = AESGCM.SimpleEncrypt(emTextBox.Text, Key.DbKey, null);
+            string strEncryptedAd = AESGCM.SimpleEncrypt(adTextBox.Text, Key.DbKey, null);
+            string strEncryptedPw = AESGCM.SimpleEncrypt(pwTextBox.Text, Key.DbKey, null);
+
+            // sets the encrypted data to the text fields
+            wsTextBox.Text = strEncryptedWs;
+            emTextBox.Text = strEncryptedEm;
+            adTextBox.Text = strEncryptedAd;
+            pwTextBox.Text = strEncryptedPw;
+
+            // writes the values to the binding controls
+            wsTextBox.DataBindings["Text"].WriteValue();
+            emTextBox.DataBindings["Text"].WriteValue();
+            adTextBox.DataBindings["Text"].WriteValue();
+            pwTextBox.DataBindings["Text"].WriteValue();
+
+            return true;
+        }
+
+        #endregion
+
         /// <summary>
         /// this method resets the form controls and re-binds to the data table after it has been updated.
         /// </summary>
         private void Reset()
         {
-            // clears the bindings
-            ClearBindings();
-
-            // sets the data table to null
-            _dtbPassword = null;
-
-            // gets the data table after it has been edited
-            InitializeDataTable();
-
-            // re-binds the controls
-            BindControls();
+            ClearBindings();        // clears the bindings
+            _dtbPassword = null;    // sets the data table to null
+            InitializeDataTable();  // gets the data table after it has been edited
+            BindControls();         // re-binds the controls
         }
 
         /// <summary>
@@ -324,7 +363,7 @@ namespace PWManager.Options
             try
             {
                 // display message to user to verify Insert Success
-                MessageBox.Show(wsTextBox.Text + " Record Saved.");
+                MessageBox.Show(strOriginalWs + " Record Saved.");
 
                 //always do the EndEdit, otherwise the data will not persist.
                 _dtbPassword.Rows[0].EndEdit();

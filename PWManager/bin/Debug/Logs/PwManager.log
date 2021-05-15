@@ -1,471 +1,152 @@
-2021-05-12 00:21:15,913 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
-2021-05-12 00:21:15,930 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
-2021-05-12 00:21:15,930 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
-2021-05-12 00:21:15,930 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
-2021-05-12 00:22:09,960 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
-2021-05-12 00:22:09,975 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
-2021-05-12 00:22:14,165 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
-2021-05-12 00:22:14,165 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
-2021-05-12 00:23:32,124 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
-2021-05-12 00:23:32,140 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
-2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
-2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing event close reason ApplicationExitCall
-2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
-2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing event close reason ApplicationExitCall
-2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing Dialog ResultNone
-2021-05-12 00:23:36,624 DEBUG [1] Logging.Logger - Home Form Closing event close reason UserClosing
-2021-05-12 18:14:16,706 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:14:16,822 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 339
-2021-05-12 18:15:05,919 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:15:07,406 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:15:08,895 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:15:10,342 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:15:32,988 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:15:33,003 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 339
-2021-05-12 18:16:00,052 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:24:02,360 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:24:02,392 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 339
-2021-05-12 18:24:07,943 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:27:28,645 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:27:28,677 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 339
-2021-05-12 18:27:34,735 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:30:11,742 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.ArgumentException: This causes two bindings in the collection to bind to the same property.
-Parameter name: binding
-   at System.Windows.Forms.ControlBindingsCollection.CheckDuplicates(Binding binding)
-   at System.Windows.Forms.Binding.CheckBinding()
-   at System.Windows.Forms.Binding.SetBindableComponent(IBindableComponent value)
-   at System.Windows.Forms.ControlBindingsCollection.AddCore(Binding dataBinding)
-   at System.Windows.Forms.BindingsCollection.Add(Binding binding)
-   at System.Windows.Forms.ControlBindingsCollection.Add(String propertyName, Object dataSource, String dataMember, Boolean formattingEnabled, DataSourceUpdateMode updateMode, Object nullValue, String formatString, IFormatProvider formatInfo)
-   at System.Windows.Forms.ControlBindingsCollection.Add(String propertyName, Object dataSource, String dataMember)
-   at PWManager.Options.Create.BindControls() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 416
-   at PWManager.Options.Create.ResetFields() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 332
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 352
-2021-05-12 18:30:20,637 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:30:20,652 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 350
-2021-05-12 18:30:30,061 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:33:29,847 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:33:29,878 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 351
-2021-05-12 18:33:32,521 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:33:32,536 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 351
-2021-05-12 18:43:09,735 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:43:09,773 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 343
-2021-05-12 18:43:16,551 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:43:18,644 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:43:46,290 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:43:46,290 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 343
-2021-05-12 18:43:51,246 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:46:26,334 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:46:26,365 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 338
-2021-05-12 18:46:30,248 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:46:31,805 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:51:42,310 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:51:42,341 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 343
-2021-05-12 18:51:46,241 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:53:48,813 DEBUG [1] Logging.Logger - WS = 1
-2021-05-12 18:53:48,829 DEBUG [1] Logging.Logger - EM = 1
-2021-05-12 18:53:48,829 DEBUG [1] Logging.Logger - AD = 1
-2021-05-12 18:54:00,623 DEBUG [1] Logging.Logger - WS = 2
-2021-05-12 18:54:00,623 DEBUG [1] Logging.Logger - EM = 2
-2021-05-12 18:54:00,623 DEBUG [1] Logging.Logger - AD = 2
-2021-05-12 18:54:06,543 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-2021-05-12 18:54:06,549 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.DBConcurrencyException: Concurrency violation: the UpdateCommand affected 0 of the expected 1 records.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 346
-2021-05-12 18:57:45,733 DEBUG [1] Logging.Logger - WS = t1
-2021-05-12 18:57:45,755 DEBUG [1] Logging.Logger - EM = t1
-2021-05-12 18:57:45,755 DEBUG [1] Logging.Logger - AD = t1
-2021-05-12 18:57:54,747 DEBUG [1] Logging.Logger - WS = t2
-2021-05-12 18:57:54,762 DEBUG [1] Logging.Logger - EM = t2
-2021-05-12 18:57:54,762 DEBUG [1] Logging.Logger - AD = t2
-2021-05-12 18:57:55,598 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-ClientConnectionId:f58d8eb1-9109-4e5b-8a2d-2e6591fd11de
-Error Number:515,State:2,Class:16
-2021-05-12 18:57:55,613 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 349
-ClientConnectionId:f58d8eb1-9109-4e5b-8a2d-2e6591fd11de
-Error Number:515,State:2,Class:16
-2021-05-12 18:58:01,379 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:58:02,937 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 18:58:26,918 DEBUG [1] Logging.Logger - WS = t44
-2021-05-12 18:58:26,933 DEBUG [1] Logging.Logger - EM = t44
-2021-05-12 18:58:26,933 DEBUG [1] Logging.Logger - AD = t44
-2021-05-12 18:58:33,107 DEBUG [1] Logging.Logger - WS = t55
-2021-05-12 18:58:33,107 DEBUG [1] Logging.Logger - EM = t55
-2021-05-12 18:58:33,107 DEBUG [1] Logging.Logger - AD = t55
-2021-05-12 18:58:34,008 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-ClientConnectionId:080203cc-15a6-4cde-90fe-df62d812d424
-Error Number:515,State:2,Class:16
-2021-05-12 18:58:34,008 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 349
-ClientConnectionId:080203cc-15a6-4cde-90fe-df62d812d424
-Error Number:515,State:2,Class:16
-2021-05-12 19:00:54,858 DEBUG [1] Logging.Logger - WS = t77 EM = t77 AD = t77 PW = !G2k4N^h&Q6b7X~d
-2021-05-12 19:01:02,215 DEBUG [1] Logging.Logger - WS = t88 EM = t88 AD = t88 PW = ?R4j3U#d&R4a8H#u
-2021-05-12 19:01:03,127 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-ClientConnectionId:f2e821ad-b207-44cb-b6da-91cf8ce32db1
-Error Number:515,State:2,Class:16
-2021-05-12 19:01:03,127 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 352
-ClientConnectionId:f2e821ad-b207-44cb-b6da-91cf8ce32db1
-Error Number:515,State:2,Class:16
-2021-05-12 19:01:35,559 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:01:37,612 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:01:57,832 DEBUG [1] Logging.Logger - WS = t77 EM = t77 AD = t77 PW = %N1c1X#h!A9s5T?f
-2021-05-12 19:02:06,591 DEBUG [1] Logging.Logger - WS = t88 EM = t88 AD = t88 PW = #C1j8M`s`V2j6T`d
-2021-05-12 19:02:10,779 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-ClientConnectionId:f2e821ad-b207-44cb-b6da-91cf8ce32db1
-Error Number:515,State:2,Class:16
-2021-05-12 19:02:10,779 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 352
-ClientConnectionId:f2e821ad-b207-44cb-b6da-91cf8ce32db1
-Error Number:515,State:2,Class:16
-2021-05-12 19:04:22,354 DEBUG [1] Logging.Logger - WS = t11 EM = t11 AD = t11 PW = &H5n2P#p#P3x7X*g
-2021-05-12 19:04:33,184 DEBUG [1] Logging.Logger - WS = t12 EM = t12 AD = t12 PW = %J2u3A!k@M3k4G%z
-2021-05-12 19:04:34,726 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-ClientConnectionId:97342ff6-10e8-4970-a216-d06868f5469e
-Error Number:515,State:2,Class:16
-2021-05-12 19:04:34,742 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 354
-ClientConnectionId:97342ff6-10e8-4970-a216-d06868f5469e
-Error Number:515,State:2,Class:16
-2021-05-12 19:06:49,748 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:06:51,185 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:06:58,347 DEBUG [1] Logging.Logger - WS = t66 EM = t66 AD = t66 PW = *Z1s3C#y@K9s3Z^k
-2021-05-12 19:06:59,392 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.ArgumentException: This causes two bindings in the collection to bind to the same property.
-Parameter name: binding
-   at System.Windows.Forms.ControlBindingsCollection.CheckDuplicates(Binding binding)
-   at System.Windows.Forms.Binding.CheckBinding()
-   at System.Windows.Forms.Binding.SetBindableComponent(IBindableComponent value)
-   at System.Windows.Forms.ControlBindingsCollection.AddCore(Binding dataBinding)
-   at System.Windows.Forms.BindingsCollection.Add(Binding binding)
-   at System.Windows.Forms.ControlBindingsCollection.Add(String propertyName, Object dataSource, String dataMember, Boolean formattingEnabled, DataSourceUpdateMode updateMode, Object nullValue, String formatString, IFormatProvider formatInfo)
-   at System.Windows.Forms.ControlBindingsCollection.Add(String propertyName, Object dataSource, String dataMember)
-   at PWManager.Options.Create.BindControls() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 425
-   at PWManager.Options.Create.ResetDBTable() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 344
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 363
-2021-05-12 19:07:04,574 DEBUG [1] Logging.Logger - WS = t666 EM = t666 AD = t666 PW = `V8x9N%z%A5m9E!p
-2021-05-12 19:07:05,527 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-ClientConnectionId:0d4bd7e7-f5b7-4b33-aa10-dcaed8a4acbd
-Error Number:515,State:2,Class:16
-2021-05-12 19:07:05,527 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 361
-ClientConnectionId:0d4bd7e7-f5b7-4b33-aa10-dcaed8a4acbd
-Error Number:515,State:2,Class:16
-2021-05-12 19:07:09,669 DEBUG [1] Logging.Logger - WS = t6666 EM = t6666 AD = t6666 PW = @C3g6Z~w*J9q3J!u
-2021-05-12 19:07:10,505 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Save Database Table] Error Saving Data Table System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 217
-ClientConnectionId:0d4bd7e7-f5b7-4b33-aa10-dcaed8a4acbd
-Error Number:515,State:2,Class:16
-2021-05-12 19:07:10,512 ERROR [1] Logging.Logger - [PWManager.Create] [Save Data] Error saving data...System.Data.SqlClient.SqlException (0x80131904): Cannot insert the value NULL into column 'Password', table 'PWManager_DB.dbo.PasswordInfo'; column does not allow nulls. INSERT fails.
-The statement has been terminated.
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatusErrors(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.UpdatedRowStatus(RowUpdatedEventArgs rowUpdatedEvent, BatchCommandInfo[] batchCommands, Int32 commandCount)
-   at System.Data.Common.DbDataAdapter.Update(DataRow[] dataRows, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.UpdateFromDataTable(DataTable dataTable, DataTableMapping tableMapping)
-   at System.Data.Common.DbDataAdapter.Update(DataTable dataTable)
-   at PWManager_DBConnection.SQL.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 226
-   at PWManager_Model.DLL.PWManagerContext.SaveDatabaseTable(DataTable Table) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_Model\DLL\PWManagerContext.cs:line 57
-   at PWManager.Options.Create.SaveData() in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager\Options\Create.cs:line 361
-ClientConnectionId:0d4bd7e7-f5b7-4b33-aa10-dcaed8a4acbd
-Error Number:515,State:2,Class:16
-2021-05-12 19:09:03,442 DEBUG [1] Logging.Logger - WS = t55 EM = t55 AD = t55 PW = !A1u7G$h&S6h4A~u
-2021-05-12 19:09:11,868 DEBUG [1] Logging.Logger - WS = t555 EM = t555 AD = t555 PW = !D8h8P`j@A1t3N&g
-2021-05-12 19:09:18,089 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:09:19,618 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:09:21,082 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:12:50,577 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:12:52,105 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:15:29,321 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:15:30,905 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
-2021-05-12 19:15:32,109 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Delete Record] Error Deleting Record System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.DeleteRecord(String strConnectionString, String strTableName, String strPKName, String strPKID) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 292
+2021-05-16 01:20:05,939 DEBUG [1] Logging.Logger - [Hashing] [Hash] Generated hashed password 5nJfN+Wflr2tVAlGqBqQ1EPDY4+UQ+ytBAq8sBOjYfefUd+Y
+2021-05-16 01:20:08,302 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Current User : Testing01
+2021-05-16 01:20:08,303 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key Filepath : AppData\126918155235705145
+2021-05-16 01:20:08,304 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key : ?c?^?????ui.a'???K$??
+2021-05-16 01:21:24,107 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Current User : Testing01
+2021-05-16 01:21:24,124 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key Filepath : AppData\126918155235705145
+2021-05-16 01:21:24,125 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key : ?c?^?????ui.a'???K$??
+2021-05-16 01:26:54,728 DEBUG [1] Logging.Logger - [Hashing] [Hash] Generated hashed password LdT4oQtlzQkv0Aelhv0WIKzkvw8QB+8nGcps4hHPa2U4GoiY
+2021-05-16 01:26:58,109 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Current User : Testing01
+2021-05-16 01:26:58,109 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key Filepath : AppData\126918155235705145
+2021-05-16 01:26:58,110 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key : ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:27:41,406 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Is Entry Exists] System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'Testing01Passwords'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at PWManager_DBConnection.SQL.IsEntryExists(String strTableName, String strWebsite, String strPassword) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 598
+ClientConnectionId:11173903-0b7b-44dc-8057-69f922efb162
+Error Number:102,State:1,Class:15
+2021-05-16 01:27:53,161 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:27:55,868 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:28:58,785 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Current User : Testing01
+2021-05-16 01:28:58,801 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key Filepath : AppData\126918155235705145
+2021-05-16 01:28:58,802 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key : ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:29:03,111 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:29:12,348 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Key : True
+2021-05-16 01:29:12,348 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Current User : True
+2021-05-16 01:32:03,357 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Current User : Testing01
+2021-05-16 01:32:03,375 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key Filepath : AppData\126918155235705145
+2021-05-16 01:32:03,375 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key : ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:32:05,848 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:32:15,590 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Key : True
+2021-05-16 01:32:15,590 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Current User : True
+2021-05-16 01:32:15,590 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Key File Name : True
+2021-05-16 01:32:15,590 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Key File Name : True
+2021-05-16 01:47:06,356 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
+2021-05-16 01:47:06,376 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918155235705145
+2021-05-16 01:47:06,377 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:47:08,894 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:47:29,174 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 01:47:29,174 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 01:47:29,174 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 01:47:29,175 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
+2021-05-16 01:47:35,261 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 01:47:35,261 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 01:47:35,261 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 01:47:35,261 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
+2021-05-16 01:47:53,363 DEBUG [1] Logging.Logger - [Hashing] [Hash] Generated hashed password tN9tM724u2oXmCJDbEs0cN7BVN5gIpvSk9o5KR15CTKePt3o
+2021-05-16 01:47:56,363 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
+2021-05-16 01:47:56,363 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
+2021-05-16 01:47:56,364 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
+2021-05-16 01:48:05,529 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?og??K?I8#?u!???6??;$f@??,?
+2021-05-16 01:48:08,893 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 01:48:08,893 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 01:48:08,893 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 01:48:08,894 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
+2021-05-16 01:48:18,875 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
+2021-05-16 01:48:18,876 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : 126918155235705145
+2021-05-16 01:48:39,198 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
+2021-05-16 01:48:39,210 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
+2021-05-16 01:48:39,211 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
+2021-05-16 01:48:41,723 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?og??K?I8#?u!???6??;$f@??,?
+2021-05-16 01:48:43,574 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 01:48:43,575 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 01:48:43,575 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 01:48:43,575 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
+2021-05-16 01:48:44,452 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Get Password] System.NullReferenceException: Object reference not set to an instance of an object.
+   at PWManager_DBConnection.SQL.GetPassword(String strUserName) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 520
+2021-05-16 01:48:53,053 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
+2021-05-16 01:48:53,065 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
+2021-05-16 01:48:53,065 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
+2021-05-16 01:49:08,010 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
+2021-05-16 01:49:08,011 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918155235705145
+2021-05-16 01:49:08,011 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:49:20,149 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:49:24,607 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 01:49:24,607 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 01:49:24,607 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 01:49:24,608 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
+2021-05-16 01:49:32,474 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
+2021-05-16 01:49:32,474 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : 126918176235705184
+2021-05-16 01:49:41,640 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
+2021-05-16 01:49:41,652 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
+2021-05-16 01:49:41,652 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
+2021-05-16 01:49:49,087 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Is Entry Exists] System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'Testing02Passwords'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
+   at PWManager_DBConnection.SQL.IsEntryExists(String strTableName, String strWebsite, String strPassword) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 598
+ClientConnectionId:d26cb79f-64e7-45d4-8800-c2b6ca190714
+Error Number:102,State:1,Class:15
+2021-05-16 01:50:17,731 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
+2021-05-16 01:50:17,731 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918155235705145
+2021-05-16 01:50:17,732 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:50:20,907 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
+2021-05-16 01:50:23,894 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 01:50:23,894 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 01:50:23,895 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 01:50:23,895 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
+2021-05-16 01:50:31,596 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
+2021-05-16 01:50:31,597 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : 126918176235705184
+2021-05-16 02:00:43,035 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
+2021-05-16 02:00:43,056 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918155235705145
+2021-05-16 02:00:43,057 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?E?u???l???9??=Z?(??k??h???
+2021-05-16 02:00:47,410 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
+2021-05-16 02:00:51,672 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 02:00:51,672 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 02:00:51,672 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 02:00:51,673 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
+2021-05-16 02:01:01,931 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
+2021-05-16 02:01:01,931 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
+2021-05-16 02:01:01,931 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
+2021-05-16 02:01:08,309 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 02:01:08,309 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 02:01:08,310 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 02:01:08,310 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
+2021-05-16 02:01:13,936 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
+2021-05-16 02:01:13,936 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918155235705145
+2021-05-16 02:01:13,937 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?E?u???l???9??=Z?(??k??h???
+2021-05-16 02:01:17,724 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
+2021-05-16 02:01:19,517 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 02:01:19,518 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 02:01:19,518 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 02:01:19,518 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
+2021-05-16 02:01:25,309 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
+2021-05-16 02:01:25,309 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
+2021-05-16 02:01:25,310 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
+2021-05-16 02:01:27,478 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?og??K?I8#?u!???6??;$f@??,?
+2021-05-16 02:01:31,144 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?og??K?I8#?u!???6??;$f@??,?
+2021-05-16 02:01:33,019 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 02:01:33,020 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 02:01:33,020 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 02:01:33,020 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
+2021-05-16 02:01:36,876 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
+2021-05-16 02:01:36,877 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
+2021-05-16 02:01:36,877 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
+2021-05-16 02:01:36,877 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True

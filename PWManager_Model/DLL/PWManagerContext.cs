@@ -33,21 +33,26 @@ namespace PWManager_Model.DLL
             _sql.ConnectionString = ConnectionString;
             return _sql.GetDataTable(strSQLQuery, strTableName);
         }
-
         #endregion
 
         #region Mutators
 
-        public static bool IsLoginVerified(string strUserName, string strPassword)
+        public static string GetPassword(string strUserName)
         {
             _sql.ConnectionString = ConnectionString;
-            return _sql.IsLoginVerified(strUserName, strPassword);
+            return _sql.GetPassword(strUserName);
         }
 
-        public static bool IsEntryExists(string strWebsite, string strPassword)
+        public static bool IsUserExists(string strUserName)
         {
             _sql.ConnectionString = ConnectionString;
-            return _sql.IsEntryExists(strWebsite, strPassword);
+            return _sql.IsUserExists(strUserName);
+        }
+
+        public static bool IsEntryExists(string strTableName, string strWebsite, string strPassword)
+        {
+            _sql.ConnectionString = ConnectionString;
+            return _sql.IsEntryExists(strTableName, strWebsite, strPassword);
         }
 
         // using non-Hungarian notation for variables
@@ -61,8 +66,7 @@ namespace PWManager_Model.DLL
         public static int InsertParentTable(string TableName, string ColumnNames,
                                             string ColumnValues)
         {
-            return _sql.InsertParentRecord(ConnectionString, TableName, ColumnNames,
-                                           ColumnValues);
+            return _sql.InsertParentRecord(ConnectionString, TableName, ColumnNames, ColumnValues);
         }
 
         public static int DeleteRecord(string strTableName, string strPKName,
