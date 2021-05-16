@@ -1,0 +1,12 @@
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\bin\Debug\Security.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\bin\Debug\Security.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\bin\Debug\BouncyCastle.Crypto.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\bin\Debug\Logging.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\bin\Debug\log4net.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\bin\Debug\Logging.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\bin\Debug\log4net.xml
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\obj\Debug\Security.csprojAssemblyReference.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\obj\Debug\Security.csproj.CoreCompileInputs.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\obj\Debug\Security.csproj.CopyComplete
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\obj\Debug\Security.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Security\obj\Debug\Security.pdb

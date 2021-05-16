@@ -1,10 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace PWManager
+namespace Security
 {
     [Serializable]
     public static class Key
@@ -14,6 +10,11 @@ namespace PWManager
         public static byte[] GetKey()
         {
             return DbKey;
+        }
+
+        public static byte[] SetKey(byte[] KeyToSet)
+        {
+            return DbKey = KeyToSet;
         }
     }
 }

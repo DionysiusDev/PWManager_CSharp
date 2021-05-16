@@ -1,21 +1,14 @@
-﻿/*
-  * This work (Modern Encryption of a String C#, by James Tuley), 
-  * identified by James Tuley, is free of known copyright restrictions.
-  * https://gist.github.com/4336842
-  * http://creativecommons.org/publicdomain/mark/1.0/ 
-  */
-
-using System;
-using System.IO;
-using System.Text;
-using Org.BouncyCastle.Crypto;
+﻿using Org.BouncyCastle.Crypto;
 using Org.BouncyCastle.Crypto.Engines;
 using Org.BouncyCastle.Crypto.Generators;
 using Org.BouncyCastle.Crypto.Modes;
 using Org.BouncyCastle.Crypto.Parameters;
 using Org.BouncyCastle.Security;
+using System;
+using System.IO;
+using System.Text;
 
-namespace PWManager
+namespace Security
 {
     public static class AESGCM
     {

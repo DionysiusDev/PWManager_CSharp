@@ -5,12 +5,15 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using Logging;
 using PWManager.SessionUser;
+using SecurityAccessLayer;
 
 namespace PWManager.Options
 {
     public partial class Existing : Form
     {
         #region Variable Declarations
+        CurrentUser _CurrentUser = new CurrentUser();
+
         private long _lngPKID = 0;
         private DataTable _dtbPassword = null;
         bool _blnNew = false;
@@ -80,7 +83,7 @@ namespace PWManager.Options
                         break;
                     // exit application
                     case DialogResult.Yes:
-                        CurrentUser.ResetUser();
+                        _CurrentUser.ResetUser();
                         Application.Exit();
                         break;
                     default:
@@ -123,7 +126,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentUser.ResetUser();
+            _CurrentUser.ResetUser();
 
             Dispose();
             Login frm = new Login();
@@ -322,10 +325,10 @@ namespace PWManager.Options
             strOriginalWs = wsTextBox.Text;
 
             // encrypts the data
-            string strEncryptedWs = AESGCM.SimpleEncrypt(wsTextBox.Text, Key.DbKey, null);
-            string strEncryptedEm = AESGCM.SimpleEncrypt(emTextBox.Text, Key.DbKey, null);
-            string strEncryptedAd = AESGCM.SimpleEncrypt(adTextBox.Text, Key.DbKey, null);
-            string strEncryptedPw = AESGCM.SimpleEncrypt(pwTextBox.Text, Key.DbKey, null);
+            string strEncryptedWs = SecurityAccessor.SimpleEncrypt(wsTextBox.Text);
+            string strEncryptedEm = SecurityAccessor.SimpleEncrypt(emTextBox.Text);
+            string strEncryptedAd = SecurityAccessor.SimpleEncrypt(adTextBox.Text);
+            string strEncryptedPw = SecurityAccessor.SimpleEncrypt(pwTextBox.Text);
 
             // sets the encrypted data to the text fields
             wsTextBox.Text = strEncryptedWs;

@@ -6,3 +6,11 @@ E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\obj\Debug\
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\obj\Debug\Logging.csproj.CopyComplete
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\obj\Debug\Logging.dll
 E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\Logging\obj\Debug\Logging.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Logging\bin\Debug\Logging.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Logging\bin\Debug\Logging.pdb
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Logging\bin\Debug\log4net.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Logging\bin\Debug\log4net.xml
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Logging\obj\Debug\Logging.csproj.CoreCompileInputs.cache
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Logging\obj\Debug\Logging.csproj.CopyComplete
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Logging\obj\Debug\Logging.dll
+E:\My_Dev_Programs\02-CSharp\PWManager\AlphaTest\PWManager_CSharp\Logging\obj\Debug\Logging.pdb

@@ -6,7 +6,12 @@ namespace PWManager.Home
 {
     public partial class Home : Form
     {
+        CurrentUser _CurrentUser = new CurrentUser();
+
         #region Constructors
+        /// <summary>
+        /// Constructor for the home form. This constructor will run when the form loads
+        /// </summary>
         public Home()
         {
             InitializeComponent();
@@ -23,7 +28,7 @@ namespace PWManager.Home
         /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentUser.ResetUser();
+            _CurrentUser.ResetUser();   // resets the user
 
             Dispose();                  // disposes the home screen
             Login frm = new Login();    //create a new instance of the login sceen from file menu
@@ -106,6 +111,12 @@ namespace PWManager.Home
         #endregion
 
         #region Form Events
+        /// <summary>
+        /// prompts the user before quitting the application.
+        /// Quits the application when the user clicks the forms close button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Home_FormClosing(object sender, FormClosingEventArgs e)
         {
             // shutdowns the application if windows is shutting down
@@ -116,13 +127,11 @@ namespace PWManager.Home
             {
                 switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
-                    // Stay on this form
-                    case DialogResult.No:
+                    case DialogResult.No:           // Stay on this form
                         e.Cancel = true;
                         break;
-                    // exit application
-                    case DialogResult.Yes:
-                        CurrentUser.ResetUser();
+                    case DialogResult.Yes:          // exit application
+                        _CurrentUser.ResetUser();   // resets the user
                         Application.Exit();
                         break;
                     default:

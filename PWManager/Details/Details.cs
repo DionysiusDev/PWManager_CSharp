@@ -10,12 +10,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logging;
 using PWManager.SessionUser;
+using SecurityAccessLayer;
 
 namespace PWManager.Details
 {
     public partial class Details : Form
     {
         #region Variable Declarations
+        CurrentUser _CurrentUser = new CurrentUser();
         private long _lngPKID = 0;
         private DataTable _dtbPassword = null;
         private bool _blnNew = false;
@@ -107,7 +109,7 @@ namespace PWManager.Details
                         break;
                     // exit application
                     case DialogResult.Yes:
-                        CurrentUser.ResetUser();
+                        _CurrentUser.ResetUser();
                         Application.Exit();
                         break;
                     default:
@@ -259,10 +261,10 @@ namespace PWManager.Details
             try
             {
                 // decrypt the data
-                strDecryptedWs = AESGCM.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[1].ToString(), Key.DbKey, 0);
-                strDecryptedEm = AESGCM.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[2].ToString(), Key.DbKey, 0);
-                strDecryptedAd = AESGCM.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[3].ToString(), Key.DbKey, 0);
-                strDecryptedPw = AESGCM.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[4].ToString(), Key.DbKey, 0);
+                strDecryptedWs = SecurityAccessor.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[1].ToString());
+                strDecryptedEm = SecurityAccessor.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[2].ToString());
+                strDecryptedAd = SecurityAccessor.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[3].ToString());
+                strDecryptedPw = SecurityAccessor.SimpleDecrypt(_dtbPassword.Rows[0].ItemArray[4].ToString());
             }
             catch (Exception ex)
             {
@@ -312,10 +314,10 @@ namespace PWManager.Details
             strOriginalWs = wsTextBox.Text;
 
             // encrypts the data
-            string strEncryptedWs = AESGCM.SimpleEncrypt(wsTextBox.Text, Key.DbKey, null);
-            string strEncryptedEm = AESGCM.SimpleEncrypt(emTextBox.Text, Key.DbKey, null);
-            string strEncryptedAd = AESGCM.SimpleEncrypt(adTextBox.Text, Key.DbKey, null);
-            string strEncryptedPw = AESGCM.SimpleEncrypt(pwTextBox.Text, Key.DbKey, null);
+            string strEncryptedWs = SecurityAccessor.SimpleEncrypt(wsTextBox.Text);
+            string strEncryptedEm = SecurityAccessor.SimpleEncrypt(emTextBox.Text);
+            string strEncryptedAd = SecurityAccessor.SimpleEncrypt(adTextBox.Text);
+            string strEncryptedPw = SecurityAccessor.SimpleEncrypt(pwTextBox.Text);
 
             // sets the encrypted data to the text fields
             wsTextBox.Text = strEncryptedWs;

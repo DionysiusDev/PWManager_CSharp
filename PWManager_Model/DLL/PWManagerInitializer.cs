@@ -37,7 +37,7 @@ namespace PWManager_Model.DLL
 
             // Create Login table structure
             string LoginDataStructure = " UserId int IDENTITY(1,1) PRIMARY KEY, UserName NVARCHAR(50) NOT NULL," +
-                                        " Password NVARCHAR(MAX) NOT NULL";
+                                        " Password NVARCHAR(MAX) NOT NULL, Salt NVARCHAR(50) NOT NULL";
 
             //checks if the Login table doesn't already exist
             if (!_sql.IsDatabaseTableExists(_ServerName, _DatabaseName, _TableName))
@@ -50,7 +50,7 @@ namespace PWManager_Model.DLL
         /// <summary>
         /// Adds user login details to the database
         /// </summary>
-        public static void AddUserLogin(string strUserName, string strHashedPw)
+        public static void AddUserLogin(string strUserName, string strHashedPw, string strSalt)
         {
             string _TableName = "Login";
 
@@ -60,7 +60,7 @@ namespace PWManager_Model.DLL
             int nextID = count + 1;
 
             // inserts the user into the database
-            _sql.InsertRecord(_ServerName, _DatabaseName, _TableName, "UserId, UserName, Password", $"{nextID}, '{strUserName}', '{strHashedPw}'", nextID);
+            _sql.InsertRecord(_ServerName, _DatabaseName, _TableName, "UserId, UserName, Password, Salt", $"{nextID}, '{strUserName}', '{strHashedPw}', '{strSalt}'", nextID);
         }
 
         /// <summary>
