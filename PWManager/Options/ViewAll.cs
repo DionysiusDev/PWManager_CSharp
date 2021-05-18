@@ -215,8 +215,6 @@ namespace PWManager.Options
 
         private void DecryptData()
         {
-            Logger.LogDebug("[View All] [Decrypt Data] key = " + System.Text.Encoding.UTF8.GetString(SecurityAccessor.GetKey()));
-
             string strCurrentUser = CurrentUser._UserName;
             string _TableName = $"{strCurrentUser}Passwords";
 
