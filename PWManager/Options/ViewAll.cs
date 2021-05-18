@@ -5,12 +5,15 @@ using System.Windows.Forms;
 using Logging;
 using System.Collections.Generic;
 using PWManager.SessionUser;
+using SecurityAccessLayer;
 
 namespace PWManager.Options
 {
     public partial class ViewAll : Form
     {
         #region Variable Declarations
+        CurrentUser _CurrentUser = new CurrentUser();
+
         private DataTable _dtbPassword = null;
         private DataTable _dtbDecrypted = null;
         #endregion
@@ -53,7 +56,7 @@ namespace PWManager.Options
                         break;
                     // exit application
                     case DialogResult.Yes:
-                        CurrentUser.ResetUser();
+                        _CurrentUser.ResetUser();
                         Application.Exit();
                         break;
                     default:
@@ -137,7 +140,7 @@ namespace PWManager.Options
         /// <param name="e"></param>
         private void logOutToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CurrentUser.ResetUser();
+            _CurrentUser.ResetUser();
 
             Dispose();
             Login frm = new Login();
@@ -212,8 +215,6 @@ namespace PWManager.Options
 
         private void DecryptData()
         {
-            Logger.LogDebug("[View All] [Decrypt Data] key = " + System.Text.Encoding.UTF8.GetString(Key.DbKey));
-
             string strCurrentUser = CurrentUser._UserName;
             string _TableName = $"{strCurrentUser}Passwords";
 
@@ -245,10 +246,10 @@ namespace PWManager.Options
                 {
                     DataRow _row = _dtbDecrypted.NewRow();
                     _row["PwId"] = _dtbPassword.Rows[i].ItemArray[0];
-                    _row["Website"] = AESGCM.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[1].ToString(), Key.DbKey, 0);
-                    _row["Email"] = AESGCM.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[2].ToString(), Key.DbKey, 0);
-                    _row["AdditionalInfo"] = AESGCM.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[3].ToString(), Key.DbKey, 0);
-                    _row["Password"] = AESGCM.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[4].ToString(), Key.DbKey, 0);
+                    _row["Website"] = SecurityAccessor.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[1].ToString());
+                    _row["Email"] = SecurityAccessor.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[2].ToString());
+                    _row["AdditionalInfo"] = SecurityAccessor.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[3].ToString());
+                    _row["Password"] = SecurityAccessor.SimpleDecrypt(_dtbPassword.Rows[i].ItemArray[4].ToString());
 
                     _dtbDecrypted.Rows.Add(_row);
                 }

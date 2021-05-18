@@ -1,43 +1,53 @@
-﻿using PWManager.Security;
-using System.Text;
+﻿using SecurityAccessLayer;
 
 namespace PWManager.SessionUser
 {
-    public static class CurrentUser
+    /// <summary>
+    /// This class manages the currently signed in user,
+    /// it sets the user's name,
+    /// finds the user's secret key file for database access
+    /// resets the user on log out or application exit
+    /// </summary>
+    public class CurrentUser
     {
+        /// <summary>
+        /// stores the current users user name
+        /// </summary>
         public static string _UserName { get; set; }
 
-        public static void SetUser(string strUserName)
+        /// <summary>
+        /// creates a file name for the specified user
+        /// </summary>
+        /// <param name="strUserName">users name</param>
+        /// <returns>users file name</returns>
+        public string CreateFileName(string strUserName)
         {
-            // sets the user name value
-            _UserName = strUserName;
-            Logging.Logger.LogDebug($"[Current User] [Set User] Setting Current User : {_UserName}");
-
-            // sets the directory for the user key file
-            FileHandling._Directory = "AppData";
-
-            // sets the file name for reading and saving key to
-            KeyManager.SetFileName(_UserName);
-            Logging.Logger.LogDebug($"[Current User] [Set User] Setting Key Filepath : {FileHandling.GetFilePath()}");
-
-            // sets the user key for encrypting decrypting data
-            Key.DbKey = FileHandling.ReadFromBinaryFile<byte[]>(FileHandling.GetFilePath());
-            Logging.Logger.LogDebug($"[Current User] [Set User] Setting Key : {Encoding.UTF8.GetString(Key.DbKey)}");
+            // gets the hashcode of the user name for saving their file
+            string userFileName = (strUserName.GetHashCode() * 7).ToString() + (strUserName.GetHashCode() * 13).ToString();
+            return userFileName;
         }
 
-        public static void ResetUser()
+        /// <summary>
+        /// sets the current session users details
+        /// </summary>
+        /// <param name="strUserName">users name</param>
+        public void SetUser(string strUserName)
         {
-            Key.DbKey = null;   // resets the user key
-            Logging.Logger.LogDebug($"[Current User] [Reset User] Resetting Key : {Key.DbKey == null}");
+            _UserName = strUserName;                // sets the user name value
+            FileHandling.SetFileName(_UserName);    // sets the file name for reading and saving key to
 
-            CurrentUser._UserName = null;   // resets the current user user name value
-            Logging.Logger.LogDebug($"[Current User] [Reset User] Resetting Current User : {string.IsNullOrEmpty(_UserName)}");
+            // sets the user key for encrypting decrypting data
+            SecurityAccessor.SetKey(FileHandling.ReadFromBinaryFile<byte[]>(FileHandling.GetFilePath()));
+        }
 
-            KeyManager._FileName = _UserName;  // resets the file name for reading and saving key to
-            Logging.Logger.LogDebug($"[Current User] [Reset User] Resetting Key File Name : {string.IsNullOrEmpty(KeyManager._FileName)}");
-
-            // resets the file path
-            Logging.Logger.LogDebug($"[Current User] [Reset User] Resetting File Path : {string.IsNullOrEmpty(FileHandling.ResetFilePath())}");
+        /// <summary>
+        /// resets the user details for the next person who logs in
+        /// </summary>
+        public void ResetUser()
+        {
+            SecurityAccessor.SetKey(null);          // resets the user key
+            _UserName = null;                       // resets the current user user name value
+            FileHandling.ResetFilePath();           // resets the file path
         }
     }
 }

@@ -1,10 +1,5 @@
 ﻿using PWManager_DBConnection;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace PWManager_Model.DLL
 {
@@ -41,6 +36,12 @@ namespace PWManager_Model.DLL
         {
             _sql.ConnectionString = ConnectionString;
             return _sql.GetPassword(strUserName);
+        }
+
+        public static string GetSalt(string strUserName)
+        {
+            _sql.ConnectionString = ConnectionString;
+            return _sql.GetSalt(strUserName);
         }
 
         public static bool IsUserExists(string strUserName)

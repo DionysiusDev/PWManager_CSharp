@@ -1,30 +1,72 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Windows.Forms;
-using Logging;
-using PWManager.Security;
+using PWManager.DataValidation;
+using PWManager.SessionUser;
 using PWManager_Model.DLL;
+using SecurityAccessLayer;
 
 namespace PWManager.File
 {
     public partial class NewUser : Form
     {
-        private static string _UserName = "";
-        private string _OriginalPW = "";
-        private string _HashedPw = "";
+        #region Variable Declarations
+        CurrentUser _CurrentUser = new CurrentUser();
+        private string _UserName = null;
+        private string _OriginalPW = null;
+        #endregion
 
+        #region Constructors
+        /// <summary>
+        /// Constructor for the new user form. This constructor will run when to form loads.
+        /// </summary>
         public NewUser()
         {
             InitializeComponent();
         }
+        #endregion
 
         #region Form Events
+        /// <summary>
+        /// Creates a new instance and displays the login form.
+        /// </summary>
         private void OpenLoginForm()
         {
             Dispose();
+            // passes the arguments for the login constructor
             Login frmload = new Login(_UserName, _OriginalPW);
             frmload.Show();
+
+            _UserName = "";
+            _OriginalPW = "";
+        }
+
+        /// <summary>
+        /// prompts the user before quitting the application.
+        /// Quits the application when the user clicks the forms close button.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void NewUser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // shutdowns the application if windows is shutting down
+            if (e.CloseReason == CloseReason.WindowsShutDown) return;
+
+            // shutsdown the application when the user clicks the close button
+            if (e.CloseReason == CloseReason.UserClosing && !IsDisposed)
+            {
+                switch (MessageBox.Show(this, "Are you sure you want to quit?", "Quit Application?", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    case DialogResult.No:           // Stay on this form
+                        e.Cancel = true;
+                        break;
+                    case DialogResult.Yes:          // exit application
+                        _CurrentUser.ResetUser();   // resets the user
+                        Application.Exit();
+                        break;
+                    default:
+                        break;
+                }
+            }
         }
         #endregion
 
@@ -38,10 +80,9 @@ namespace PWManager.File
         {
             if (IsDataValidated())
             {
-                // creates the users key for encrypting and decrypting the database
-                KeyManager.CreateApplicationKey(_UserName);
-                
-                HashPassword();         // hashes the users password
+                // Creates the user file in the application directory and writes key
+                FileHandling.SetupUserFile(_UserName);
+
                 SaveLoginDetails();     // saves the users login details
                 CreateUserPwTable();    // creates the users password table
 
@@ -59,31 +100,39 @@ namespace PWManager.File
         /// <returns>true if all data is validated</returns>
         private bool IsDataValidated()
         {
+            int intMinUserName = 6;
+            int intMinPassword = 8;
+
+            // sets the global username and password variables
+            _UserName = userNameTextBox.Text;
+            _OriginalPW = passwordTextBox.Text;
+
             // checks if the user name text is empty
-            if (!userNameTextBox.Text.Equals(""))
+            if (!ValidateData.IsEmpty(_UserName))
             {
-                // checks if the user name is valid
-                if (IsUserNameValid())
+                // checks if the user name meets length requirements
+                if (ValidateData.IsLengthValid(_UserName) >= intMinUserName)
                 {
                     // checks if the user name exists in the database
-                    if (!PWManagerContext.IsUserExists(_UserName.ToLower()))
+                    if (!PWManagerContext.IsUserExists(_UserName))
                     {
                         // checks if the password text is empty
-                        if (!passwordTextBox.Text.Equals(""))
+                        if (!ValidateData.IsEmpty(_OriginalPW))
                         {
-                            // checks if the password is valid
-                            if (IsPasswordValid())
+                            // checks if the password meets length requirements
+                            if (ValidateData.IsLengthValid(_OriginalPW) >= intMinPassword)
                             {
                                 // checks if the confirmation password text is empty
-                                if (!confirmPasswordTextBox.Text.Equals(""))
+                                if (!ValidateData.IsEmpty(confirmPasswordTextBox.Text))
                                 {
                                     // checks if the passwords match
-                                    if (IsPasswordConfirmed())
+                                    if (ValidateData.IsEqual(_OriginalPW, confirmPasswordTextBox.Text))
                                     {
                                         return true;
                                     }
                                     else
                                     {
+                                        _OriginalPW = "";
                                         MessageBox.Show("Passwords do not match...");
                                     }
                                 }
@@ -94,7 +143,7 @@ namespace PWManager.File
                             }
                             else
                             {
-                                MessageBox.Show("Please enter at least 8 digits for password...");
+                                MessageBox.Show($"Please enter at least {intMinPassword} digits for password...");
                             }
                         }
                         else
@@ -104,83 +153,22 @@ namespace PWManager.File
                     }
                     else
                     {
-                        MessageBox.Show("User already exists in database!");
+                        MessageBox.Show($"User name {userNameTextBox.Text} already exists in database!");
+                        _UserName = userNameTextBox.Text;
                         OpenLoginForm();
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Please enter at least 8 digits for user name...");
+                    MessageBox.Show($"Please enter at least {intMinUserName} digits for user name!");
                 }
             }
             else
             {
                 MessageBox.Show("User Name is required!");
             }
+
             return false;
-        }
-
-        /// <summary>
-        /// Validates the new user's name
-        /// </summary>
-        /// <returns>true if the name is valid</returns>
-        private bool IsUserNameValid()
-        {
-            int _MinNameLength = 8;
-
-            // checks if the user name meets length requirements
-            if (userNameTextBox.Text.Length >= _MinNameLength)
-            {
-                _UserName = userNameTextBox.Text;
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// Validates the new user's password
-        /// </summary>
-        /// <returns>true if the password is valid and matches</returns>
-        private bool IsPasswordValid()
-        {
-            int _MinPwLength = 8;
-
-            // checks if the password meets length requirements
-            if (passwordTextBox.Text.Length >= _MinPwLength)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        /// <summary>
-        /// confirms the users password matches the original
-        /// </summary>
-        /// <returns>true if the password matches</returns>
-        private bool IsPasswordConfirmed()
-        {
-            // checks if the password matches the confirmation password
-            if (confirmPasswordTextBox.Text.Equals(passwordTextBox.Text))
-            {
-                //sets the global password variable for hashing
-                _OriginalPW = passwordTextBox.Text;
-                return true;
-            }
-            return false;
-        }
-        #endregion
-
-        #region Password Hashing
-        /// <summary>
-        /// hashes the users password and adds salt
-        /// </summary>
-        private void HashPassword()
-        {
-            // stores the users hashed password
-            string strHashedPw = Hashing.Hash(_OriginalPW);
-
-            //sets the global password variable with the hash
-            _HashedPw = strHashedPw;
         }
         #endregion
 
@@ -190,7 +178,7 @@ namespace PWManager.File
         /// </summary>
         private void CreateUserPwTable()
         {
-            PWManagerInitializer.CreateUserPasswordTables(_UserName.ToLower());
+            PWManagerInitializer.CreateUserPasswordTables(_UserName);
         }
 
         /// <summary>
@@ -198,8 +186,7 @@ namespace PWManager.File
         /// </summary>
         private void SaveLoginDetails()
         {
-            // adds user to login table
-            PWManagerInitializer.AddUserLogin(_UserName.ToLower(), _HashedPw);
+            PWManagerInitializer.AddUserLogin(_UserName, SecurityAccessor.GenerateHash(_OriginalPW), SecurityAccessor.GetSalt());
         }
         #endregion
     }

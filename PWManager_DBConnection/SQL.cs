@@ -517,7 +517,7 @@ namespace PWManager_DBConnection
 
                         password = (string)command.ExecuteScalar();
 
-                        if (!password.Equals(""))
+                        if (!string.IsNullOrEmpty(password))
                         {
                             // commits the transaction
                             selectTransaction.Commit();
@@ -546,6 +546,66 @@ namespace PWManager_DBConnection
             }
 
             return password;
+        }
+
+        /// <summary>
+        /// gets salt from the database
+        /// </summary>
+        /// <param name="strUserName">the user name relating to the password</param>
+        /// <returns>the salt</returns>
+        public string GetSalt(string strUserName)
+        {
+            string salt = "";
+
+            try
+            {
+                string sqlQuery = $"SELECT Salt FROM Login WHERE UserName='{strUserName}'";
+
+                salt = "";
+
+                using (SqlConnection conn = new SqlConnection(ConnectionString))
+                {
+                    using (SqlCommand command = new SqlCommand(sqlQuery, conn))
+                    {
+                        if (conn.State == ConnectionState.Closed) conn.Open();
+
+                        //  start the transaction immediately after opening the connection
+                        SqlTransaction selectTransaction = conn.BeginTransaction();
+
+                        // link the transaction to the sql command
+                        command.Transaction = selectTransaction;
+
+                        salt = (string)command.ExecuteScalar();
+
+                        if (!string.IsNullOrEmpty(salt))
+                        {
+                            // commits the transaction
+                            selectTransaction.Commit();
+
+                            conn.Close();
+                        }
+                        else
+                        {
+                            try
+                            {
+                                // roll back the select transaction
+                                selectTransaction.Rollback();
+                            }
+                            catch (Exception rollbackEx)
+                            {
+                                Logger.LogError("[PWManager_DBConnection] [SQL] [Get Salt] " + rollbackEx);
+                                conn.Close();
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Logger.LogError("[PWManager_DBConnection] [SQL] [Get Salt] " + ex);
+            }
+
+            return salt;
         }
 
         /// <summary>
@@ -586,7 +646,7 @@ namespace PWManager_DBConnection
         /// <returns>true if the entry exists</returns>
         public bool IsEntryExists(string strTableName, string strWebsite, string strPassword)
         {
-            string sqlQuery = $"SELECT * FROM '{strTableName}' WHERE Website='{strWebsite}' AND Password='{strPassword}'";
+            string sqlQuery = $"SELECT * FROM {strTableName} WHERE Website='{strWebsite}' AND Password='{strPassword}'";
 
             try
             {

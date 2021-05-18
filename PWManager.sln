@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PWManager_Model", "PWManage
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logging", "Logging\Logging.csproj", "{996EAC17-A44D-4ED6-B361-6C67028A1C50}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Security", "Security\Security.csproj", "{0746A721-8289-4B7B-8A27-73286B3BE5F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SecurityAccessLayer", "SecurityAccessLayer\SecurityAccessLayer.csproj", "{68F4C943-0CCE-47C0-9549-1FD97EDB3E58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{996EAC17-A44D-4ED6-B361-6C67028A1C50}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{996EAC17-A44D-4ED6-B361-6C67028A1C50}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{996EAC17-A44D-4ED6-B361-6C67028A1C50}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0746A721-8289-4B7B-8A27-73286B3BE5F3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0746A721-8289-4B7B-8A27-73286B3BE5F3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0746A721-8289-4B7B-8A27-73286B3BE5F3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0746A721-8289-4B7B-8A27-73286B3BE5F3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68F4C943-0CCE-47C0-9549-1FD97EDB3E58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68F4C943-0CCE-47C0-9549-1FD97EDB3E58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68F4C943-0CCE-47C0-9549-1FD97EDB3E58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68F4C943-0CCE-47C0-9549-1FD97EDB3E58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

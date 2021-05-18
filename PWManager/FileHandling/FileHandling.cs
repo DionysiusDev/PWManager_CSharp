@@ -1,13 +1,63 @@
 ﻿using Logging;
 using System;
 using System.IO;
+using SecurityAccessLayer;
 
 namespace PWManager
 {
+    /// <summary>
+    /// This class manages file handling and input/output,
+    /// this class creates an application directory and user file
+    /// this class sets the users key and writes to and reads from file
+    /// </summary>
     public static class FileHandling
     {
+        /// <summary>
+        /// the application directory
+        /// </summary>
         public static string _Directory { get; set; }
+        /// <summary>
+        /// the users file name
+        /// </summary>
         public static string _FileName { get; set; }
+
+        /// <summary>
+        /// creates application directory and saves the users secret key to file
+        /// </summary>
+        /// <param name="strUserName"></param>
+        public static void SetupUserFile(string strUserName)
+        {
+            _Directory = "AppData";     // sets the directory
+            SetFileName(strUserName);   // sets the file name
+
+            Directory.CreateDirectory(_Directory);
+
+            // checks if the directory exists
+            if (Directory.Exists(_Directory))
+            {
+                // checks if the file exists
+                if (!System.IO.File.Exists(GetFilePath()))
+                {
+                    // creates the users key for encrypting and decrypting the database
+                    SecurityAccessor.NewKey();
+
+                    // writes the user key to file
+                    WriteToBinaryFile(GetFilePath(), SecurityAccessor.GetKey(), false);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Sets the file name for saving the users key
+        /// </summary>
+        /// <param name="strUserName"></param>
+        public static void SetFileName(string strUserName)
+        {
+            // gets the hashcode of the user name for saving their file
+            string userFileName = (strUserName.GetHashCode() * 7).ToString() + (strUserName.GetHashCode() * 13).ToString();
+
+            _FileName = userFileName;
+        }
 
         /// <summary>
         /// this method returns the file path for getting the key file
@@ -15,6 +65,7 @@ namespace PWManager
         /// <returns></returns>
         public static string GetFilePath()
         {
+            _Directory = "AppData";     // sets the directory
             string _FilePath = Path.Combine(_Directory, _FileName);
             return _FilePath;
         }

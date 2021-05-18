@@ -1,152 +1,0 @@
-2021-05-16 01:20:05,939 DEBUG [1] Logging.Logger - [Hashing] [Hash] Generated hashed password 5nJfN+Wflr2tVAlGqBqQ1EPDY4+UQ+ytBAq8sBOjYfefUd+Y
-2021-05-16 01:20:08,302 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Current User : Testing01
-2021-05-16 01:20:08,303 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key Filepath : AppData\126918155235705145
-2021-05-16 01:20:08,304 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key : ?c?^?????ui.a'???K$??
-2021-05-16 01:21:24,107 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Current User : Testing01
-2021-05-16 01:21:24,124 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key Filepath : AppData\126918155235705145
-2021-05-16 01:21:24,125 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key : ?c?^?????ui.a'???K$??
-2021-05-16 01:26:54,728 DEBUG [1] Logging.Logger - [Hashing] [Hash] Generated hashed password LdT4oQtlzQkv0Aelhv0WIKzkvw8QB+8nGcps4hHPa2U4GoiY
-2021-05-16 01:26:58,109 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Current User : Testing01
-2021-05-16 01:26:58,109 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key Filepath : AppData\126918155235705145
-2021-05-16 01:26:58,110 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key : ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:27:41,406 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Is Entry Exists] System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'Testing01Passwords'.
-   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
-   at PWManager_DBConnection.SQL.IsEntryExists(String strTableName, String strWebsite, String strPassword) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 598
-ClientConnectionId:11173903-0b7b-44dc-8057-69f922efb162
-Error Number:102,State:1,Class:15
-2021-05-16 01:27:53,161 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:27:55,868 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:28:58,785 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Current User : Testing01
-2021-05-16 01:28:58,801 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key Filepath : AppData\126918155235705145
-2021-05-16 01:28:58,802 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key : ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:29:03,111 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:29:12,348 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Key : True
-2021-05-16 01:29:12,348 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Current User : True
-2021-05-16 01:32:03,357 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Current User : Testing01
-2021-05-16 01:32:03,375 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key Filepath : AppData\126918155235705145
-2021-05-16 01:32:03,375 DEBUG [1] Logging.Logger - [Login] [Is User Verified] Setting Key : ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:32:05,848 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:32:15,590 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Key : True
-2021-05-16 01:32:15,590 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Current User : True
-2021-05-16 01:32:15,590 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Key File Name : True
-2021-05-16 01:32:15,590 DEBUG [1] Logging.Logger - [Login] [Form Closing] Resetting Key File Name : True
-2021-05-16 01:47:06,356 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
-2021-05-16 01:47:06,376 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918155235705145
-2021-05-16 01:47:06,377 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:47:08,894 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:47:29,174 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 01:47:29,174 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 01:47:29,174 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 01:47:29,175 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
-2021-05-16 01:47:35,261 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 01:47:35,261 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 01:47:35,261 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 01:47:35,261 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
-2021-05-16 01:47:53,363 DEBUG [1] Logging.Logger - [Hashing] [Hash] Generated hashed password tN9tM724u2oXmCJDbEs0cN7BVN5gIpvSk9o5KR15CTKePt3o
-2021-05-16 01:47:56,363 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
-2021-05-16 01:47:56,363 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
-2021-05-16 01:47:56,364 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
-2021-05-16 01:48:05,529 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?og??K?I8#?u!???6??;$f@??,?
-2021-05-16 01:48:08,893 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 01:48:08,893 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 01:48:08,893 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 01:48:08,894 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
-2021-05-16 01:48:18,875 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
-2021-05-16 01:48:18,876 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : 126918155235705145
-2021-05-16 01:48:39,198 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
-2021-05-16 01:48:39,210 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
-2021-05-16 01:48:39,211 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
-2021-05-16 01:48:41,723 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?og??K?I8#?u!???6??;$f@??,?
-2021-05-16 01:48:43,574 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 01:48:43,575 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 01:48:43,575 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 01:48:43,575 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
-2021-05-16 01:48:44,452 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Get Password] System.NullReferenceException: Object reference not set to an instance of an object.
-   at PWManager_DBConnection.SQL.GetPassword(String strUserName) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 520
-2021-05-16 01:48:53,053 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
-2021-05-16 01:48:53,065 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
-2021-05-16 01:48:53,065 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
-2021-05-16 01:49:08,010 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
-2021-05-16 01:49:08,011 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918155235705145
-2021-05-16 01:49:08,011 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:49:20,149 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:49:24,607 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 01:49:24,607 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 01:49:24,607 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 01:49:24,608 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
-2021-05-16 01:49:32,474 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
-2021-05-16 01:49:32,474 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : 126918176235705184
-2021-05-16 01:49:41,640 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
-2021-05-16 01:49:41,652 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
-2021-05-16 01:49:41,652 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
-2021-05-16 01:49:49,087 ERROR [1] Logging.Logger - [PWManager_DBConnection] [SQL] [Is Entry Exists] System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near 'Testing02Passwords'.
-   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
-   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
-   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
-   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
-   at System.Data.SqlClient.SqlDataReader.get_MetaData()
-   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString, Boolean isInternal, Boolean forDescribeParameterEncryption, Boolean shouldCacheForAlwaysEncrypted)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, Boolean inRetry, SqlDataReader ds, Boolean describeParameterEncryptionRequest)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean& usedCache, Boolean asyncWrite, Boolean inRetry)
-   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
-   at System.Data.SqlClient.SqlCommand.ExecuteScalar()
-   at PWManager_DBConnection.SQL.IsEntryExists(String strTableName, String strWebsite, String strPassword) in E:\My_Dev_Programs\02-CSharp\PWManager\Main4\PWManager_CSharp\PWManager_DBConnection\SQL.cs:line 598
-ClientConnectionId:d26cb79f-64e7-45d4-8800-c2b6ca190714
-Error Number:102,State:1,Class:15
-2021-05-16 01:50:17,731 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
-2021-05-16 01:50:17,731 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918155235705145
-2021-05-16 01:50:17,732 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:50:20,907 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
-2021-05-16 01:50:23,894 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 01:50:23,894 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 01:50:23,895 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 01:50:23,895 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
-2021-05-16 01:50:31,596 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
-2021-05-16 01:50:31,597 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : 126918176235705184
-2021-05-16 02:00:43,035 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
-2021-05-16 02:00:43,056 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918155235705145
-2021-05-16 02:00:43,057 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?E?u???l???9??=Z?(??k??h???
-2021-05-16 02:00:47,410 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
-2021-05-16 02:00:51,672 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 02:00:51,672 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 02:00:51,672 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 02:00:51,673 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
-2021-05-16 02:01:01,931 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
-2021-05-16 02:01:01,931 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
-2021-05-16 02:01:01,931 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
-2021-05-16 02:01:08,309 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 02:01:08,309 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 02:01:08,310 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 02:01:08,310 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
-2021-05-16 02:01:13,936 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing01
-2021-05-16 02:01:13,936 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918155235705145
-2021-05-16 02:01:13,937 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?E?u???l???9??=Z?(??k??h???
-2021-05-16 02:01:17,724 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?E?u???l???9??=Z?(??k??h???
-2021-05-16 02:01:19,517 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 02:01:19,518 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 02:01:19,518 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 02:01:19,518 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
-2021-05-16 02:01:25,309 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Current User : Testing02
-2021-05-16 02:01:25,309 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key Filepath : AppData\126918176235705184
-2021-05-16 02:01:25,310 DEBUG [1] Logging.Logger - [Current User] [Set User] Setting Key : ?og??K?I8#?u!???6??;$f@??,?
-2021-05-16 02:01:27,478 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?og??K?I8#?u!???6??;$f@??,?
-2021-05-16 02:01:31,144 DEBUG [1] Logging.Logger - [View All] [Decrypt Data] key = ?og??K?I8#?u!???6??;$f@??,?
-2021-05-16 02:01:33,019 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 02:01:33,020 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 02:01:33,020 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 02:01:33,020 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True
-2021-05-16 02:01:36,876 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key : True
-2021-05-16 02:01:36,877 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Current User : True
-2021-05-16 02:01:36,877 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting Key File Name : True
-2021-05-16 02:01:36,877 DEBUG [1] Logging.Logger - [Current User] [Reset User] Resetting File Path : True

@@ -51,9 +51,6 @@
     <ApplicationIcon>internet_lock_locked_padlock_password_secure_security_icon_127100_rK6_icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942">
-      <HintPath>..\packages\BouncyCastle.1.8.9\lib\BouncyCastle.Crypto.dll</HintPath>
-    </Reference>
     <Reference Include="log4net, Version=2.0.12.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
       <HintPath>..\packages\log4net.2.0.12\lib\net45\log4net.dll</HintPath>
     </Reference>
@@ -72,15 +69,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataValidation\ValidateData.cs" />
     <Compile Include="File\NewUser.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="File\NewUser.Designer.cs">
       <DependentUpon>NewUser.cs</DependentUpon>
     </Compile>
-    <Compile Include="Security\AESGCM.cs" />
-    <Compile Include="Security\Hashing.cs" />
-    <Compile Include="Security\Key.cs" />
     <Compile Include="Details\Details.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,7 +133,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Security\KeyManager.cs" />
     <Compile Include="SessionUser\CurrentUser.cs" />
     <Compile Include="Settings.cs" />
     <EmbeddedResource Include="Details\Details.resx">
@@ -208,6 +202,10 @@
     <ProjectReference Include="..\PWManager_Model\PWManager_Model.csproj">
       <Project>{b1aa3883-2e59-4868-aca5-631a18ff90e7}</Project>
       <Name>PWManager_Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SecurityAccessLayer\SecurityAccessLayer.csproj">
+      <Project>{68f4c943-0cce-47c0-9549-1fd97edb3e58}</Project>
+      <Name>SecurityAccessLayer</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
